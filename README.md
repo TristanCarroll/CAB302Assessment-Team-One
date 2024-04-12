@@ -1,8 +1,8 @@
 # CAB302Assessment-Team-One
-CAB302 Semester 1, 2024__
+CAB302 Semester 1, 2024  
 
-Team One Members__
-Alex Achille n11100842
+Team One Members  
+Alex Achille n11100842  
 Jack Girard n11252511
 Ashleigh Knight n11302836
 James West n10207350
