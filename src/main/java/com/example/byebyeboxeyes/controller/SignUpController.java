@@ -12,6 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 
 import java.sql.SQLException;
+
+//Might need later
 import java.util.Objects;
 
 public class SignUpController {
@@ -23,6 +25,9 @@ public class SignUpController {
     private TextField registerEmailTextField;
     @FXML
     private TextField registerPasswordTextField;
+
+    //TODO:
+    // ADD Register button LATER
     @FXML
     private Button registerButton;
     private final UserDAO userDAO;
