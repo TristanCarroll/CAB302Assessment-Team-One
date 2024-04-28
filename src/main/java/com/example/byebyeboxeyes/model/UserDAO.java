@@ -1,4 +1,4 @@
-package com.example.boxeyesproto.model;
+package com.example.byebyeboxeyes.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

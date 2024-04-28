@@ -1,4 +1,4 @@
-package com.example.boxeyesproto.model;
+package com.example.byebyeboxeyes.model;
 
 public class User {
     private String userName;
