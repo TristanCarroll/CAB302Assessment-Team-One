@@ -7,10 +7,13 @@ import javafx.stage.Stage;
 public class StateManager {
     private static final IntegerProperty windowWidth = new SimpleIntegerProperty();
     private static final IntegerProperty windowHeight = new SimpleIntegerProperty();
-    private static IntegerProperty sceneWidth;
-    private static IntegerProperty sceneHeight;
     private static Stage currentStage;
     private static Scene currentScene;
+
+    //TODO: Check if needed
+    private static IntegerProperty sceneWidth;
+    private static IntegerProperty sceneHeight;
+
 
     public static int getWindowWidth() {
         return windowWidth.get();
