@@ -1,2 +1,4 @@
-package com.example.byebyeboxeyes.controller;public class SettingsController {
+package com.example.byebyeboxeyes.controller;
+
+public class SettingsController {
 }

@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.*?>
 
-<!-- TODO: ADD IMAGE FOR ICON -->
 <?import javafx.scene.image.*?>
 
 <?import javafx.scene.layout.*?>
@@ -28,9 +27,12 @@
                         <RowConstraints />
                     </rowConstraints>
                     <children>
-
-                        <!--ADD IMAGE HERE -->
-
+                        <!-- <a href="https://www.freepik.com/icon/scan_4294259#fromView=search&page=2&position=5&uuid=31e879a4-f0cc-4780-a471-d90d01c625de">Icon by Freepik</a> -->
+                        <ImageView fitHeight="125.0" fitWidth="125.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@images/Logo.png" />
+                            </image>
+                        </ImageView>
                     </children>
                 </GridPane>
             </children>

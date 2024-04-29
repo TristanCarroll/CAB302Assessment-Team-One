@@ -1,2 +1,4 @@
-package com.example.byebyeboxeyes.controller;public class TimerController {
+package com.example.byebyeboxeyes.controller;
+
+public class TimerController {
 }
