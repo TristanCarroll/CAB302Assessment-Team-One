@@ -6,4 +6,8 @@ module com.example.byebyeboxeyes {
 
     opens com.example.byebyeboxeyes to javafx.fxml;
     exports com.example.byebyeboxeyes;
+    exports com.example.byebyeboxeyes.timer;
+    opens com.example.byebyeboxeyes.timer to javafx.fxml;
+    exports com.example.byebyeboxeyes.model;
+    opens com.example.byebyeboxeyes.model to javafx.fxml;
 }

@@ -5,18 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/TimerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/timer/Timer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/timer/TimerListCell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/timers-page.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/SqliteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/SqliteConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/UserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -54,7 +63,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "loginInfo",
+    "git-widget-placeholder": "Create-Timers",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
