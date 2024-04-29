@@ -1,4 +1,4 @@
-package com.example.byebyeboxeyes;
+package com.example.byebyeboxeyes.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
