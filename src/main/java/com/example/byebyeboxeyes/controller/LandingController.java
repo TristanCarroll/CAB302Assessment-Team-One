@@ -45,10 +45,34 @@ public class LandingController {
         });
     }
 
+    /**
+     * Tries to find the username in the DB and check that the stored password matches what's entered in the field.
+     * If username doesn't exist or the password is incorrect the user is alerted via popup,
+     * otherwise the LoginSuccessful event is triggered.
+     */
     @FXML
     public void onLoginButtonClick(ActionEvent actionEvent) {
-        //TODO: Implement login authentication with persistence database
-        EventService.getInstance().notifyLoginSuccessful();
+        String test = userNameTextField.getText();
+        User user = userDAO.getUser(userNameTextField.getText());
+        if (user != null) {
+            if (Objects.equals(user.getPassword(), passwordTextField.getText())) {
+                EventService.getInstance().notifyLoginSuccessful();
+            } else {
+                // Incorrect password
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Login Failed");
+                alert.setHeaderText("Incorrect Password");
+                alert.setContentText("The password you entered is incorrect.");
+                alert.showAndWait();
+            }
+        } else {
+            // User not found
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Login Failed");
+            alert.setHeaderText("User Not Found");
+            alert.setContentText("No user found with the specified username.");
+            alert.showAndWait();
+        }
     }
 
     public void onHyperlinkClick(ActionEvent actionEvent) {
