@@ -75,6 +75,7 @@ public class LandingController {
         }
     }
 
+    /** Sends user to Registration page when they click the hyperlink **/
     public void onHyperlinkClick(ActionEvent actionEvent) {
         EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/signup-view.fxml");
     }
