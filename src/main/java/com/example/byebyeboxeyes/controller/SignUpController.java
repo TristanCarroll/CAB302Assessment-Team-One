@@ -4,6 +4,7 @@ import com.example.byebyeboxeyes.StateManager;
 import com.example.byebyeboxeyes.events.EventService;
 import com.example.byebyeboxeyes.model.User;
 import com.example.byebyeboxeyes.model.UserDAO;
+import com.example.byebyeboxeyes.Constants;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
@@ -65,7 +66,7 @@ public class SignUpController {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Registration Error");
             alert.setHeaderText("Registration Failed");
-            if (e instanceof SQLException && ((SQLException) e).getErrorCode() == 19) {
+            if (e instanceof SQLException && ((SQLException) e).getErrorCode() == Constants.SQLITE_CONSTRAINT) {
                 alert.setContentText("Username is already taken");
             } else {
                 //TODO:
