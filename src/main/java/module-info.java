@@ -10,4 +10,6 @@ module com.example.byebyeboxeyes {
     opens com.example.byebyeboxeyes.timer to javafx.fxml;
     exports com.example.byebyeboxeyes.model;
     opens com.example.byebyeboxeyes.model to javafx.fxml;
+    exports com.example.byebyeboxeyes.controller;
+    opens com.example.byebyeboxeyes.controller to javafx.fxml;
 }
