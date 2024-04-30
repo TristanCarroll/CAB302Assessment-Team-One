@@ -46,7 +46,7 @@
         <Label text="Username:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
         <Label text="Password:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
         <TextField fx:id="userNameTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-        <TextField fx:id="passwordTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <PasswordField fx:id="passwordTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" onAction="#onLoginButtonClick" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="2" />
         <Hyperlink fx:id="hyperlink" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="166.0" onAction="#onHyperlinkClick" text="Don't have an account?" GridPane.columnIndex="1" GridPane.rowIndex="3" />
         <rowConstraints>
