@@ -1,13 +1,15 @@
-package com.example.byebyeboxeyes.model;
+import com.example.byebyeboxeyes.model.ISqliteConnection;
+import com.example.byebyeboxeyes.model.SqliteConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-public class SqliteConnection implements ISqliteConnection {
+
+public class MockSqliteConnection implements ISqliteConnection {
     private static Connection instance = null;
 
-    private SqliteConnection() {
-        String url = "jdbc:sqlite:users.db";
+    private MockSqliteConnection() {
+        String url = "jdbc:sqlite:Mock.db";
 
         try {
             instance = DriverManager.getConnection(url);
@@ -18,9 +20,8 @@ public class SqliteConnection implements ISqliteConnection {
 
     public static Connection getInstance() {
         if (instance == null) {
-            new SqliteConnection();
+            new MockSqliteConnection();
         }
         return instance;
     }
 }
-

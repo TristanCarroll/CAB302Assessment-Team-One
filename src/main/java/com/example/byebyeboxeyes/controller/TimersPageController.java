@@ -26,12 +26,11 @@ public class TimersPageController implements Initializable {
     @FXML private ListView<Timer> recentTimersList;
 
     private Timeline timeline;
-    private TimerDAO timerDAO;
+    private final TimerDAO timerDAO = TimerDAO.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         recentTimersList.setCellFactory(listView -> new TimerListCell());
-        timerDAO = new TimerDAO();
         displayTimersFromDatabase();
     }
 

@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Resolving merge conflicts">
+    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Modified Timer/TimerDAO to allow for easier testing.&#10;Added Timer tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -24,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Create-Timers" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,18 +52,23 @@
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.TimerDAOTests.executor": "Run",
+    "JUnit.TimerTests.executor": "Run",
+    "JUnit.UserDaoTests.executor": "Run",
+    "JUnit.UserTests.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Tests",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ashwipe/Desktop/drip-feed-cab302/CAB302Assessment-Team-One/src/main/resources/com/example/byebyeboxeyes/images",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -71,27 +76,14 @@
       <recent name="C:\Users\ashwipe\Desktop\drip-feed-cab302\CAB302Assessment-Team-One\src\main\resources\com\example\byebyeboxeyes\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ashwipe\Desktop\new\CAB302Assessment-Team-One\src\main\resources\com\example\byebyeboxeyes\images" />
       <recent name="C:\Users\ashwipe\Desktop\drip-feed-cab302\CAB302Assessment-Team-One\src\main\resources\com\example\byebyeboxeyes" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.byebyeboxeyes" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="CAB302Assessment-Team-One" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="CAB302Assessment-Team-One" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -117,7 +109,31 @@
       <option name="project" value="LOCAL" />
       <updated>1714462384255</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added sqlite-jdbc to pom.xml">
+      <option name="closed" value="true" />
+      <created>1714463131007</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714463131007</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added and implemented&#10;SqliteConnection Interface.&#10;Opened model for reflection.&#10;Added constructor to UserDAO for testing.&#10;Added tests for User and UserDAO.">
+      <option name="closed" value="true" />
+      <created>1714467860417</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714467860417</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Modified Timer/TimerDAO to allow for easier testing.&#10;Added Timer tests">
+      <option name="closed" value="true" />
+      <created>1714473813469</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714473813469</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,7 +141,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Tests" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -133,6 +161,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Resolving merge conflicts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resolving merge conflicts" />
+    <MESSAGE value="Added sqlite-jdbc to pom.xml" />
+    <MESSAGE value="Added and implemented&#10;SqliteConnection Interface.&#10;Opened model for reflection.&#10;Added constructor to UserDAO for testing.&#10;Added tests for User and UserDAO." />
+    <MESSAGE value="Modified Timer/TimerDAO to allow for easier testing.&#10;Added Timer tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified Timer/TimerDAO to allow for easier testing.&#10;Added Timer tests" />
   </component>
 </project>
