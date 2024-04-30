@@ -12,10 +12,17 @@ public class UserDAO {
         connection = SqliteConnection.getInstance();
         createTable();
     }
-
+    /*
+    This constructor is used exclusively for tests
+     */
+    private UserDAO(Connection mockConnection) {
+        connection = mockConnection;
+        createTable();
+    }
     public static UserDAO getInstance() {
         return instance;
     }
+
     private void createTable() {
         try (Statement statement = connection.createStatement()) {
             String query =
