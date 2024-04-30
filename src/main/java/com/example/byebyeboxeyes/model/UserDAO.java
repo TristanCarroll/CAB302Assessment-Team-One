@@ -7,16 +7,9 @@ import java.sql.Statement;
 
 public class UserDAO {
     private Connection connection;
-    private static UserDAO instance = new UserDAO();
-    private UserDAO() {
-        connection = SqliteConnection.getInstance();
-        createTable();
-    }
-    /*
-    This constructor is used exclusively for tests
-     */
-    private UserDAO(Connection mockConnection) {
-        connection = mockConnection;
+    private static UserDAO instance = new UserDAO(SqliteConnection.getInstance());
+    private UserDAO(Connection connection) {
+        this.connection = connection;
         createTable();
     }
     public static UserDAO getInstance() {
@@ -39,10 +32,9 @@ public class UserDAO {
     public User getUser(String userName) {
         String query =
                 "SELECT * FROM users\n" +
-                "WHERE userName LIKE ?";
-        try (PreparedStatement statement = connection.prepareStatement(query)){
-            statement.setString(1, userName);
-            ResultSet resultSet = statement.executeQuery();
+                "WHERE userName LIKE " + userName;
+        try (PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()){
             if (resultSet.next()) {
                 return new User(
                         resultSet.getString("userName"),
@@ -70,13 +62,10 @@ public class UserDAO {
     }
 
     public void deleteUser(User user) throws Exception {
-        String query = "DELETE FROM users WHERE userName = ?";
+        String query = "DELETE FROM users WHERE userName = " + user.getUserName();
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, user.getUserName());
             statement.executeUpdate();
-            // TODO: Debugging - Remove this
-            System.out.println(statement);
         }
     }
 }

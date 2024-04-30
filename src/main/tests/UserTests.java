@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UserTests {
     private User user;
-    private User newUser;
     @BeforeEach
     public void Setup() {
         user = new User("Username", "Email", "Password");

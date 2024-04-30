@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Added sqlite-jdbc to pom.xml">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/ISqliteConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/tests/MockSqliteConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/tests/UserDaoTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/tests/UserTests.java" afterDir="false" />
+    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Added and implemented&#10;SqliteConnection Interface.&#10;Opened model for reflection.&#10;Added constructor to UserDAO for testing.&#10;Added tests for User and UserDAO.">
+      <change afterPath="$PROJECT_DIR$/src/main/tests/TimerDAOTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/tests/TimerTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/SqliteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/SqliteConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/TimerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/TimerDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tests/UserDaoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/tests/UserDAOTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -59,6 +59,8 @@
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.TimerDAOTests.executor": "Run",
+    "JUnit.TimerTests.executor": "Debug",
     "JUnit.UserDaoTests.executor": "Run",
     "JUnit.UserTests.executor": "Run",
     "Repository.Attach.Annotations": "false",
@@ -72,7 +74,8 @@
     "last_opened_file_path": "C:/Users/ashwipe/Desktop/drip-feed-cab302/CAB302Assessment-Team-One/src/main/resources/com/example/byebyeboxeyes/images",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -121,7 +124,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714463131007</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added and implemented&#10;SqliteConnection Interface.&#10;Opened model for reflection.&#10;Added constructor to UserDAO for testing.&#10;Added tests for User and UserDAO.">
+      <option name="closed" value="true" />
+      <created>1714467860417</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714467860417</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,6 +161,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Resolving merge conflicts" />
     <MESSAGE value="Added sqlite-jdbc to pom.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added sqlite-jdbc to pom.xml" />
+    <MESSAGE value="Added and implemented&#10;SqliteConnection Interface.&#10;Opened model for reflection.&#10;Added constructor to UserDAO for testing.&#10;Added tests for User and UserDAO." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added and implemented&#10;SqliteConnection Interface.&#10;Opened model for reflection.&#10;Added constructor to UserDAO for testing.&#10;Added tests for User and UserDAO." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/tests/TimerTests.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

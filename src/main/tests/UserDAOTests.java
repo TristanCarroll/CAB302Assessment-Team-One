@@ -4,13 +4,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.sql.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class UserDaoTests {
+public class UserDAOTests {
 
     private static Connection mockConnection;
     private static UserDAO userDAO;
@@ -33,7 +31,6 @@ public class UserDaoTests {
         assertEquals(user.getEmail(), retrievedUser.getEmail());
         assertEquals(user.getPassword(), retrievedUser.getPassword());
     }
-
     @Test
     public void testDeleteUser() throws Exception {
         userDAO.deleteUser(user);

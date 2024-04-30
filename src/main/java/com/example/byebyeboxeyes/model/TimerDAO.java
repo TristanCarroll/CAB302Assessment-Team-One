@@ -20,9 +20,14 @@ public class TimerDAO {
     private static final String COLUMN_MINUTES = "minutes";
     private static final String COLUMN_SECONDS = "seconds";
     private static final String COLUMN_STATUS = "status";
-
-    public TimerDAO() {
+    private Connection connection;
+    private static TimerDAO instance = new TimerDAO(SqliteConnection.getInstance());
+    private TimerDAO(Connection connection) {
+        this.connection = connection;
         createTableIfNotExists();
+    }
+    public static TimerDAO getInstance() {
+        return instance;
     }
 
     private void createTableIfNotExists() {
@@ -34,9 +39,8 @@ public class TimerDAO {
                 + COLUMN_STATUS + " TEXT\n"
                 + ");";
 
-        try (Connection conn = SqliteConnection.getInstance();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.execute();
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+                stmt.execute();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -45,12 +49,11 @@ public class TimerDAO {
     public void saveTimer(Timer timer) {
         String sql = "INSERT INTO timers(hours, minutes, seconds) VALUES(?, ?, ?)";
 
-        try (Connection conn = SqliteConnection.getInstance();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, timer.getHours());
-            pstmt.setInt(2, timer.getMinutes());
-            pstmt.setInt(3, timer.getSeconds());
-            pstmt.executeUpdate();
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, timer.getHours());
+            stmt.setInt(2, timer.getMinutes());
+            stmt.setInt(3, timer.getSeconds());
+            stmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -62,10 +65,8 @@ public class TimerDAO {
 
         List<Timer> timers = new ArrayList<>();
 
-        try (Connection conn = SqliteConnection.getInstance();
-             PreparedStatement stmt  = conn.prepareStatement(sql);
-             ResultSet rs    = stmt.executeQuery()){
-
+        try (PreparedStatement stmt  = connection.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()){
             while (rs.next()) {
                 timers.add(new Timer(
                         rs.getInt(COLUMN_HOURS),
@@ -77,6 +78,13 @@ public class TimerDAO {
         }
 
         return timers;
+    }
+    public void deleteTimer(String pk) throws Exception {
+        String query = "DELETE FROM timers WHERE id = " + pk;
+
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.executeUpdate();
+        }
     }
 }
 
