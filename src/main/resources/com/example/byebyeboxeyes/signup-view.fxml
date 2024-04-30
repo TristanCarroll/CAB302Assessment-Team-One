@@ -50,7 +50,7 @@
                 <Label text="Password:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
                 <TextField fx:id="registerUserNameTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                 <TextField fx:id="registerEmailTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <TextField fx:id="registerPasswordTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <PasswordField fx:id="registerPasswordTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Button fx:id="registerButton" onAction="#onRegisterButtonClick" text="Register" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <rowConstraints>
                     <RowConstraints />
