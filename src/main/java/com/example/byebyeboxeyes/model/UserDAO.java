@@ -32,9 +32,10 @@ public class UserDAO {
     public User getUser(String userName) {
         String query =
                 "SELECT * FROM users\n" +
-                "WHERE userName LIKE " + userName;
-        try (PreparedStatement statement = connection.prepareStatement(query);
-             ResultSet resultSet = statement.executeQuery()){
+                        "WHERE userName LIKE ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)){
+            statement.setString(1, userName);
+            ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 return new User(
                         resultSet.getString("userName"),
