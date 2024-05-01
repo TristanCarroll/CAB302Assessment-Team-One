@@ -20,7 +20,8 @@ public class UserDAO {
         try (Statement statement = connection.createStatement()) {
             String query =
                     "CREATE TABLE IF NOT EXISTS users (" +
-                    "userName VARCHAR PRIMARY KEY," +
+                    "userID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "userName VARCHAR UNIQUE," +
                     "email VARCHAR NOT NULL," +
                     "password VARCHAR NOT NULL" +
                     ")";
@@ -38,6 +39,7 @@ public class UserDAO {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 return new User(
+                        resultSet.getInt("userID"),
                         resultSet.getString("userName"),
                         resultSet.getString("email"),
                         resultSet.getString("password")
@@ -48,25 +50,25 @@ public class UserDAO {
         }
         return null;
     }
-    public void addUser(User user) throws Exception {
+    public void addUser(String userName, String email, String password) throws Exception {
         String query =
                 "INSERT INTO users (userName, email, password)" +
                 "VALUES (?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, user.getUserName());
-            statement.setString(2, user.getEmail());
-            statement.setString(3, user.getPassword());
+            statement.setString(1, userName);
+            statement.setString(2, email);
+            statement.setString(3, password);
             statement.executeUpdate();
             // TODO: Debugging - Remove this
             System.out.println(statement);
         }
     }
 
-    public void deleteUser(User user) throws Exception {
+    public void deleteUser(String username) throws Exception {
         String query = "DELETE FROM users WHERE userName = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, user.getUserName());
+            statement.setString(1, username);
             statement.executeUpdate();
         }
     }

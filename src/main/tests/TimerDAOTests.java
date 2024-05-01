@@ -12,8 +12,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TimerDAOTests {
-    private final Timer timer1 = new Timer(1, 30, 0);
-    private final Timer timer2 = new Timer(0, 45, 10);
+    private final int userID = 1;
+    private final Timer timer1 = new Timer(userID, 1, 30, 0);
+    private final Timer timer2 = new Timer(userID, 0, 45, 10);
     private static Connection mockConnection;
     private static TimerDAO timerDAO;
 
@@ -29,7 +30,7 @@ public class TimerDAOTests {
     public void testSaveAndLoadTimers() {
         timerDAO.saveTimer(timer1);
         timerDAO.saveTimer(timer2);
-        List<Timer> loadedTimers = timerDAO.loadTimers();
+        List<Timer> loadedTimers = timerDAO.loadTimers(userID);
 
         //TODO: Should be using primary keys but the current Timer implementation doesn't allow for it
         assertEquals(2, loadedTimers.size());
@@ -45,6 +46,6 @@ public class TimerDAOTests {
         //TODO: Timer primary keys again
         timerDAO.deleteTimer("1");
         timerDAO.deleteTimer("2");
-        assertTrue(timerDAO.loadTimers().isEmpty());
+        assertTrue(timerDAO.loadTimers(userID).isEmpty());
     }
 }

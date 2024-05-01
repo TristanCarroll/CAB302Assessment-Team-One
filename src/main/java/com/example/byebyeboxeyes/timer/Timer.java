@@ -1,11 +1,13 @@
 package com.example.byebyeboxeyes.timer;
 
 public class Timer {
+    private int userID;
     private int hours;
     private int minutes;
     private int seconds;
 
-    public Timer(int hours, int minutes, int seconds) {
+    public Timer(int userID, int hours, int minutes, int seconds) {
+        this.userID = userID;
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
@@ -24,6 +26,8 @@ public class Timer {
         return seconds;
     }
 
+    public int getUserID() { return userID; }
+
     public void setHours(int hours) {
         this.hours = hours;
     }
@@ -33,6 +37,7 @@ public class Timer {
     public void setSeconds(int seconds) {
         this.seconds = seconds;
     }
+    public void setUserID(int userID) { this.userID = userID; }
 
 
     public void decrementTime() {

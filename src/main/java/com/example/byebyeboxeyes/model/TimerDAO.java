@@ -16,10 +16,13 @@ public class TimerDAO {
     // Table and column names
     private static final String TABLE_NAME = "timers";
     private static final String COLUMN_ID = "id";
+    private static final String COLUMN_USER_ID = "UserID";
     private static final String COLUMN_HOURS = "hours";
     private static final String COLUMN_MINUTES = "minutes";
     private static final String COLUMN_SECONDS = "seconds";
     private static final String COLUMN_STATUS = "status";
+    private static final String COLUMN_START_TIME = "StartTime";
+    private static final String COLUMN_END_TIME = "EndTime";
     private Connection connection;
     private static TimerDAO instance = new TimerDAO(SqliteConnection.getInstance());
     private TimerDAO(Connection connection) {
@@ -33,6 +36,7 @@ public class TimerDAO {
     private void createTableIfNotExists() {
         String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (\n"
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,\n"
+                + COLUMN_USER_ID + " INTEGER NOT NULL,\n"
                 + COLUMN_HOURS + " INTEGER NOT NULL,\n"
                 + COLUMN_MINUTES + " INTEGER NOT NULL,\n"
                 + COLUMN_SECONDS + " INTEGER NOT NULL,\n"
@@ -47,21 +51,23 @@ public class TimerDAO {
     }
 
     public void saveTimer(Timer timer) {
-        String sql = "INSERT INTO timers(hours, minutes, seconds) VALUES(?, ?, ?)";
+        String sql = "INSERT INTO timers(UserID, hours, minutes, seconds) VALUES(?, ?, ?, ?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setInt(1, timer.getHours());
-            stmt.setInt(2, timer.getMinutes());
-            stmt.setInt(3, timer.getSeconds());
+            stmt.setInt(1, timer.getUserID());
+            stmt.setInt(2, timer.getHours());
+            stmt.setInt(3, timer.getMinutes());
+            stmt.setInt(4, timer.getSeconds());
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public List<Timer> loadTimers() {
-        String sql = "SELECT " + COLUMN_ID + ", " + COLUMN_HOURS + ", " + COLUMN_MINUTES + ", "
-                + COLUMN_SECONDS + " FROM " + TABLE_NAME;
+    public List<Timer> loadTimers(int userID) {
+        String sql = "SELECT " + COLUMN_ID + ", " + COLUMN_USER_ID + ", " +  COLUMN_HOURS + ", " + COLUMN_MINUTES + ", "
+                + COLUMN_SECONDS + " FROM " + TABLE_NAME +
+                " WHERE UserID = " + userID;
 
         List<Timer> timers = new ArrayList<>();
 
@@ -69,6 +75,7 @@ public class TimerDAO {
              ResultSet rs = stmt.executeQuery()){
             while (rs.next()) {
                 timers.add(new Timer(
+                        rs.getInt(COLUMN_USER_ID),
                         rs.getInt(COLUMN_HOURS),
                         rs.getInt(COLUMN_MINUTES),
                         rs.getInt(COLUMN_SECONDS)));
@@ -80,9 +87,10 @@ public class TimerDAO {
         return timers;
     }
     public void deleteTimer(String pk) throws Exception {
-        String query = "DELETE FROM timers WHERE id = " + pk;
+        String query = "DELETE FROM timers WHERE id = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, pk);
             statement.executeUpdate();
         }
     }

@@ -58,11 +58,12 @@ public class SignUpController {
     @FXML
     private void onRegisterButtonClick(){
         try{
-            userDAO.addUser(new User(
+            userDAO.addUser(
                     registerUserNameTextField.getText(),
                     registerEmailTextField.getText(),
                     registerPasswordTextField.getText()
-            ));
+            );
+            StateManager.setCurrentUser(userDAO.getUser(registerUserNameTextField.getText()));
             EventService.getInstance().notifyLoginSuccessful();
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);

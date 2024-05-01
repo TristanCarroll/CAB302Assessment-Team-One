@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Modified Timer/TimerDAO to allow for easier testing.&#10;Added Timer tests">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/NavigationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/NavigationController.java" afterDir="false" />
+    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Merging main into ui fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/StateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/StateManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/signup-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/signup-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/TimerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/TimerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/timer/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/timer/Timer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tests/TimerDAOTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/tests/TimerDAOTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tests/TimerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/tests/TimerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tests/UserDAOTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/tests/UserDAOTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tests/UserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/tests/UserTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Create-Timers" />
+        <entry key="$PROJECT_DIR$" value="ui-fix" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,6 +63,7 @@
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.All in ByeByeBoxEyes.executor": "Run",
     "JUnit.TimerDAOTests.executor": "Run",
     "JUnit.TimerTests.executor": "Run",
     "JUnit.UserDaoTests.executor": "Run",
@@ -64,7 +74,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "cancelButton",
+    "git-widget-placeholder": "timers",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ashwipe/Desktop/drip-feed-cab302/CAB302Assessment-Team-One/src/main/resources/com/example/byebyeboxeyes/images",
     "project.structure.last.edited": "Libraries",
@@ -86,6 +96,21 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="All in ByeByeBoxEyes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ByeByeBoxEyes" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in ByeByeBoxEyes" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -135,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714473813469</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Merging main into ui fix">
+      <option name="closed" value="true" />
+      <created>1714554927221</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714554927221</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -166,6 +199,21 @@
     <MESSAGE value="Added sqlite-jdbc to pom.xml" />
     <MESSAGE value="Added and implemented&#10;SqliteConnection Interface.&#10;Opened model for reflection.&#10;Added constructor to UserDAO for testing.&#10;Added tests for User and UserDAO." />
     <MESSAGE value="Modified Timer/TimerDAO to allow for easier testing.&#10;Added Timer tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modified Timer/TimerDAO to allow for easier testing.&#10;Added Timer tests" />
+    <MESSAGE value="Merging main into ui fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merging main into ui fix" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/tests/TimerDAOTests.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ByeByeBoxEyes$All_in_ByeByeBoxEyes.ic" NAME="All in ByeByeBoxEyes Coverage Results" MODIFIED="1714553211861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

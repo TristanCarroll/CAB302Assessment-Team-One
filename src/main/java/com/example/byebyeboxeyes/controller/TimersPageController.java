@@ -1,5 +1,6 @@
 package com.example.byebyeboxeyes.controller;
 
+import com.example.byebyeboxeyes.StateManager;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -47,7 +48,7 @@ public class TimersPageController implements Initializable {
                 return;
             }
 
-            Timer timer = new Timer(hours, minutes, seconds);
+            Timer timer = new Timer(StateManager.getCurrentUser().getUserID(), hours, minutes, seconds);
             recentTimersList.getItems().add(timer);
             startTimer(timer);
 
@@ -70,7 +71,7 @@ public class TimersPageController implements Initializable {
     }
 
     private void displayTimersFromDatabase() {
-        List<Timer> allTimers = timerDAO.loadTimers();
+        List<Timer> allTimers = timerDAO.loadTimers(StateManager.getCurrentUser().getUserID());
         recentTimersList.getItems().setAll(allTimers);
     }
 }
