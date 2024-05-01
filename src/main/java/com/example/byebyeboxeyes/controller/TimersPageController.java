@@ -18,7 +18,6 @@ import java.util.ResourceBundle;
 import java.util.List;
 
 import com.example.byebyeboxeyes.timer.Timer;
-import com.example.byebyeboxeyes.timer.TimerListCell;
 import com.example.byebyeboxeyes.model.TimerDAO;
 
 public class TimersPageController implements Initializable {
