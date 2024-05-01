@@ -63,9 +63,10 @@ public class UserDAO {
     }
 
     public void deleteUser(User user) throws Exception {
-        String query = "DELETE FROM users WHERE userName = " + user.getUserName();
+        String query = "DELETE FROM users WHERE userName = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, user.getUserName());
             statement.executeUpdate();
         }
     }

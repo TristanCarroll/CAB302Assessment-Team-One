@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Modified Timer/TimerDAO to allow for easier testing.&#10;Added Timer tests">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/NavigationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/NavigationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/signup-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/signup-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +64,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "ui-fix",
+    "git-widget-placeholder": "cancelButton",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ashwipe/Desktop/drip-feed-cab302/CAB302Assessment-Team-One/src/main/resources/com/example/byebyeboxeyes/images",
     "project.structure.last.edited": "Libraries",
@@ -134,15 +135,7 @@
       <option name="project" value="LOCAL" />
       <updated>1714473813469</updated>
     </task>
-    <task id="LOCAL-00005" summary="Small ui consistency fix">
-      <option name="closed" value="true" />
-      <created>1714550499831</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1714550499831</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,7 +166,6 @@
     <MESSAGE value="Added sqlite-jdbc to pom.xml" />
     <MESSAGE value="Added and implemented&#10;SqliteConnection Interface.&#10;Opened model for reflection.&#10;Added constructor to UserDAO for testing.&#10;Added tests for User and UserDAO." />
     <MESSAGE value="Modified Timer/TimerDAO to allow for easier testing.&#10;Added Timer tests" />
-    <MESSAGE value="Small ui consistency fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small ui consistency fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified Timer/TimerDAO to allow for easier testing.&#10;Added Timer tests" />
   </component>
 </project>
