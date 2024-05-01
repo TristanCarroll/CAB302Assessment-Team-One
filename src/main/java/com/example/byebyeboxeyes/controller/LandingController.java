@@ -31,19 +31,19 @@ public class LandingController {
     private final UserDAO userDAO;
     public LandingController() {
         userDAO = UserDAO.getInstance();
-        setupListener();
+        //setupListener();
     }
 
     /**
      * Creates a listener for the window height property of the StateManager,
      * and adjusts the bottom padding accordingly.
      */
-    private void setupListener() {
-        StateManager.windowHeightProperty().addListener((obs, oldVal, newVal) -> {
-            double paddingValue = newVal.doubleValue() * 0.60; // 60% of height
-            mainStackPane.setPadding(new Insets(20, 20, paddingValue, 20));
-        });
-    }
+//    private void setupListener() {
+//        StateManager.windowHeightProperty().addListener((obs, oldVal, newVal) -> {
+//            double paddingValue = newVal.doubleValue() * 0.60; // 60% of height
+//            mainStackPane.setPadding(new Insets(20, 20, paddingValue, 20));
+//        });
+//    }
 
     /**
      * Tries to find the username in the DB and check that the stored password matches what's entered in the field.
