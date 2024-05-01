@@ -45,7 +45,7 @@ public class NavigationController implements INavigationEventListener {
             // TODO:
             //  The if else statement fixes the bug but I think this could probably be handled better
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
-            if (fxmlPath.contains("home") || fxmlPath.contains("signup")) {
+            if (fxmlPath.contains("home") || fxmlPath.contains("signup") || fxmlPath.contains("landing") ) {
                 StateManager.getCurrentScene().setRoot(fxmlLoader.load());
             }
             else {

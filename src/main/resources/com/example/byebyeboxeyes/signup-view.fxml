@@ -51,14 +51,19 @@
                 <TextField fx:id="registerUserNameTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                 <TextField fx:id="registerEmailTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <PasswordField fx:id="registerPasswordTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Button fx:id="registerButton" onAction="#onRegisterButtonClick" text="Register" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+<!--                KEPT THE SAME-->
                 <rowConstraints>
-                    <RowConstraints />
                     <RowConstraints />
                     <RowConstraints />
                     <RowConstraints />
                 </rowConstraints>
             </GridPane>
+<!--            TODO: FIX ALIGNMENT-->
+            <HBox spacing="10.0" alignment="CENTER">
+                <Button fx:id="registerButton" onAction="#onRegisterButtonClick" text="Register" />
+                <Button fx:id="cancelButton" onAction="#oncancelButtonClick" text="Cancel" />
+            </HBox>
+
         </VBox>
         <rowConstraints>
             <RowConstraints />
