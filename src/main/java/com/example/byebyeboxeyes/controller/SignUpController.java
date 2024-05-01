@@ -5,6 +5,7 @@ import com.example.byebyeboxeyes.events.EventService;
 import com.example.byebyeboxeyes.model.User;
 import com.example.byebyeboxeyes.model.UserDAO;
 import com.example.byebyeboxeyes.Constants;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
@@ -18,6 +19,7 @@ import java.sql.SQLException;
 import java.util.Objects;
 
 public class SignUpController {
+    public Button cancelButton;
     @FXML
     private StackPane mainStackPane;
     @FXML
@@ -75,6 +77,10 @@ public class SignUpController {
             }
             alert.showAndWait();
         }
+    }
+
+    public void oncancelButtonClick(ActionEvent actionEvent) {
+        EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/landing-view.fxml");
     }
 }
 
