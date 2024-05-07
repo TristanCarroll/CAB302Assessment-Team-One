@@ -93,7 +93,7 @@ public class TimersPageController implements Initializable {
         Button deleteButton = new Button("Delete");
 
         deleteButton.setOnAction(Event -> {
-            recentTimersFlowPane.
+            //TODO: Implement
         });
 
         VBox vbox = new VBox(editButton, playButton, deleteButton);
