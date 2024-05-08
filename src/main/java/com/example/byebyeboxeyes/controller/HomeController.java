@@ -4,10 +4,18 @@ import com.example.byebyeboxeyes.events.EventService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 public class HomeController {
+    //TODO: Add css styling to heading
+    @FXML
+    private Label eyeHealthHeading;
+    @FXML
+    private TextArea tipOftheDay;
+
     @FXML
     private ImageView settingsNavButton;
     @FXML
@@ -34,6 +42,11 @@ public class HomeController {
         else if (event.getSource() == goalsNavButton){
             EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/goals-view.fxml");
         }
+    }
+
+    @FXML public void initialize() {
+        //TODO: add rand string generator for diff tips
+        tipOftheDay.appendText("Did you know eye health tip here?");
     }
 
     public void onImageClick(MouseEvent mouseEvent) {
