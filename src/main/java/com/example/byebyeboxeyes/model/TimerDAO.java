@@ -3,10 +3,7 @@ package com.example.byebyeboxeyes.model;
 import com.example.byebyeboxeyes.timer.Timer;
 import com.example.byebyeboxeyes.model.SqliteConnection;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,31 +47,42 @@ public class TimerDAO {
         }
     }
 
-    public void saveTimer(Timer timer) {
+    public int saveTimer(int userID, int hours, int minutes, int seconds) {
         String sql = "INSERT INTO timers(UserID, hours, minutes, seconds) VALUES(?, ?, ?, ?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setInt(1, timer.getUserID());
-            stmt.setInt(2, timer.getHours());
-            stmt.setInt(3, timer.getMinutes());
-            stmt.setInt(4, timer.getSeconds());
+            stmt.setInt(1, userID);
+            stmt.setInt(2, hours);
+            stmt.setInt(3, minutes);
+            stmt.setInt(4, seconds);
             stmt.executeUpdate();
+
+            // Getting the generated primary key
+            ResultSet generatedKeys = stmt.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                return generatedKeys.getInt(1);
+            } else {
+                // Return something else if this fails
+                return -1;
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            return -1;
         }
     }
 
-    public List<Timer> loadTimers(int userID) {
+    public ArrayList<Timer> loadTimers(int userID) {
         String sql = "SELECT " + COLUMN_ID + ", " + COLUMN_USER_ID + ", " +  COLUMN_HOURS + ", " + COLUMN_MINUTES + ", "
                 + COLUMN_SECONDS + " FROM " + TABLE_NAME +
                 " WHERE UserID = " + userID;
 
-        List<Timer> timers = new ArrayList<>();
+        ArrayList<Timer> timers = new ArrayList<>();
 
         try (PreparedStatement stmt  = connection.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()){
             while (rs.next()) {
                 timers.add(new Timer(
+                        rs.getInt(COLUMN_ID),
                         rs.getInt(COLUMN_USER_ID),
                         rs.getInt(COLUMN_HOURS),
                         rs.getInt(COLUMN_MINUTES),
@@ -86,11 +94,11 @@ public class TimerDAO {
 
         return timers;
     }
-    public void deleteTimer(String pk) throws Exception {
+    public void deleteTimer(int pk) throws Exception {
         String query = "DELETE FROM timers WHERE id = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, pk);
+            statement.setInt(1, pk);
             statement.executeUpdate();
         }
     }

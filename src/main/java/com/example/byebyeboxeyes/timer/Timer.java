@@ -1,12 +1,14 @@
 package com.example.byebyeboxeyes.timer;
 
 public class Timer {
+    private int timerID;
     private int userID;
     private int hours;
     private int minutes;
     private int seconds;
 
-    public Timer(int userID, int hours, int minutes, int seconds) {
+    public Timer(int timerID, int userID, int hours, int minutes, int seconds) {
+        this.timerID = timerID;
         this.userID = userID;
         this.hours = hours;
         this.minutes = minutes;
@@ -27,7 +29,8 @@ public class Timer {
     }
 
     public int getUserID() { return userID; }
-
+    public int getTimerID() { return timerID; }
+    public void setTimerID(int timerID) { timerID = timerID; }
     public void setHours(int hours) {
         this.hours = hours;
     }

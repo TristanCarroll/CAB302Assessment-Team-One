@@ -5,6 +5,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -14,20 +15,25 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.sql.Time;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.List;
 
 import com.example.byebyeboxeyes.timer.Timer;
 import com.example.byebyeboxeyes.model.TimerDAO;
 
-public class TimersPageController implements Initializable {
+public class TimersPageController implements Initializable, TimerContainer.OnDeleteListener {
 
-    @FXML private TextField hoursField;
-    @FXML private TextField minutesField;
-    @FXML private TextField secondsField;
-    @FXML private FlowPane recentTimersFlowPane;
+    @FXML
+    private TextField hoursField;
+    @FXML
+    private TextField minutesField;
+    @FXML
+    private TextField secondsField;
+    @FXML
+    private FlowPane recentTimersFlowPane;
 
-    private Timeline timeline;
     private final TimerDAO timerDAO = TimerDAO.getInstance();
 
     @Override
@@ -56,12 +62,11 @@ public class TimersPageController implements Initializable {
                 return;
             }
 
-            Timer timer = new Timer(StateManager.getCurrentUser().getUserID(), hours, minutes, seconds);
-
+            int timerID = timerDAO.saveTimer(StateManager.getCurrentUser().getUserID(), hours, minutes, seconds);
+            Timer timer = new Timer(timerID, StateManager.getCurrentUser().getUserID(), hours, minutes, seconds);
             recentTimersFlowPane.getChildren().clear();
             recentTimersFlowPane.getChildren().add(createTimerContainer(timer));
-
-            timerDAO.saveTimer(timer);
+            displayTimersFromDatabase();
 
         } catch (NumberFormatException e) {
             e.printStackTrace();
@@ -69,7 +74,7 @@ public class TimersPageController implements Initializable {
     }
 
     private void displayTimersFromDatabase() {
-        List<Timer> allTimers = timerDAO.loadTimers(StateManager.getCurrentUser().getUserID());
+        ArrayList<Timer> allTimers = timerDAO.loadTimers(StateManager.getCurrentUser().getUserID());
         int index = recentTimersFlowPane.getChildren().isEmpty() ?
                 0 : recentTimersFlowPane.getChildren().size() - 1;
         for (Timer timer : allTimers) {
@@ -79,33 +84,20 @@ public class TimersPageController implements Initializable {
         addButton.setOnAction(event -> createNewTimer());
         recentTimersFlowPane.getChildren().add(addButton);
     }
+    private Node createTimerContainer(Timer timer) {
+        TimerContainer timerContainer = new TimerContainer(timer);
+        timerContainer.setOnDeleteListener(this);
+        return timerContainer;
+    }
+    @Override
+    public void onDelete(TimerContainer timerContainer) {
+        recentTimersFlowPane.getChildren().remove(timerContainer);
+        try {
+            TimerDAO.getInstance().deleteTimer(timerContainer.timer.getTimerID());
 
-    private StackPane createTimerContainer(Timer timer) {
-        StackPane timerPane = new StackPane();
-        timerPane.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
-        timerPane.setPrefSize(200, 50);
-
-        Label timerLabel = new Label(timer.toString());
-        timerLabel.setStyle("-fx-font-size: 14; -fx-font-weight: bold;");
-
-        Button editButton = new Button("Edit");
-        Button playButton = new Button("Play");
-        Button deleteButton = new Button("Delete");
-
-        deleteButton.setOnAction(Event -> {
-            //TODO: Implement
-        });
-
-        VBox vbox = new VBox(editButton, playButton, deleteButton);
-        vbox.setAlignment(Pos.CENTER);
-        vbox.setSpacing(5);
-
-        HBox hbox = new HBox(timerLabel, vbox);
-        hbox.setAlignment(Pos.CENTER);
-        hbox.setSpacing(5);
-
-        timerPane.getChildren().add(hbox);
-
-        return timerPane;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
