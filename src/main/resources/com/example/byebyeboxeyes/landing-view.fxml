@@ -37,6 +37,7 @@
     </StackPane>
     <!-- Left Half -->
     <VBox alignment="CENTER" spacing="20.0">
+<!--      TODO: Center the label text perhaps with an id later in the CSS-->
       <Label text="Enter your details below to sign in" />
       <GridPane alignment="CENTER" hgap="5.0" vgap="10.0">
         <columnConstraints>
