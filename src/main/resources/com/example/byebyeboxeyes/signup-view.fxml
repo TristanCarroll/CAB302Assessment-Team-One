@@ -61,7 +61,7 @@
 <!--            TODO: FIX ALIGNMENT-->
             <HBox spacing="10.0" alignment="CENTER">
                 <Button fx:id="registerButton" onAction="#onRegisterButtonClick" text="Register" />
-                <Button fx:id="cancelButton" onAction="#oncancelButtonClick" text="Cancel" />
+                <Button fx:id="cancelButton" onAction="#oncancelButtonClick" text="Cancel"/>
             </HBox>
 
         </VBox>

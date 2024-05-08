@@ -12,6 +12,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import java.sql.SQLException;
 
@@ -28,6 +30,8 @@ public class SignUpController {
     private TextField registerEmailTextField;
     @FXML
     private TextField registerPasswordTextField;
+
+    public String emailPattern = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
 
     //TODO:
     // ADD Register button LATER
@@ -58,12 +62,18 @@ public class SignUpController {
     @FXML
     private void onRegisterButtonClick(){
         try{
-            userDAO.addUser(new User(
-                    registerUserNameTextField.getText(),
-                    registerEmailTextField.getText(),
-                    registerPasswordTextField.getText()
-            ));
-            EventService.getInstance().notifyLoginSuccessful();
+            Pattern pattern = Pattern.compile(emailPattern);
+            Matcher matcher = pattern.matcher(registerEmailTextField.getText());
+            if (matcher.matches()) {
+                userDAO.addUser(new User(
+                        registerUserNameTextField.getText(),
+                        registerEmailTextField.getText(),
+                        registerPasswordTextField.getText()
+                ));
+                EventService.getInstance().notifyLoginSuccessful();
+            } else {
+                throw new Exception("Email is invalid.");
+            }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Registration Error");
