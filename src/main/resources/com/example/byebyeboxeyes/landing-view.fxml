@@ -47,9 +47,13 @@
         <Label text="Password:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
         <TextField fx:id="userNameTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="0" />
         <PasswordField fx:id="passwordTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" onAction="#onLoginButtonClick" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <Hyperlink fx:id="hyperlink" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="166.0" onAction="#onHyperlinkClick" text="Don't have an account?" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <HBox alignment="CENTER" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3" >
+          <Button fx:id="loginButton"  contentDisplay="CENTER" onAction="#onLoginButtonClick" text="Login"  />
+          <Button fx:id="closeButton"  contentDisplay="CENTER" onAction="#onCloseButtonClick" text="Close" />
+        </HBox>
+        <Hyperlink fx:id="hyperlink" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="166.0" onAction="#onHyperlinkClick" text="Don't have an account?" GridPane.columnIndex="1" GridPane.rowIndex="4" />
         <rowConstraints>
+          <RowConstraints />
           <RowConstraints />
           <RowConstraints />
           <RowConstraints />
