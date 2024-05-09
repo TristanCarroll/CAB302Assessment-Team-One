@@ -57,7 +57,9 @@ public class HomeController {
                 "Adjust your posture!\nPoor posture can increase your risk of eye strain. Sit up straight, keep your shoulders relaxed, and use a chair with the right height",
                 "Take regular breaks!\nFollow the 20-20-20 rule.\nLook at something 20 feet away for 20 seconds every 20 minutes",
                 "Limit reflections and glare!\nLight from windows or bright lamps can reflect on your computer screen and cause eye strain. Use lower wattage bulbs and avoid bright overhead lights",
-                "Adjust screen brightness!\nThe brightness of your screen should be the same as the level of brightness in the room around you"
+                "Adjust screen brightness!\nThe brightness of your screen should be the same as the level of brightness in the room around you",
+                "Eye Health!\nRest your eyes at least 15 minutes after each 2 hours of computer or digital device use",
+                "Eye Health!\nThe use of over-the-counter artificial-tear solutions can reduce the effects of dry eye in CVS"
         };
         Random randTips = new Random();
         eyeTipTxtArea.setText(tips[randTips.nextInt(tips.length)]);
