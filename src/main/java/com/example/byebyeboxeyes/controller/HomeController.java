@@ -9,12 +9,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.util.Random;
+
 public class HomeController {
     //TODO: Add css styling to heading
     @FXML
-    private Label eyeHealthHeading;
+    private Button eyeTipButton;
     @FXML
-    private TextArea tipOftheDay;
+    private TextArea eyeTipTxtArea;
 
     @FXML
     private ImageView settingsNavButton;
@@ -44,9 +46,21 @@ public class HomeController {
         }
     }
 
-    @FXML public void initialize() {
-        //TODO: add rand string generator for diff tips
-        tipOftheDay.appendText("Did you know eye health tip here?");
+    /**
+     * Button to display random eye health tips when the user selects the See Tips! button
+     */
+    @FXML
+    protected void eyeTipButton() {
+
+        String []tips = {
+                "Adjust your computer!\nPosition your computer screen 20 to 28 inches from your eyes",
+                "Adjust your posture!\nPoor posture can increase your risk of eye strain. Sit up straight, keep your shoulders relaxed, and use a chair with the right height",
+                "Take regular breaks!\nFollow the 20-20-20 rule.\nLook at something 20 feet away for 20 seconds every 20 minutes",
+                "Limit reflections and glare!\nLight from windows or bright lamps can reflect on your computer screen and cause eye strain. Use lower wattage bulbs and avoid bright overhead lights",
+                "Adjust screen brightness!\nThe brightness of your screen should be the same as the level of brightness in the room around you"
+        };
+        Random randTips = new Random();
+        eyeTipTxtArea.setText(tips[randTips.nextInt(tips.length)]);
     }
 
     public void onImageClick(MouseEvent mouseEvent) {
