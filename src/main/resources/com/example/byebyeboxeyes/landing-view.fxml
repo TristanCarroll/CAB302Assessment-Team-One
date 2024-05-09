@@ -6,6 +6,11 @@
 
 <StackPane fx:id="mainStackPane" style="-fx-border-color: black; -fx-border-width: 1px;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.byebyeboxeyes.controller.LandingController">
 
+  <VBox alignment="TOP_CENTER">
+    <!--TODO: EDIT in CSS fx:id just for reference-->
+    <Label fx:id="Title" >Bye Bye Box Eyes</Label>
+  </VBox>
+
   <GridPane alignment="CENTER" style="-fx-border-color: black; -fx-border-width: 1px;">
     <columnConstraints>
       <ColumnConstraints percentWidth="50" />
