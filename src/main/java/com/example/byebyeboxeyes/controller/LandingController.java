@@ -58,6 +58,7 @@ public class LandingController {
         User user = userDAO.getUser(userNameTextField.getText());
         if (user != null) {
             if (Objects.equals(user.getPassword(), passwordTextField.getText())) {
+                StateManager.setCurrentUser(user);
                 EventService.getInstance().notifyLoginSuccessful();
             } else {
                 // Incorrect password

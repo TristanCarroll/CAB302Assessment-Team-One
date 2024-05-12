@@ -3,15 +3,18 @@ package com.example.byebyeboxeyes.controller;
 import com.example.byebyeboxeyes.events.EventService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.net.URL;
 import java.util.Random;
+import java.util.ResourceBundle;
 
-public class HomeController {
+public class HomeController implements Initializable {
     //TODO: Add css styling to heading
     @FXML
     private Button eyeTipButton;
@@ -33,7 +36,7 @@ public class HomeController {
         //  If we end up extending their functionality we may need to consider what's passed into the function
         //  to better inform the target which button has been clicked.
         if (event.getSource() == timersNavButton){
-            EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/home-view.fxml");
+            EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/timer-view.fxml");
         }
 //        else if (event.getSource() == settingsNavButton){
 //            EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/settings-view.fxml");
@@ -67,5 +70,10 @@ public class HomeController {
 
     public void onImageClick(MouseEvent mouseEvent) {
         EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/settings-view.fxml");
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }

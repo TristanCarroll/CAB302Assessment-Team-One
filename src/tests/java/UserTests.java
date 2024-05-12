@@ -8,7 +8,7 @@ public class UserTests {
     private User user;
     @BeforeEach
     public void Setup() {
-        user = new User("Username", "Email", "Password");
+        user = new User(1, "Username", "Email", "Password");
     }
     @Test
     public void TestGetUserName() {
@@ -38,5 +38,14 @@ public class UserTests {
     public void testSetPassword() {
         user.setPassword("newpassword");
         assertEquals("newpassword", user.getPassword());
+    }
+    @Test
+    public void testGetUserID() {
+        assertEquals(user.getUserID(), 1);
+    }
+    @Test
+    public void testSetUserID() {
+        user.setUserID(2);
+        assertEquals(user.getUserID(), 2);
     }
 }

@@ -7,10 +7,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TimerTests {
 
     private Timer timer;
+    private int userID = 1;
+    private static int timerID = 1;
 
     @BeforeEach
     public void setUp() {
-        timer = new Timer(1, 30, 0); // 1 hour 30 minutes 0 seconds
+        timer = new Timer(timerID,userID, 1, 30, 0);
+        timerID++;
     }
 
     @Test

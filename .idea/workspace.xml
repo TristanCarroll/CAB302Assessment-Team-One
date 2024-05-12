@@ -4,9 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Modified Timer/TimerDAO to allow for easier testing.&#10;Added Timer tests">
+    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Started working on timer countdown">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/LandingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/LandingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/NavigationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/NavigationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SettingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/home-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/landing-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/landing-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/settings-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/settings-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/signup-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/signup-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tests/MockSqliteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/java/MockSqliteConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tests/TimerDAOTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/java/TimerDAOTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tests/TimerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/java/TimerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tests/UserDAOTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/java/UserDAOTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tests/UserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/java/UserTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,16 +30,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="tipButton" />
+        <entry key="$PROJECT_DIR$" value="ui-fix" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,30 +63,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.All in ByeByeBoxEyes.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TimerDAOTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TimerTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserDaoTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserTests.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ashwipe/Desktop/drip-feed-cab302/CAB302Assessment-Team-One/src/main/resources/com/example/byebyeboxeyes/images&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.All in ByeByeBoxEyes.executor": "Run",
+    "JUnit.TimerDAOTests.executor": "Run",
+    "JUnit.TimerTests.executor": "Run",
+    "JUnit.UserDaoTests.executor": "Run",
+    "JUnit.UserTests.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Merging timers",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ashwipe/Desktop/drip-feed-cab302/CAB302Assessment-Team-One/src/main/resources/com/example/byebyeboxeyes/images",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ashwipe\Desktop\drip-feed-cab302\CAB302Assessment-Team-One\src\main\resources\com\example\byebyeboxeyes\images" />
@@ -151,7 +165,71 @@
       <option name="project" value="LOCAL" />
       <updated>1714473813469</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Merging main into ui fix">
+      <option name="closed" value="true" />
+      <created>1714554927221</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714554927221</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Timers are now linked to User ID's">
+      <option name="closed" value="true" />
+      <created>1714557360164</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714557360164</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Timers now display in little boxes">
+      <option name="closed" value="true" />
+      <created>1714559983699</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1714559983699</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fixing an error in previous commit">
+      <option name="closed" value="true" />
+      <created>1714560014433</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714560014433</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added some buttons to the timer box... Need to extract this out into its own class so it can be re-used for the current timer">
+      <option name="closed" value="true" />
+      <created>1715074121905</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715074121905</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Removed error, added todo">
+      <option name="closed" value="true" />
+      <created>1715074170922</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715074170922</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Created TimerContainer class and modified some logic in the TimerDAO and Timer classes to make use of primary keys. These changes allow for interacting with specific timer containers within the recentTimersflowPane within the TimersPageController">
+      <option name="closed" value="true" />
+      <created>1715165963114</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1715165963114</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Display mock current timer, edit timers">
+      <option name="closed" value="true" />
+      <created>1715484775961</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715484775961</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,7 +243,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Tests" />
+                        <option value="timers" />
                       </list>
                     </value>
                   </entry>
@@ -182,6 +260,38 @@
     <MESSAGE value="Added sqlite-jdbc to pom.xml" />
     <MESSAGE value="Added and implemented&#10;SqliteConnection Interface.&#10;Opened model for reflection.&#10;Added constructor to UserDAO for testing.&#10;Added tests for User and UserDAO." />
     <MESSAGE value="Modified Timer/TimerDAO to allow for easier testing.&#10;Added Timer tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modified Timer/TimerDAO to allow for easier testing.&#10;Added Timer tests" />
+    <MESSAGE value="Merging main into ui fix" />
+    <MESSAGE value="Timers are now linked to User ID's" />
+    <MESSAGE value="Timers now display in little boxes" />
+    <MESSAGE value="Fixing an error in previous commit" />
+    <MESSAGE value="Added some buttons to the timer box... Need to extract this out into its own class so it can be re-used for the current timer" />
+    <MESSAGE value="Removed error, added todo" />
+    <MESSAGE value="Created TimerContainer class and modified some logic in the TimerDAO and Timer classes to make use of primary keys. These changes allow for interacting with specific timer containers within the recentTimersflowPane within the TimersPageController" />
+    <MESSAGE value="Display mock current timer, edit timers" />
+    <MESSAGE value="Started working on timer countdown" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started working on timer countdown" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/tests/TimerDAOTests.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/NavigationController.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="10" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ByeByeBoxEyes$All_in_ByeByeBoxEyes.ic" NAME="All in ByeByeBoxEyes Coverage Results" MODIFIED="1714553211861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -44,6 +44,8 @@ public class NavigationController implements INavigationEventListener {
         try {
             // TODO:
             //  The if else statement fixes the bug but I think this could probably be handled better
+            //TODO:
+            // Add navigation fxml, load it once, always set the center to home.
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
             if (fxmlPath.contains("home") || fxmlPath.contains("signup") || fxmlPath.contains("landing") ) {
                 StateManager.getCurrentScene().setRoot(fxmlLoader.load());

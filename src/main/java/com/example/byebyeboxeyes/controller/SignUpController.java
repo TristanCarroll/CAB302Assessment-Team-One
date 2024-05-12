@@ -65,14 +65,15 @@ public class SignUpController {
             Pattern pattern = Pattern.compile(emailPattern);
             Matcher matcher = pattern.matcher(registerEmailTextField.getText());
             if (matcher.matches()) {
-                userDAO.addUser(new User(
+                userDAO.addUser(
                         registerUserNameTextField.getText(),
                         registerEmailTextField.getText(),
                         registerPasswordTextField.getText()
-                ));
+                );
+                StateManager.setCurrentUser(userDAO.getUser(registerUserNameTextField.getText()));
                 EventService.getInstance().notifyLoginSuccessful();
             } else {
-                throw new Exception("Email is invalid.");
+                throw new Exception("Email is invalid");
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);

@@ -12,7 +12,9 @@ public class UserDAOTests {
 
     private static Connection mockConnection;
     private static UserDAO userDAO;
-    private User user = new User("testUser", "test@example.com", "password");
+    private String username = "testUser";
+    private String email = "test@example.com";
+    private String password = "password";
 
 
     // Accessing the private constructor with reflection
@@ -25,15 +27,15 @@ public class UserDAOTests {
     }
     @Test
     public void testAddAndGetUser() throws Exception {
-        userDAO.addUser(user);
+        userDAO.addUser(username, email, password);
         User retrievedUser = userDAO.getUser("testUser");
-        assertEquals(user.getUserName(), retrievedUser.getUserName());
-        assertEquals(user.getEmail(), retrievedUser.getEmail());
-        assertEquals(user.getPassword(), retrievedUser.getPassword());
+        assertEquals(username, retrievedUser.getUserName());
+        assertEquals(email, retrievedUser.getEmail());
+        assertEquals(password, retrievedUser.getPassword());
     }
     @Test
     public void testDeleteUser() throws Exception {
-        userDAO.deleteUser(user);
+        userDAO.deleteUser(username);
         assertNull(userDAO.getUser("testUser"));
     }
 }

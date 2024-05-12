@@ -11,6 +11,7 @@ public class EventService {
     private static final EventService instance = new EventService();
     private List<INavigationEventListener> loginEventListeners = new ArrayList<>();
     private List<INavigationEventListener> navigationEventListeners = new ArrayList<>();
+
     private EventService() {
 
     }
@@ -30,7 +31,6 @@ public class EventService {
             listener.onLoginSuccessful();
         }
     }
-    //TODO:
     public void notifyNavigationEvent(String fxmlPath) {
         for (INavigationEventListener listener: navigationEventListeners) {
             listener.onNavigationEvent(fxmlPath);

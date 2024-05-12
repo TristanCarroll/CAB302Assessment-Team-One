@@ -1,5 +1,6 @@
 package com.example.byebyeboxeyes;
 
+import com.example.byebyeboxeyes.model.User;
 import javafx.beans.property.*;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -9,6 +10,12 @@ public class StateManager {
     private static final IntegerProperty windowHeight = new SimpleIntegerProperty();
     private static Stage currentStage;
     private static Scene currentScene;
+
+    public static User getCurrentUser() { return currentUser; }
+
+    public static void setCurrentUser(User currentUser) { StateManager.currentUser = currentUser; }
+
+    private static User currentUser;
 
     //TODO: Check if needed
     private static IntegerProperty sceneWidth;
