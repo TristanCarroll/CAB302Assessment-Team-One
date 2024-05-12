@@ -55,9 +55,6 @@ public class Timer {
             seconds = 59;
         }
     }
-
-
-
     public boolean isFinished() {
         return hours == 0 && minutes == 0 && seconds == 0;
     }

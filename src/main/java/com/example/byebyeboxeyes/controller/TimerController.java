@@ -9,13 +9,19 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TimerController implements Initializable {
+public class TimerController implements Initializable, TimerContainer.OnPlayListener {
 
     @FXML
     public AnchorPane currentTimer;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         Timer timer = new Timer(1, 2, 3, 4, 5);
         currentTimer.getChildren().add(new TimerContainer(timer));
+    }
+
+    @Override
+    public void onPlay(TimerContainer timerContainer) {
+
     }
 }

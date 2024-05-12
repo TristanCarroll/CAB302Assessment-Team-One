@@ -10,6 +10,7 @@ import javafx.scene.layout.VBox;
 
 public class TimerContainer extends VBox {
     public Timer timer;
+    private Label timerLabel;
     private OnEditListener onEditListener;
     private OnPlayListener onPlayListener;
     private OnDeleteListener onDeleteListener;
@@ -23,7 +24,7 @@ public class TimerContainer extends VBox {
         timerPane.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
         timerPane.setPrefSize(200, 50);
 
-        Label timerLabel = new Label(this.timer.toString());
+        timerLabel = new Label(this.timer.toString());
         timerLabel.setStyle("-fx-font-size: 14; -fx-font-weight: bold;");
 
         Button editButton = new Button("Edit");
@@ -46,7 +47,9 @@ public class TimerContainer extends VBox {
         timerPane.getChildren().add(hbox);
         getChildren().add(timerPane);
     }
-
+    private void updateTimerText(String newTime) {
+        timerLabel.setText(newTime);
+    }
     private void editTimer() {
         if (onEditListener != null) {
             onEditListener.onEdit(this);
