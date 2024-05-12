@@ -1,7 +1,9 @@
 package com.example.byebyeboxeyes.controller;
 
+import com.example.byebyeboxeyes.StateManager;
 import com.example.byebyeboxeyes.events.EventService;
 import com.example.byebyeboxeyes.events.ITimerPlayListener;
+import com.example.byebyeboxeyes.model.SessionsDAO;
 import com.example.byebyeboxeyes.timer.Timer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -27,7 +29,13 @@ public class TimerController implements Initializable, ITimerPlayListener {
     }
 
     public void onPlay(Timer timer) {
-        TimerContainer timerContainer = new TimerContainer(timer);
+        int sessionID = SessionsDAO.getInstance().startSession(
+                StateManager.getCurrentUser().getUserID(),
+                timer.getTimerID(),
+                //TODO: Helper method for this it's gonna be used a lot
+                System.currentTimeMillis()/1000
+        );
+        CurrentTimerContainer timerContainer = new CurrentTimerContainer(timer);
         currentTimer.getChildren().add(timerContainer);
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
             @Override
@@ -36,6 +44,7 @@ public class TimerController implements Initializable, ITimerPlayListener {
                 timerContainer.updateTimerText(timerContainer.timer.toString());
                 if (timerContainer.timer.isFinished()) {
                     timeline.stop();
+                    SessionsDAO.getInstance().endSession(sessionID, System.currentTimeMillis()/1000);
                 }
             }
         }));
