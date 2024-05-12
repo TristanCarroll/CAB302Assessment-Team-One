@@ -1,6 +1,9 @@
 package com.example.byebyeboxeyes.controller;
 
 import com.example.byebyeboxeyes.StateManager;
+import com.example.byebyeboxeyes.events.EventService;
+import com.example.byebyeboxeyes.events.ITimerDeleteListener;
+import com.example.byebyeboxeyes.events.ITimerEditListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -17,9 +20,8 @@ import com.example.byebyeboxeyes.model.TimerDAO;
 
 public class TimersPageController implements
         Initializable,
-        TimerContainer.OnEditListener,
-        TimerContainer.OnPlayListener,
-        TimerContainer.OnDeleteListener
+        ITimerEditListener,
+        ITimerDeleteListener
 {
 
     @FXML
@@ -37,6 +39,8 @@ public class TimersPageController implements
     public void initialize(URL url, ResourceBundle resourceBundle) {
         recentTimersFlowPane.getChildren().clear();
         displayTimersFromDatabase();
+        EventService.getInstance().addEditListener(this);
+        EventService.getInstance().addDeleteListener(this);
     }
 
     @FXML
@@ -61,8 +65,7 @@ public class TimersPageController implements
 
             int timerID = timerDAO.saveTimer(StateManager.getCurrentUser().getUserID(), hours, minutes, seconds);
             Timer timer = new Timer(timerID, StateManager.getCurrentUser().getUserID(), hours, minutes, seconds);
-            recentTimersFlowPane.getChildren().clear();
-            displayTimersFromDatabase();
+            recentTimersFlowPane.getChildren().add(createTimerContainer(timer));
 
         } catch (NumberFormatException e) {
             e.printStackTrace();
@@ -82,12 +85,9 @@ public class TimersPageController implements
     }
     private Node createTimerContainer(Timer timer) {
         TimerContainer timerContainer = new TimerContainer(timer);
-        timerContainer.setOnEditListener(this);
-        timerContainer.setOnPlayListener(this);
-        timerContainer.setOnDeleteListener(this);
+
         return timerContainer;
     }
-    @Override
     public void onEdit(TimerContainer timerContainer){
         //TODO: Make this a method
         int hours;
@@ -105,13 +105,7 @@ public class TimersPageController implements
         timerContainer.timer.setSeconds(seconds);
 
         timerDAO.updateTimer(timerContainer.timer.getTimerID(), hours, minutes, seconds);
-
-        recentTimersFlowPane.getChildren().clear();
-        displayTimersFromDatabase();
-    }
-    @Override
-    public void onPlay(TimerContainer timerContainer) {
-
+        timerContainer.updateTimerText(timerContainer.timer.toString());
     }
     @Override
     public void onDelete(TimerContainer timerContainer) {

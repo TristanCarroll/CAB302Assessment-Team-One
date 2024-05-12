@@ -1,5 +1,6 @@
 package com.example.byebyeboxeyes.controller;
 
+import com.example.byebyeboxeyes.events.EventService;
 import com.example.byebyeboxeyes.timer.Timer;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -11,9 +12,6 @@ import javafx.scene.layout.VBox;
 public class TimerContainer extends VBox {
     public Timer timer;
     private Label timerLabel;
-    private OnEditListener onEditListener;
-    private OnPlayListener onPlayListener;
-    private OnDeleteListener onDeleteListener;
     public TimerContainer(Timer timer) {
         this.timer = timer;
         createTimerContainer();
@@ -47,40 +45,16 @@ public class TimerContainer extends VBox {
         timerPane.getChildren().add(hbox);
         getChildren().add(timerPane);
     }
-    private void updateTimerText(String newTime) {
+    public void updateTimerText(String newTime) {
         timerLabel.setText(newTime);
     }
     private void editTimer() {
-        if (onEditListener != null) {
-            onEditListener.onEdit(this);
-        }
+        EventService.getInstance().notifyEditButtonClick(this);
     }
     private void playTimer() {
-        if (onPlayListener != null) {
-            onPlayListener.onPlay(this);
-        }
+        EventService.getInstance().notifyPlayButtonClick(this.timer);
     }
     private void deleteTimer() {
-        if (onDeleteListener != null) {
-            onDeleteListener.onDelete(this);
-        }
-    }
-    public void setOnEditListener(OnEditListener onEditListener) {
-        this.onEditListener = onEditListener;
-    }
-    public void setOnPlayListener(OnPlayListener onPlayListener) {
-        this.onPlayListener = onPlayListener;
-    }
-    public void setOnDeleteListener(OnDeleteListener onDeleteListener) {
-        this.onDeleteListener = onDeleteListener;
-    }
-    public interface OnEditListener {
-        void onEdit(TimerContainer timerContainer);
-    }
-    public interface OnPlayListener {
-        void onPlay(TimerContainer timerContainer);
-    }
-    public interface OnDeleteListener {
-        void onDelete(TimerContainer timerContainer);
+        EventService.getInstance().notifyDeleteButtonClick(this);
     }
 }
