@@ -192,7 +192,5 @@ public class TimerDAO {
         void onTimersLoaded(ArrayList<Timer> timers);
     }
 
-
-
 }
 

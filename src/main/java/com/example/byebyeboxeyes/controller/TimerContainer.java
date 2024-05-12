@@ -73,18 +73,18 @@ public class TimerContainer extends VBox {
 
     private void favouriteTimer() {
         if (onFavouriteListener != null) {
-            // Toggle favourite state immediately for UI responsiveness
-            isFavourite = (isFavourite == 1) ? 0 : 1; // Toggle between 0 and 1
-
+            isFavourite = (isFavourite == 1) ? 0 : 1;
             System.out.println("Favourite button clicked. New isFavourite state: " + isFavourite);
 
-            // Notify the listener on the JavaFX Application Thread for UI updates
+            // Update button appearance immediately
+            Platform.runLater(this::updateFavouriteButtonAppearance);
+
+            // Notify the listener (this can still be delayed)
             Platform.runLater(() -> onFavouriteListener.onFavourite(this));
         }
     }
-    public void setFavourite(int isFavourite){
+    public void setFavourite(int isFavourite) {
         this.isFavourite = isFavourite;
-
         Platform.runLater(this::updateFavouriteButtonAppearance);
     }
     public void updateFavouriteButtonAppearance() {

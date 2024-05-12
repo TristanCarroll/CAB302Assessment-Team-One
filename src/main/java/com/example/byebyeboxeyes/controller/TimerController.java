@@ -67,8 +67,8 @@ public class TimerController implements javafx.fxml.Initializable, com.example.b
         timerContainer.setOnEditListener(this);
         timerContainer.setOnPlayListener(this);
         timerContainer.setOnDeleteListener(this);
-        timerContainer.setOnFavouriteListener(this);
         timerContainer.setFavourite(timer.isFavourite());
+        timerContainer.setOnFavouriteListener(this);
         return timerContainer;
     }
 
@@ -88,11 +88,14 @@ public class TimerController implements javafx.fxml.Initializable, com.example.b
             int timerID = timerDAO.saveTimer(2, hours, minutes, seconds, 0);
             Timer timer = new Timer(timerID, 2, hours, minutes, seconds, 0);
             TimerContainer timerContainer = createTimerContainer(timer);
-
-            // Use timersPageController to add the container
-            timersPageController.addToRecent(timerContainer, this);
-
             timerContainers.put(timerID, timerContainer);
+
+            // Conditional logic to determine placement:
+            if (timer.isFavourite() == 1) {
+                timersPageController.addToFavourites(timerContainer, this);
+            } else {
+                timersPageController.addToRecent(timerContainer, this);
+            }
 
             clearInputFields();
         } catch (NumberFormatException e) {

@@ -44,8 +44,6 @@ public class TimersPageController implements Initializable, TimerContainer.OnEdi
                 allTimers = timers;
                 for (Timer timer : allTimers) {
                     TimerContainer container = createTimerContainer(timer);
-                    container.setOnPlayListener(this);
-                    container.setOnFavouriteListener(this);
 
                     // Set the correct favourite status after the container is created
                     container.setFavourite(timerDAO.isTimerFavourite(timer.getTimerID())); // Update based on database value
@@ -55,19 +53,20 @@ public class TimersPageController implements Initializable, TimerContainer.OnEdi
 
 
                     // Add the container to the correct FlowPane
-                    if (container.isFavourite() == 1) {
+                        if (container.isFavourite() == 1) {
                         addToFavourites(container, targetController);
                     } else {
                         addToRecent(container, targetController);
                     }
-                    addToRecent(container, targetController);
+                    container.setOnFavouriteListener(this);
+                    container.setOnPlayListener(this);
                 }
             });
         });
     }
 
     // Modify these methods to take a TimerController as an argument:
-    private void addToFavourites(TimerContainer container, TimerController controller) {
+    public void addToFavourites(TimerContainer container, TimerController controller) {
         if (controller != null) {
             controller.favouriteTimersFlowPane.getChildren().add(container);
         } else {
@@ -86,22 +85,27 @@ public class TimersPageController implements Initializable, TimerContainer.OnEdi
     @FXML
     public void createNewTimer() {
         try {
-            int hours = getValidatedIntFromTextField(hoursField, 0, 23); // 0-23 hours
-            int minutes = getValidatedIntFromTextField(minutesField, 0, 59); // 0-59 minutes
-            int seconds = getValidatedIntFromTextField(secondsField, 0, 59); // 0-59 seconds
+            int hours = getValidatedIntFromTextField(hoursField, 0, 23);
+            int minutes = getValidatedIntFromTextField(minutesField, 0, 59);
+            int seconds = getValidatedIntFromTextField(secondsField, 0, 59);
 
-            int timerID = timerDAO.saveTimer(1, hours, minutes, seconds, 0); // Set favorite to 0 (false)
+            int timerID = timerDAO.saveTimer(1, hours, minutes, seconds, 0);
             Timer timer = new Timer(timerID, 1, hours, minutes, seconds, 0);
             TimerContainer timerContainer = createTimerContainer(timer);
-            favouriteTimersFlowPane.getChildren().add(0, timerContainer); // Add to favoriteTimersFlowPane
-
             timerContainers.put(timerID, timerContainer);
+
+            // Determine the target FlowPane (recent or favorite)
+            FlowPane targetPane = (timer.isFavourite() == 1) ? favouriteTimersFlowPane : recentTimersFlowPane;
+
+            // Add the TimerContainer to the correct FlowPane
+            targetPane.getChildren().add(0, timerContainer);
 
             clearInputFields();
         } catch (NumberFormatException e) {
             showAlert("Invalid Input", "Please enter valid numbers for hours, minutes, and seconds.");
         }
     }
+
 
     private void displayTimersFromDatabase() {
         for (Timer timer : allTimers) {
@@ -121,11 +125,19 @@ public class TimersPageController implements Initializable, TimerContainer.OnEdi
 
     private TimerContainer createTimerContainer(Timer timer) {
         TimerContainer timerContainer = new TimerContainer(timer);
+        // Set the favourite listener first
+        timerContainer.setOnFavouriteListener(this);
+        // Then set other listeners
         timerContainer.setOnEditListener(this);
         timerContainer.setOnPlayListener(this);
         timerContainer.setOnDeleteListener(this);
+
+        // Set the correct favourite status after the container is created
+        timerContainer.setFavourite(timerDAO.isTimerFavourite(timer.getTimerID()));
+
         return timerContainer;
     }
+
 
     private void clearInputFields() {
         hoursField.clear();
