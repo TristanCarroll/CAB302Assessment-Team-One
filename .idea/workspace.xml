@@ -4,12 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Display mock current timer, edit timers">
+    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Started working on timer countdown">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/timer/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/timer/Timer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/current-timer-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/current-timer-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/LandingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/LandingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/NavigationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/NavigationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SettingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/home-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/landing-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/landing-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/settings-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/settings-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/signup-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/signup-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tests/MockSqliteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/java/MockSqliteConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tests/TimerDAOTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/java/TimerDAOTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tests/TimerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/java/TimerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tests/UserDAOTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/java/UserDAOTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tests/UserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/java/UserTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,30 +63,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.All in ByeByeBoxEyes.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TimerDAOTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TimerTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserDaoTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserTests.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;timers&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ashwipe/Desktop/drip-feed-cab302/CAB302Assessment-Team-One/src/main/resources/com/example/byebyeboxeyes/images&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.All in ByeByeBoxEyes.executor": "Run",
+    "JUnit.TimerDAOTests.executor": "Run",
+    "JUnit.TimerTests.executor": "Run",
+    "JUnit.UserDaoTests.executor": "Run",
+    "JUnit.UserTests.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Merging timers",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ashwipe/Desktop/drip-feed-cab302/CAB302Assessment-Team-One/src/main/resources/com/example/byebyeboxeyes/images",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ashwipe\Desktop\drip-feed-cab302\CAB302Assessment-Team-One\src\main\resources\com\example\byebyeboxeyes\images" />
@@ -257,7 +268,8 @@
     <MESSAGE value="Removed error, added todo" />
     <MESSAGE value="Created TimerContainer class and modified some logic in the TimerDAO and Timer classes to make use of primary keys. These changes allow for interacting with specific timer containers within the recentTimersflowPane within the TimersPageController" />
     <MESSAGE value="Display mock current timer, edit timers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Display mock current timer, edit timers" />
+    <MESSAGE value="Started working on timer countdown" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started working on timer countdown" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -268,10 +280,14 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/NavigationController.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="10" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
