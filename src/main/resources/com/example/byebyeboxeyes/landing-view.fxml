@@ -41,7 +41,7 @@
       </children>
     </StackPane>
     <!-- Left Half -->
-    <VBox alignment="CENTER" spacing="20.0">
+    <VBox alignment="CENTER" prefHeight="216.0" prefWidth="286.0" spacing="20.0">
 <!--      TODO: Center the label text perhaps with an id later in the CSS-->
       <Label text="Enter your details below to sign in" />
       <GridPane alignment="CENTER" hgap="5.0" prefHeight="187.0" prefWidth="231.0" vgap="10.0">
@@ -57,19 +57,20 @@
           <Button fx:id="loginButton" contentDisplay="CENTER" onAction="#onLoginButtonClick" text="Login" />
           <Button fx:id="closeButton" contentDisplay="CENTER" onAction="#onCloseButtonClick" text="Close" />
         </HBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
               <Hyperlink fx:id="hyperlink" alignment="CENTER" contentDisplay="CENTER" onAction="#onNoAccountClick" prefHeight="23.0" prefWidth="143.0" text="Don't have an account?" />
                   <Label text="or" />
-                  <Hyperlink fx:id="hyperlink1" alignment="CENTER" contentDisplay="CENTER"  onAction="#onForgotPwdClick" prefHeight="23.0" prefWidth="143.0" text="Forgot your password?" />
+                  <Hyperlink fx:id="hyperlink1" alignment="CENTER" contentDisplay="CENTER" onAction="#onForgotPwdClick" prefHeight="23.0" prefWidth="143.0" text="Forgot your password?" />
                </children>
             </VBox>
         <rowConstraints>
           <RowConstraints />
           <RowConstraints />
           <RowConstraints />
-          <RowConstraints maxHeight="41.0" minHeight="30.0" prefHeight="41.0" />
-               <RowConstraints maxHeight="41.0" minHeight="0.0" prefHeight="0.0" />
+          <RowConstraints maxHeight="41.0" minHeight="30.0" prefHeight="30.0" />
+               <RowConstraints maxHeight="41.0" minHeight="7.0" prefHeight="8.0" />
+               <RowConstraints maxHeight="41.0" minHeight="0.0" prefHeight="22.0" />
           <RowConstraints maxHeight="50.0" minHeight="4.0" prefHeight="50.0" />
         </rowConstraints>
       </GridPane>
