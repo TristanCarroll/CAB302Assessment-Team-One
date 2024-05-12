@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Merged with main">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/ITimerDeleteListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/ITimerEditListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/ITimerPlayListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/EventService.java" afterDir="false" />
-    </list>
+    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Added interfaces for DAO's.&#10;Added SessionsDAO to track completed timers.&#10;Added CurrentTimerContainer JavaFX object to display current timer." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,9 +13,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -84,7 +75,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "timers",
+    "git-widget-placeholder": "sessions",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ashwipe/Desktop/drip-feed-cab302/CAB302Assessment-Team-One/src/main/resources/com/example/byebyeboxeyes/images",
     "project.structure.last.edited": "Libraries",
@@ -243,7 +234,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715489246729</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Current timer functionality working. Reworked play/edit/delete button functionality.">
+      <option name="closed" value="true" />
+      <created>1715496763777</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1715496763777</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added interfaces for DAO's.&#10;Added SessionsDAO to track completed timers.&#10;Added CurrentTimerContainer JavaFX object to display current timer.">
+      <option name="closed" value="true" />
+      <created>1715514580241</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1715514580241</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -284,7 +291,9 @@
     <MESSAGE value="Display mock current timer, edit timers" />
     <MESSAGE value="Started working on timer countdown" />
     <MESSAGE value="Merged with main" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merged with main" />
+    <MESSAGE value="Current timer functionality working. Reworked play/edit/delete button functionality." />
+    <MESSAGE value="Added interfaces for DAO's.&#10;Added SessionsDAO to track completed timers.&#10;Added CurrentTimerContainer JavaFX object to display current timer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added interfaces for DAO's.&#10;Added SessionsDAO to track completed timers.&#10;Added CurrentTimerContainer JavaFX object to display current timer." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -295,14 +304,9 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/NavigationController.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="15" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalStateException" package="java.lang" />

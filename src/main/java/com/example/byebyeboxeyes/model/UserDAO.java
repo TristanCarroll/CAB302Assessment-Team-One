@@ -1,12 +1,12 @@
 package com.example.byebyeboxeyes.model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
-public class UserDAO {
+public class UserDAO implements IUserDAO{
     private Connection connection;
+    //TODO:
+    //  Use an interface instead of the SqliteConnection class in all DAO's.
+    //  May need to use a dependancy injection framework if we want to keep the constructor private.
     private static UserDAO instance = new UserDAO(SqliteConnection.getInstance());
     private UserDAO(Connection connection) {
         this.connection = connection;
@@ -50,7 +50,7 @@ public class UserDAO {
         }
         return null;
     }
-    public void addUser(String userName, String email, String password) throws Exception {
+    public void addUser(String userName, String email, String password) {
         String query =
                 "INSERT INTO users (userName, email, password)" +
                 "VALUES (?, ?, ?)";
@@ -61,15 +61,19 @@ public class UserDAO {
             statement.executeUpdate();
             // TODO: Debugging - Remove this
             System.out.println(statement);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
-    public void deleteUser(String username) throws Exception {
+    public void deleteUser(String username) {
         String query = "DELETE FROM users WHERE userName = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, username);
             statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
