@@ -10,8 +10,9 @@ import javafx.scene.layout.VBox;
 
 public class TimerContainer extends VBox {
     public Timer timer;
+    private OnEditListener onEditListener;
+    private OnPlayListener onPlayListener;
     private OnDeleteListener onDeleteListener;
-
     public TimerContainer(Timer timer) {
         this.timer = timer;
         createTimerContainer();
@@ -47,19 +48,35 @@ public class TimerContainer extends VBox {
     }
 
     private void editTimer() {
+        if (onEditListener != null) {
+            onEditListener.onEdit(this);
+        }
     }
-
     private void playTimer() {
+        if (onPlayListener != null) {
+            onPlayListener.onPlay(this);
+        }
     }
     private void deleteTimer() {
         if (onDeleteListener != null) {
             onDeleteListener.onDelete(this);
         }
     }
+    public void setOnEditListener(OnEditListener onEditListener) {
+        this.onEditListener = onEditListener;
+    }
+    public void setOnPlayListener(OnPlayListener onPlayListener) {
+        this.onPlayListener = onPlayListener;
+    }
     public void setOnDeleteListener(OnDeleteListener onDeleteListener) {
         this.onDeleteListener = onDeleteListener;
     }
-
+    public interface OnEditListener {
+        void onEdit(TimerContainer timerContainer);
+    }
+    public interface OnPlayListener {
+        void onPlay(TimerContainer timerContainer);
+    }
     public interface OnDeleteListener {
         void onDelete(TimerContainer timerContainer);
     }

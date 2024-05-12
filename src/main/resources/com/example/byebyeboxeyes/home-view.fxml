@@ -5,20 +5,45 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="mainBorderPane" prefHeight="400.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.byebyeboxeyes.controller.HomeController">
+<BorderPane fx:id="mainBorderPane"
+            prefHeight="400.0"
+            prefWidth="591.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.byebyeboxeyes.controller.HomeController">
     <left>
         <VBox prefHeight="400.0" prefWidth="93.0">
             <VBox>
+                <fx:include source = "current-timer-view.fxml"
+                            prefHeight="50.0"
+                            prefWidth="116.0"/>
                 <children>
-                    <Button fx:id="timersNavButton" focusTraversable="false" onAction="#onNavButtonClick" prefHeight="50.0" prefWidth="116.0" text="Timers">
+                    <Button fx:id="timersNavButton"
+                            focusTraversable="false"
+                            onAction="#onNavButtonClick"
+                            prefHeight="50.0"
+                            prefWidth="116.0"
+                            text="Timers">
                         <VBox.margin>
                             <Insets />
                         </VBox.margin></Button>
-                    <Button fx:id="statisticsNavButton" alignment="CENTER" focusTraversable="false" onAction="#onNavButtonClick" prefHeight="50.0" prefWidth="116.0" text="Statistics">
+                    <Button fx:id="statisticsNavButton"
+                            alignment="CENTER"
+                            focusTraversable="false"
+                            onAction="#onNavButtonClick"
+                            prefHeight="50.0"
+                            prefWidth="116.0"
+                            text="Statistics">
                         <VBox.margin>
                             <Insets />
                         </VBox.margin></Button>
-                    <Button fx:id="goalsNavButton" contentDisplay="CENTER" focusTraversable="false" onAction="#onNavButtonClick" prefHeight="50.0" prefWidth="116.0" text="Goals">
+                    <Button fx:id="goalsNavButton"
+                            contentDisplay="CENTER"
+                            focusTraversable="false"
+                            onAction="#onNavButtonClick"
+                            prefHeight="50.0"
+                            prefWidth="116.0"
+                            text="Goals">
                         <VBox.margin>
                             <Insets />
                         </VBox.margin></Button>
@@ -34,7 +59,13 @@
         <fx:include source="timer-view.fxml" />
     </center>
    <right>
-      <ImageView fx:id="settingsNavButton" fitHeight="24.0" fitWidth="23.0" onMouseClicked="#onImageClick" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_RIGHT">
+      <ImageView fx:id="settingsNavButton"
+                 fitHeight="24.0"
+                 fitWidth="23.0"
+                 onMouseClicked="#onImageClick"
+                 pickOnBounds="true"
+                 preserveRatio="true"
+                 BorderPane.alignment="TOP_RIGHT">
          <image>
             <Image url="@images/settings-icon.png" />
          </image>

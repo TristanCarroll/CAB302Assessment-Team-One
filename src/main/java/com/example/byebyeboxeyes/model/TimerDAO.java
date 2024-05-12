@@ -94,12 +94,32 @@ public class TimerDAO {
 
         return timers;
     }
-    public void deleteTimer(int pk) throws Exception {
+    public void deleteTimer(int pk) {
         String query = "DELETE FROM timers WHERE id = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, pk);
             statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void updateTimer(int pk, int hours, int minutes, int seconds) {
+        String query =
+                "UPDATE " + TABLE_NAME + "\n" +
+                "SET " + COLUMN_HOURS + " = ?, " +
+                COLUMN_MINUTES + " = ?, " +
+                COLUMN_SECONDS + " = ?\n" +
+                "WHERE " + COLUMN_ID + " = ?";
+
+        try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+            pstmt.setInt(1, hours);
+            pstmt.setInt(2, minutes);
+            pstmt.setInt(3, seconds);
+            pstmt.setInt(4, pk);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
