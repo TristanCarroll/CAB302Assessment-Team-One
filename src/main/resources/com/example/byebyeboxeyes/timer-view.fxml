@@ -16,6 +16,8 @@
 
         <VBox alignment="CENTER" spacing="20.0" GridPane.columnIndex="0">
             <Label text="Timers"  style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+            <Label text="Favourite Timers" style="-fx-font-weight: bold;" />
+            <FlowPane fx:id="favouriteTimersFlowPane" hgap="10" vgap="10" />
             <HBox alignment="CENTER" spacing="10">
                 <Label text="New Timer" />
                 <TextField fx:id="hoursField" promptText="Hours" maxWidth="50" />
@@ -29,3 +31,4 @@
         </VBox>
     </GridPane>
 </StackPane>
+

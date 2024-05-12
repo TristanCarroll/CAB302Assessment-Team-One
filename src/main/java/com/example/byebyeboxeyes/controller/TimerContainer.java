@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.application.Platform;
 
 public class TimerContainer extends VBox {
     public Timer timer;
@@ -14,10 +15,27 @@ public class TimerContainer extends VBox {
     private OnEditListener onEditListener;
     private OnPlayListener onPlayListener;
     private OnDeleteListener onDeleteListener;
+    private OnFavouriteListener onFavouriteListener; // Declare the listener
+    private int isFavourite = 0; //track if it is a favourite timer
+    private Button favouriteButton;
+    private TimerController controller;
+
+    public TimerController getController() {
+        return controller;
+    }
+
+    public TimerContainer(Timer timer, TimerController controller) {
+        this.timer = timer;
+        this.controller = controller; // Store the controller reference
+        createTimerContainer();
+    }
+
     public TimerContainer(Timer timer) {
         this.timer = timer;
         createTimerContainer();
+
     }
+
 
     private void createTimerContainer() {
         StackPane timerPane = new StackPane();
@@ -46,6 +64,39 @@ public class TimerContainer extends VBox {
 
         timerPane.getChildren().add(hbox);
         getChildren().add(timerPane);
+
+        favouriteButton = new Button("Favourite");
+        favouriteButton.setOnAction(event -> favouriteTimer());
+        // Add to the VBox
+        vbox.getChildren().add(favouriteButton);
+    }
+
+    private void favouriteTimer() {
+        if (onFavouriteListener != null) {
+            // Toggle favourite state immediately for UI responsiveness
+            isFavourite = (isFavourite == 1) ? 0 : 1; // Toggle between 0 and 1
+
+            System.out.println("Favourite button clicked. New isFavourite state: " + isFavourite);
+
+            // Notify the listener on the JavaFX Application Thread for UI updates
+            Platform.runLater(() -> onFavouriteListener.onFavourite(this));
+        }
+    }
+    public void setFavourite(int isFavourite){
+        this.isFavourite = isFavourite;
+
+        Platform.runLater(this::updateFavouriteButtonAppearance);
+    }
+    public void updateFavouriteButtonAppearance() {
+        if (isFavourite == 1) {
+            favouriteButton.setText("Unfavourite");
+        } else {
+            favouriteButton.setText("Favourite");
+        }
+    }
+
+    public int isFavourite() {
+        return isFavourite;
     }
     private void updateTimerText(String newTime) {
         timerLabel.setText(newTime);
@@ -83,4 +134,12 @@ public class TimerContainer extends VBox {
     public interface OnDeleteListener {
         void onDelete(TimerContainer timerContainer);
     }
+    public interface OnFavouriteListener {
+        void onFavourite(TimerContainer timerContainer);
+    }
+
+    public void setOnFavouriteListener(OnFavouriteListener onFavouriteListener) {
+        this.onFavouriteListener = onFavouriteListener;
+    }
 }
+

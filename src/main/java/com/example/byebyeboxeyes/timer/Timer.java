@@ -6,13 +6,15 @@ public class Timer {
     private int hours;
     private int minutes;
     private int seconds;
+    private int isFavourite;
 
-    public Timer(int timerID, int userID, int hours, int minutes, int seconds) {
+    public Timer(int timerID, int userID, int hours, int minutes, int seconds, int isFavourite) {
         this.timerID = timerID;
         this.userID = userID;
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
+        this.isFavourite = isFavourite;
     }
 
     // Getters, setters
@@ -41,6 +43,7 @@ public class Timer {
         this.seconds = seconds;
     }
     public void setUserID(int userID) { this.userID = userID; }
+    public void setIsFavourite(int isFavourite) { this.isFavourite = isFavourite; }
 
 
     public void decrementTime() {
@@ -58,6 +61,11 @@ public class Timer {
     public boolean isFinished() {
         return hours == 0 && minutes == 0 && seconds == 0;
     }
+
+    public int isFavourite() {
+        return isFavourite;
+    }
+
 
     @Override
     public String toString() {
