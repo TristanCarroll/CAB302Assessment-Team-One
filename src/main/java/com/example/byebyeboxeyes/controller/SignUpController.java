@@ -12,6 +12,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
+
+import java.security.MessageDigest;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -68,8 +70,8 @@ public class SignUpController {
                 userDAO.addUser(
                         registerUserNameTextField.getText(),
                         registerEmailTextField.getText(),
-                        registerPasswordTextField.getText()
-                );
+                        passwordHash(registerPasswordTextField.getText()
+                ));
                 StateManager.setCurrentUser(userDAO.getUser(registerUserNameTextField.getText()));
                 EventService.getInstance().notifyLoginSuccessful();
             } else {
@@ -88,6 +90,24 @@ public class SignUpController {
             }
             alert.showAndWait();
         }
+    }
+
+    // Double check implementation is correct
+    public static String passwordHash(String password) {
+
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(password.getBytes());
+            byte[] rbt = md.digest();
+            StringBuilder sb = new StringBuilder();
+            for(byte b: rbt) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        }catch (Exception e) {
+
+        }
+        return null;
     }
 
     public void oncancelButtonClick(ActionEvent actionEvent) {
