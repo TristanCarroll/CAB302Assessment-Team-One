@@ -13,9 +13,9 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
 import java.sql.SQLException;
 import java.util.Objects;
+import static com.example.byebyeboxeyes.controller.SignUpController.passwordHash;
 
 public class LandingController {
     @FXML
@@ -36,10 +36,10 @@ public class LandingController {
         //setupListener();
     }
 
-    /**
-     * Creates a listener for the window height property of the StateManager,
-     * and adjusts the bottom padding accordingly.
-     */
+//    /*
+//     * Creates a listener for the window height property of the StateManager,
+//     * and adjusts the bottom padding accordingly.
+//     */
 //    private void setupListener() {
 //        StateManager.windowHeightProperty().addListener((obs, oldVal, newVal) -> {
 //            double paddingValue = newVal.doubleValue() * 0.60; // 60% of height
@@ -57,7 +57,7 @@ public class LandingController {
         String test = userNameTextField.getText();
         User user = userDAO.getUser(userNameTextField.getText());
         if (user != null) {
-            if (Objects.equals(user.getPassword(), passwordTextField.getText())) {
+            if (Objects.equals(user.getPassword(), passwordHash(passwordTextField.getText()))) {
                 StateManager.setCurrentUser(user);
                 EventService.getInstance().notifyLoginSuccessful();
             } else {
