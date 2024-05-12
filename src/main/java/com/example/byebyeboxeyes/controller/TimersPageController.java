@@ -225,10 +225,11 @@ public class TimersPageController implements Initializable, TimerContainer.OnEdi
     @Override
     public void onDelete(TimerContainer timerContainer) {
         recentTimersFlowPane.getChildren().remove(timerContainer);
+        favouriteTimersFlowPane.getChildren().remove(timerContainer); // Also remove from favouriteTimersFlowPane
+
         try {
             TimerDAO.getInstance().deleteTimer(timerContainer.timer.getTimerID());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
