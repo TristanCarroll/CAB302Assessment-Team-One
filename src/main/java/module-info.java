@@ -4,6 +4,7 @@ module com.example.byebyeboxeyes {
     requires java.sql;
     requires jdk.jpackage;
     requires org.apache.commons.text;
+    requires java.mail;
 
     opens com.example.byebyeboxeyes.model;
     opens com.example.byebyeboxeyes to javafx.fxml;
