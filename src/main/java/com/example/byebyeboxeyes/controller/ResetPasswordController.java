@@ -3,6 +3,8 @@ package com.example.byebyeboxeyes.controller;
 import com.example.byebyeboxeyes.StateManager;
 import com.example.byebyeboxeyes.events.EventService;
 import static com.example.byebyeboxeyes.controller.SignUpController.passwordHash;
+
+import com.example.byebyeboxeyes.model.User;
 import com.example.byebyeboxeyes.model.UserDAO;
 
 import com.example.byebyeboxeyes.model.UserDAO;
@@ -20,6 +22,8 @@ import javax.mail.internet.MimeMessage;
 
 import static org.apache.commons.text.CharacterPredicates.DIGITS;
 import static org.apache.commons.text.CharacterPredicates.LETTERS;
+
+import java.util.Objects;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -80,28 +84,35 @@ public class ResetPasswordController {
             Pattern pattern = Pattern.compile(emailPattern);
             Matcher matcher = pattern.matcher(resetPwdEmail.getText());
             if (matcher.matches()) {
-                try {
-                    MimeMessage message = new MimeMessage(session);
-                    message.setFrom(new InternetAddress(username));
-                    message.addRecipient(Message.RecipientType.TO,new InternetAddress(resetPwdEmail.getText()));
-                    message.setSubject(" NEW TEMPORARY PASSWORD ");
-                    //Text in email
-                    String emailMessage = String.format("Hello, %s. Here is your temporary password: \n %s", resetPwdUsername.getText(), newTempPassword);
-                    System.out.println(emailMessage);
-                    message.setText(emailMessage);
-                    //send the message
-                    Transport.send(message);
+                User user = userDAO.getUser(resetPwdUsername.getText());
+                if (Objects.equals(user.getEmail(), resetPwdEmail.getText())) {
+                    try {
+                        MimeMessage message = new MimeMessage(session);
+                        message.setFrom(new InternetAddress(username));
+                        message.addRecipient(Message.RecipientType.TO,new InternetAddress(resetPwdEmail.getText()));
+                        message.setSubject(" NEW TEMPORARY PASSWORD ");
+                        //Text in email
+                        String emailMessage = String.format("Hello, %s. Here is your temporary password: \n %s", resetPwdUsername.getText(), newTempPassword);
+                        System.out.println(emailMessage);
+                        message.setText(emailMessage);
+                        //send the message
+                        Transport.send(message);
 
-                    System.out.println("message sent successfully via mail ... !!! ");
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Reset Password");
-                    alert.setHeaderText("Email Has Been Sent");
-                    alert.setContentText("An email containing a temporary password for you to log in with has been sent.");
-                    alert.showAndWait();
-                    String userEmail = resetPwdEmail.getText();
-                    userDAO.updateUserPassword(passwordHash(newTempPassword), userEmail);
-                    System.out.println("password updated.");
-                } catch (MessagingException e) {e.printStackTrace();}
+                        System.out.println("message sent successfully via mail ... !!! ");
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Reset Password");
+                        alert.setHeaderText("Email Has Been Sent");
+                        alert.setContentText("An email containing a temporary password for you to log in with has been sent.");
+                        alert.showAndWait();
+                        String userEmail = resetPwdEmail.getText();
+                        userDAO.updateUserPassword(passwordHash(newTempPassword), userEmail);
+                        System.out.println("password updated.");
+                    } catch (MessagingException e) {e.printStackTrace();}
+                }
+                else {
+                    throw new Exception("Email did not match.");
+                }
+
             } else {
                 throw new Exception("Email is invalid");
             }
