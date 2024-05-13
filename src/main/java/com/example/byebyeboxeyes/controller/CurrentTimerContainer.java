@@ -21,7 +21,7 @@ public class CurrentTimerContainer extends VBox {
     private void createContainer() {
         StackPane timerPane = new StackPane();
         timerPane.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
-        timerPane.setPrefSize(200, 50);
+        timerPane.setPrefSize(140, 50);
 
         timerLabel = new Label(this.timer.toString());
         timerLabel.setStyle("-fx-font-size: 14; -fx-font-weight: bold;");
