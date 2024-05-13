@@ -1,8 +1,13 @@
 package com.example.byebyeboxeyes.controller;
 
 import com.example.byebyeboxeyes.StateManager;
+import com.example.byebyeboxeyes.events.EventService;
+import com.example.byebyeboxeyes.events.ITimerDeleteListener;
+import com.example.byebyeboxeyes.events.ITimerEditListener;
+import com.example.byebyeboxeyes.events.ITimerFavouriteListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -17,7 +22,15 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 
-public class TimersPageController implements Initializable, TimerContainer.OnEditListener, TimerContainer.OnPlayListener, TimerContainer.OnDeleteListener, TimerContainer.OnFavouriteListener {
+import com.example.byebyeboxeyes.timer.Timer;
+import com.example.byebyeboxeyes.model.TimerDAO;
+
+public class TimersPageController implements
+        Initializable,
+        ITimerEditListener,
+        ITimerDeleteListener,
+        ITimerFavouriteListener
+{
 
     @FXML
     private TextField hoursField;
@@ -38,6 +51,10 @@ public class TimersPageController implements Initializable, TimerContainer.OnEdi
     public void initialize(URL location, ResourceBundle resources) {
         recentTimersFlowPane.getChildren().clear();
         favouriteTimersFlowPane.getChildren().clear();
+        displayTimersFromDatabase();
+        EventService.getInstance().addEditListener(this);
+        EventService.getInstance().addDeleteListener(this);
+        EventService.getInstance().addFavouriteListener(this);
 
         timerDAO.loadTimers(StateManager.getCurrentUser().getUserID(), timers -> {
             Platform.runLater(() -> {
@@ -51,35 +68,22 @@ public class TimersPageController implements Initializable, TimerContainer.OnEdi
                     TimerController targetController = timerContainers.containsKey(timer.getTimerID()) ?
                             timerContainers.get(timer.getTimerID()).getController() : null;
 
-
                     // Add the container to the correct FlowPane
-                        if (container.isFavourite() == 1) {
-                        addToFavourites(container, targetController);
+                    if (container.isFavourite() == 1) {
+                        addToFavourites(container);
                     } else {
-                        addToRecent(container, targetController);
+                        addToRecent(container);
                     }
-                    container.setOnFavouriteListener(this);
-                    container.setOnPlayListener(this);
                 }
             });
         });
     }
-
-    // Modify these methods to take a TimerController as an argument:
-    public void addToFavourites(TimerContainer container, TimerController controller) {
-        if (controller != null) {
-            controller.favouriteTimersFlowPane.getChildren().add(container);
-        } else {
-            favouriteTimersFlowPane.getChildren().add(container); // Fallback
-        }
+    public void addToFavourites(TimerContainer container) {
+            favouriteTimersFlowPane.getChildren().add(container);
     }
 
-    public void addToRecent(TimerContainer container, TimerController controller) {
-        if (controller != null) {
-            controller.timerList.getChildren().add(container); // Add to the controller's timerList
-        } else {
-            recentTimersFlowPane.getChildren().add(container); // Fallback
-        }
+    public void addToRecent(TimerContainer container) {
+            recentTimersFlowPane.getChildren().add(container);
     }
 
     @FXML
@@ -106,39 +110,27 @@ public class TimersPageController implements Initializable, TimerContainer.OnEdi
         }
     }
 
-
     private void displayTimersFromDatabase() {
-        for (Timer timer : allTimers) {
-            TimerContainer timerContainer = createTimerContainer(timer);
-            if (timerContainer.isFavourite() == 1) { // Compare to 1 for favorite
-                favouriteTimersFlowPane.getChildren().add(timerContainer);
+        for (Map.Entry<Integer, TimerContainer> entry : timerContainers.entrySet()) {
+//            TimerContainer timerContainer = createTimerContainer(timer);
+            if (entry.getValue().isFavourite() == 1) { // Compare to 1 for favorite
+                favouriteTimersFlowPane.getChildren().add(entry.getValue());
             } else {
-                recentTimersFlowPane.getChildren().add(timerContainer);
+                recentTimersFlowPane.getChildren().add(entry.getValue());
             }
-            timerContainers.put(timer.getTimerID(), timerContainer);
+//            timerContainers.put(timer.getTimerID(), timerContainer);
         }
-
         Button addButton = new Button("Add");
         addButton.setOnAction(event -> createNewTimer());
         recentTimersFlowPane.getChildren().add(addButton);
     }
-
     private TimerContainer createTimerContainer(Timer timer) {
         TimerContainer timerContainer = new TimerContainer(timer);
-        // Set the favourite listener first
-        timerContainer.setOnFavouriteListener(this);
-        // Then set other listeners
-        timerContainer.setOnEditListener(this);
-        timerContainer.setOnPlayListener(this);
-        timerContainer.setOnDeleteListener(this);
-
-        // Set the correct favourite status after the container is created
         timerContainer.setFavourite(timerDAO.isTimerFavourite(timer.getTimerID()));
+
 
         return timerContainer;
     }
-
-
     private void clearInputFields() {
         hoursField.clear();
         minutesField.clear();
@@ -152,7 +144,6 @@ public class TimersPageController implements Initializable, TimerContainer.OnEdi
         }
         return value;
     }
-
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -183,7 +174,6 @@ public class TimersPageController implements Initializable, TimerContainer.OnEdi
         }
     }
 
-
     @Override
     public void onEdit(TimerContainer timerContainer){
         //TODO: Make this a method
@@ -201,26 +191,8 @@ public class TimersPageController implements Initializable, TimerContainer.OnEdi
         timerContainer.timer.setMinutes(minutes);
         timerContainer.timer.setSeconds(seconds);
 
-        int isFavourite = timerContainer.isFavourite();
-
-        timerContainer.timer.setHours(hours);
-        timerContainer.timer.setMinutes(minutes);
-        timerContainer.timer.setSeconds(seconds);
-
-        timerDAO.updateTimer(
-                timerContainer.timer.getTimerID(),
-                hours,
-                minutes,
-                seconds,
-                timerContainer.timer.isFavourite()
-        );
-
-        recentTimersFlowPane.getChildren().clear();
-        displayTimersFromDatabase();
-    }
-    @Override
-    public void onPlay(TimerContainer timerContainer) {
-
+        timerDAO.updateTimer(timerContainer.timer.getTimerID(), hours, minutes, seconds, timerContainer.timer.isFavourite());
+        timerContainer.updateTimerText(timerContainer.timer.toString());
     }
     @Override
     public void onDelete(TimerContainer timerContainer) {

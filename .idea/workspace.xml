@@ -4,7 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="fixed bug with deleting fav timers" />
+    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="fixed bug with deleting fav timers">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/CurrentTimerContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/ITimerDeleteListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/ITimerEditListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/ITimerPlayListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/ISessionsDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/ITimerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/IUserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/SessionsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/EventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/SqliteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/SqliteConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/TimerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/TimerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/home-view.fxml" afterDir="false" />
+    </list>
+    <list id="80642f30-b092-4649-847e-c8ca193cd840" name="Changes by TJ" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +37,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
-        <option value="Interface" />
         <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -26,6 +50,52 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="3" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="11" end1="11" start2="12" end2="14" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="14" end1="18" start2="17" end2="17" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="29" end1="30" start2="28" end2="29" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="34" end1="36" start2="33" end2="34" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="38" end1="40" start2="36" end2="37" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="73" end1="85" start2="70" end2="82" changelist="80642f30-b092-4649-847e-c8ca193cd840" />
+        <range start1="100" end1="101" start2="97" end2="98" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="104" end1="107" start2="101" end2="102" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="109" end1="112" start2="104" end2="105" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="114" end1="117" start2="107" end2="108" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="118" end1="138" start2="109" end2="111" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="140" end1="143" start2="113" end2="113" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="145" end1="146" start2="115" end2="115" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java">
+      <ranges>
+        <range start1="3" end1="3" start2="3" end2="7" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="5" end1="5" start2="9" end2="10" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="19" end1="20" start2="24" end2="33" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="40" end1="40" start2="53" end2="57" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="53" end1="54" start2="70" end2="70" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="55" end1="57" start2="71" end2="73" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="58" end1="59" start2="74" end2="75" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="60" end1="62" start2="76" end2="76" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="66" end1="74" start2="80" end2="82" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="76" end1="82" start2="84" end2="86" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="108" end1="109" start2="112" end2="112" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="110" end1="114" start2="113" end2="117" changelist="80642f30-b092-4649-847e-c8ca193cd840" />
+        <range start1="115" end1="116" start2="118" end2="119" changelist="80642f30-b092-4649-847e-c8ca193cd840" />
+        <range start1="117" end1="118" start2="120" end2="121" changelist="80642f30-b092-4649-847e-c8ca193cd840" />
+        <range start1="119" end1="120" start2="122" end2="122" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="124" end1="125" start2="126" end2="126" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="127" end1="135" start2="128" end2="128" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="137" end1="137" start2="130" end2="131" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="139" end1="141" start2="133" end2="133" changelist="80642f30-b092-4649-847e-c8ca193cd840" />
+        <range start1="154" end1="155" start2="146" end2="146" changelist="80642f30-b092-4649-847e-c8ca193cd840" />
+        <range start1="184" end1="185" start2="175" end2="175" changelist="80642f30-b092-4649-847e-c8ca193cd840" />
+        <range start1="203" end1="223" start2="193" end2="195" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -61,7 +131,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "favourite",
+    "git-widget-placeholder": "Merging favourite",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ashwipe/Desktop/drip-feed-cab302/CAB302Assessment-Team-One/src/main/resources/com/example/byebyeboxeyes/images",
     "project.structure.last.edited": "Libraries",
@@ -72,6 +142,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.byebyeboxeyes.events" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ashwipe\Desktop\drip-feed-cab302\CAB302Assessment-Team-One\src\main\resources\com\example\byebyeboxeyes\images" />
     </key>

@@ -7,7 +7,7 @@ public class SqliteConnection implements ISqliteConnection {
     private static Connection instance = null;
 
     private SqliteConnection() {
-        String url = "jdbc:sqlite:users.db";
+        String url = "jdbc:sqlite:boxeyes.db";
 
         try {
             instance = DriverManager.getConnection(url);
@@ -15,7 +15,6 @@ public class SqliteConnection implements ISqliteConnection {
             System.err.println(sqlEx);
         }
     }
-
     public static Connection getInstance() {
         if (instance == null) {
             new SqliteConnection();

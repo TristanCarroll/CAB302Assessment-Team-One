@@ -1,6 +1,7 @@
 package com.example.byebyeboxeyes.model;
 
 import com.example.byebyeboxeyes.timer.Timer;
+import com.example.byebyeboxeyes.model.SqliteConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.concurrent.Task;
 
-public class TimerDAO {
+public class TimerDAO implements ITimerDAO {
     private static final String DB_NAME = "timers.db";
 
     // Table and column names
@@ -20,8 +21,6 @@ public class TimerDAO {
     private static final String COLUMN_SECONDS = "seconds";
     private static final String COLUMN_STATUS = "status";
     private static final String COLUMN_FAV = "favourite";
-    private static final String COLUMN_START_TIME = "StartTime";
-    private static final String COLUMN_END_TIME = "EndTime";
     private Connection connection;
     private static TimerDAO instance = new TimerDAO(SqliteConnection.getInstance());
     private TimerDAO(Connection connection) {
@@ -62,6 +61,7 @@ public class TimerDAO {
 
             stmt.executeUpdate();
 
+            // Getting the generated primary key
             ResultSet generatedKeys = stmt.getGeneratedKeys();
             if (generatedKeys.next()) {
                 return generatedKeys.getInt(1);

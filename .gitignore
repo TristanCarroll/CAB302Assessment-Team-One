@@ -21,6 +21,11 @@ target/
 .springBeans
 .sts4-cache
 
+/Mock.db
+/Users.db
+/workspace.xml
+/boxeyes.db
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -36,6 +41,3 @@ build/
 
 ### Mac OS ###
 .DS_Store
-/Mock.db
-/Users.db
-/workspace.xml

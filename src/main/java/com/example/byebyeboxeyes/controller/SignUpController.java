@@ -33,7 +33,20 @@ public class SignUpController {
     @FXML
     private TextField registerPasswordTextField;
 
-    public String emailPattern = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+//   The following restrictions are imposed in the email address’ local part by using this regex:
+//      It allows numeric values from 0 to 9.
+//      Both uppercase and lowercase letters from a to z are allowed.
+//      Allowed, are underscore “_”, hyphen “-“, and dot “.”
+//      Dot isn’t allowed at the start and end of the local part.
+//      Consecutive dots aren’t allowed.
+//      For the local part, a maximum of 64 characters are allowed.
+//   Restrictions for the domain part in this regular expression include:
+//      It allows numeric values from 0 to 9.
+//      We allow both uppercase and lowercase letters from a to z.
+//      Hyphen “-” and dot “.” aren’t allowed at the start and end of the domain part.
+//      No consecutive dots.
+    public String emailPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+            + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
 
     //TODO:
     // ADD Register button LATER
@@ -64,6 +77,17 @@ public class SignUpController {
     @FXML
     private void onRegisterButtonClick(){
         try{
+
+            if (registerUserNameTextField.getText().trim().isEmpty()) {
+                throw new Exception("Username cannot be empty");
+            }
+            if (registerEmailTextField.getText().trim().isEmpty()) {
+                throw new Exception("Email field cannot be empty");
+            }
+            if (registerPasswordTextField.getText().trim().isEmpty()) {
+                throw new Exception("Password cannot be empty");
+            }
+
             Pattern pattern = Pattern.compile(emailPattern);
             Matcher matcher = pattern.matcher(registerEmailTextField.getText());
             if (matcher.matches()) {

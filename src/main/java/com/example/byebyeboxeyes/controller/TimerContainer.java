@@ -1,5 +1,6 @@
 package com.example.byebyeboxeyes.controller;
 
+import com.example.byebyeboxeyes.events.EventService;
 import com.example.byebyeboxeyes.timer.Timer;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -9,13 +10,11 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.application.Platform;
 
+// TODO:
+//  Interface?
 public class TimerContainer extends VBox {
     public Timer timer;
     private Label timerLabel;
-    private OnEditListener onEditListener;
-    private OnPlayListener onPlayListener;
-    private OnDeleteListener onDeleteListener;
-    private OnFavouriteListener onFavouriteListener; // Declare the listener
     private int isFavourite = 0; //track if it is a favourite timer
     private Button favouriteButton;
     private TimerController controller;
@@ -27,17 +26,15 @@ public class TimerContainer extends VBox {
     public TimerContainer(Timer timer, TimerController controller) {
         this.timer = timer;
         this.controller = controller; // Store the controller reference
-        createTimerContainer();
+        createContainer();
     }
 
     public TimerContainer(Timer timer) {
         this.timer = timer;
-        createTimerContainer();
-
+        createContainer();
     }
 
-
-    private void createTimerContainer() {
+    private void createContainer() {
         StackPane timerPane = new StackPane();
         timerPane.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
         timerPane.setPrefSize(200, 50);
@@ -71,18 +68,18 @@ public class TimerContainer extends VBox {
         vbox.getChildren().add(favouriteButton);
     }
 
-    private void favouriteTimer() {
-        if (onFavouriteListener != null) {
-            isFavourite = (isFavourite == 1) ? 0 : 1;
-            System.out.println("Favourite button clicked. New isFavourite state: " + isFavourite);
-
-            // Update button appearance immediately
-            Platform.runLater(this::updateFavouriteButtonAppearance);
-
-            // Notify the listener (this can still be delayed)
-            Platform.runLater(() -> onFavouriteListener.onFavourite(this));
-        }
-    }
+//    private void favouriteTimer() {
+//        if (onFavouriteListener != null) {
+//            isFavourite = (isFavourite == 1) ? 0 : 1;
+//            System.out.println("Favourite button clicked. New isFavourite state: " + isFavourite);
+//
+//            // Update button appearance immediately
+//            Platform.runLater(this::updateFavouriteButtonAppearance);
+//
+//            // Notify the listener (this can still be delayed)
+//            Platform.runLater(() -> onFavouriteListener.onFavourite(this));
+//        }
+//    }
     public void setFavourite(int isFavourite) {
         this.isFavourite = isFavourite;
         Platform.runLater(this::updateFavouriteButtonAppearance);
@@ -98,48 +95,20 @@ public class TimerContainer extends VBox {
     public int isFavourite() {
         return isFavourite;
     }
-    private void updateTimerText(String newTime) {
+    public void updateTimerText(String newTime) {
         timerLabel.setText(newTime);
     }
     private void editTimer() {
-        if (onEditListener != null) {
-            onEditListener.onEdit(this);
-        }
+        EventService.getInstance().notifyEditButtonClick(this);
     }
     private void playTimer() {
-        if (onPlayListener != null) {
-            onPlayListener.onPlay(this);
-        }
+        EventService.getInstance().notifyPlayButtonClick(this.timer);
     }
     private void deleteTimer() {
-        if (onDeleteListener != null) {
-            onDeleteListener.onDelete(this);
-        }
+        EventService.getInstance().notifyDeleteButtonClick(this);
     }
-    public void setOnEditListener(OnEditListener onEditListener) {
-        this.onEditListener = onEditListener;
-    }
-    public void setOnPlayListener(OnPlayListener onPlayListener) {
-        this.onPlayListener = onPlayListener;
-    }
-    public void setOnDeleteListener(OnDeleteListener onDeleteListener) {
-        this.onDeleteListener = onDeleteListener;
-    }
-    public interface OnEditListener {
-        void onEdit(TimerContainer timerContainer);
-    }
-    public interface OnPlayListener {
-        void onPlay(TimerContainer timerContainer);
-    }
-    public interface OnDeleteListener {
-        void onDelete(TimerContainer timerContainer);
-    }
-    public interface OnFavouriteListener {
-        void onFavourite(TimerContainer timerContainer);
+    private void favouriteTimer() {
+        EventService.getInstance().notifyFavouriteButtonClick(this);
     }
 
-    public void setOnFavouriteListener(OnFavouriteListener onFavouriteListener) {
-        this.onFavouriteListener = onFavouriteListener;
-    }
 }
-
