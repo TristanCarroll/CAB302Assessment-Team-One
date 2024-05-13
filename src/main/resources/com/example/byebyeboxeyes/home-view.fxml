@@ -22,7 +22,7 @@
                     <Button fx:id="timersNavButton"
                             focusTraversable="false"
                             onAction="#onNavButtonClick"
-                            prefHeight="65.0"
+                            prefHeight="50.0"
                             prefWidth="116.0"
                             text="Timers">
                         <VBox.margin>
