@@ -4,7 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Added interfaces for DAO's.&#10;Added SessionsDAO to track completed timers.&#10;Added CurrentTimerContainer JavaFX object to display current timer." />
+    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="fixed bug with deleting fav timers">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/CurrentTimerContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/ITimerDeleteListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/ITimerEditListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/ITimerPlayListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/ISessionsDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/ITimerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/IUserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/SessionsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/EventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/SqliteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/SqliteConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/TimerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/TimerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/home-view.fxml" afterDir="false" />
+    </list>
+    <list id="80642f30-b092-4649-847e-c8ca193cd840" name="Changes by TJ" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,24 +46,56 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ui-fix" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;TristanCarroll&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="d2d4cdfc-b506-489b-8d1b-5aff08fdb485" />
-        <option name="url" value="https://github.com/TristanCarroll/CAB302Assessment-Team-One" />
-      </UrlAndAccount>
-    </option>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="3" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="11" end1="11" start2="12" end2="14" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="14" end1="18" start2="17" end2="17" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="29" end1="30" start2="28" end2="29" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="34" end1="36" start2="33" end2="34" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="38" end1="40" start2="36" end2="37" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="73" end1="85" start2="70" end2="82" changelist="80642f30-b092-4649-847e-c8ca193cd840" />
+        <range start1="100" end1="101" start2="97" end2="98" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="104" end1="107" start2="101" end2="102" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="109" end1="112" start2="104" end2="105" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="114" end1="117" start2="107" end2="108" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="118" end1="138" start2="109" end2="111" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="140" end1="143" start2="113" end2="113" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="145" end1="146" start2="115" end2="115" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java">
+      <ranges>
+        <range start1="3" end1="3" start2="3" end2="7" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="5" end1="5" start2="9" end2="10" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="19" end1="20" start2="24" end2="33" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="40" end1="40" start2="53" end2="57" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="53" end1="54" start2="70" end2="70" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="55" end1="57" start2="71" end2="73" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="58" end1="59" start2="74" end2="75" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="60" end1="62" start2="76" end2="76" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="66" end1="74" start2="80" end2="82" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="76" end1="82" start2="84" end2="86" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="108" end1="109" start2="112" end2="112" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="110" end1="114" start2="113" end2="117" changelist="80642f30-b092-4649-847e-c8ca193cd840" />
+        <range start1="115" end1="116" start2="118" end2="119" changelist="80642f30-b092-4649-847e-c8ca193cd840" />
+        <range start1="117" end1="118" start2="120" end2="121" changelist="80642f30-b092-4649-847e-c8ca193cd840" />
+        <range start1="119" end1="120" start2="122" end2="122" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="124" end1="125" start2="126" end2="126" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="127" end1="135" start2="128" end2="128" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="137" end1="137" start2="130" end2="131" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+        <range start1="139" end1="141" start2="133" end2="133" changelist="80642f30-b092-4649-847e-c8ca193cd840" />
+        <range start1="154" end1="155" start2="146" end2="146" changelist="80642f30-b092-4649-847e-c8ca193cd840" />
+        <range start1="184" end1="185" start2="175" end2="175" changelist="80642f30-b092-4649-847e-c8ca193cd840" />
+        <range start1="203" end1="223" start2="193" end2="195" changelist="85c6fdc0-01f9-42a0-935e-1d562dd33d24" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -63,6 +119,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
+    "Application.Unnamed.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.All in ByeByeBoxEyes.executor": "Run",
     "JUnit.TimerDAOTests.executor": "Run",
@@ -74,17 +131,20 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging favourite",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ashwipe/Desktop/drip-feed-cab302/CAB302Assessment-Team-One/src/main/resources/com/example/byebyeboxeyes/images",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.byebyeboxeyes.events" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ashwipe\Desktop\drip-feed-cab302\CAB302Assessment-Team-One\src\main\resources\com\example\byebyeboxeyes\images" />
     </key>
@@ -98,7 +158,14 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Unnamed">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.byebyeboxeyes.HelloApplication" />
+      <module name="ByeByeBoxEyes" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in ByeByeBoxEyes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ByeByeBoxEyes" />
       <option name="PACKAGE_NAME" value="" />
@@ -107,6 +174,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="JUnit.All in ByeByeBoxEyes" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in ByeByeBoxEyes" />
@@ -226,29 +297,29 @@
       <option name="project" value="LOCAL" />
       <updated>1715484775961</updated>
     </task>
-    <task id="LOCAL-00013" summary="Merged with main">
+    <task id="LOCAL-00013" summary="Favouriting working although a little buggy">
       <option name="closed" value="true" />
-      <created>1715489246729</created>
+      <created>1715528230963</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1715489246729</updated>
+      <updated>1715528230963</updated>
     </task>
-    <task id="LOCAL-00014" summary="Current timer functionality working. Reworked play/edit/delete button functionality.">
+    <task id="LOCAL-00014" summary="Favouriting working with no known bugs">
       <option name="closed" value="true" />
-      <created>1715496763777</created>
+      <created>1715530360785</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1715496763777</updated>
+      <updated>1715530360785</updated>
     </task>
-    <task id="LOCAL-00015" summary="Added interfaces for DAO's.&#10;Added SessionsDAO to track completed timers.&#10;Added CurrentTimerContainer JavaFX object to display current timer.">
+    <task id="LOCAL-00015" summary="fixed bug with deleting fav timers">
       <option name="closed" value="true" />
-      <created>1715514580241</created>
+      <created>1715530534406</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1715514580241</updated>
+      <updated>1715530534406</updated>
     </task>
     <option name="localTasksCounter" value="16" />
     <servers />
@@ -264,7 +335,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="timers" />
                       </list>
                     </value>
                   </entry>
@@ -290,10 +361,10 @@
     <MESSAGE value="Created TimerContainer class and modified some logic in the TimerDAO and Timer classes to make use of primary keys. These changes allow for interacting with specific timer containers within the recentTimersflowPane within the TimersPageController" />
     <MESSAGE value="Display mock current timer, edit timers" />
     <MESSAGE value="Started working on timer countdown" />
-    <MESSAGE value="Merged with main" />
-    <MESSAGE value="Current timer functionality working. Reworked play/edit/delete button functionality." />
-    <MESSAGE value="Added interfaces for DAO's.&#10;Added SessionsDAO to track completed timers.&#10;Added CurrentTimerContainer JavaFX object to display current timer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added interfaces for DAO's.&#10;Added SessionsDAO to track completed timers.&#10;Added CurrentTimerContainer JavaFX object to display current timer." />
+    <MESSAGE value="Favouriting working although a little buggy" />
+    <MESSAGE value="Favouriting working with no known bugs" />
+    <MESSAGE value="fixed bug with deleting fav timers" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug with deleting fav timers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -304,9 +375,9 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="18" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/NavigationController.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalStateException" package="java.lang" />
