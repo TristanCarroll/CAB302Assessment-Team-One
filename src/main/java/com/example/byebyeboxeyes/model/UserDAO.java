@@ -30,6 +30,7 @@ public class UserDAO implements IUserDAO{
             e.printStackTrace();
         }
     }
+
     public User getUser(String userName) {
         String query =
                 "SELECT * FROM users\n" +
@@ -50,6 +51,7 @@ public class UserDAO implements IUserDAO{
         }
         return null;
     }
+
     public void addUser(String userName, String email, String password) {
         String query =
                 "INSERT INTO users (userName, email, password)" +
@@ -71,6 +73,17 @@ public class UserDAO implements IUserDAO{
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, username);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateUserPassword(String password, String userEmail) {
+        String query = "UPDATE users SET password = ? WHERE email = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, password);
+            statement.setString(2, String.valueOf(userEmail));
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

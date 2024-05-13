@@ -1,10 +1,17 @@
 package com.example.byebyeboxeyes.controller;
 
+import com.example.byebyeboxeyes.StateManager;
 import com.example.byebyeboxeyes.events.EventService;
 import static com.example.byebyeboxeyes.controller.SignUpController.passwordHash;
+import com.example.byebyeboxeyes.model.UserDAO;
+
+import com.example.byebyeboxeyes.model.UserDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 import org.apache.commons.text.RandomStringGenerator;
 
 import javax.mail.*;
@@ -17,16 +24,27 @@ import java.util.Properties;
 
 public class ResetPasswordController {
     @FXML
+    private StackPane mainStackPane;
+    @FXML
     public TextField resetPwdUsername;
     @FXML
     public TextField resetPwdEmail;
     final String host = "byebyeboxeyes@gmail.com";
     final String username = "byebyeboxeyes@gmail.com";
     final String password = "bnxcszmktwaltrzu";
+    private final UserDAO userDAO;
+
+    private void setupListener() {
+        StateManager.windowHeightProperty().addListener((obs, oldVal, newVal) -> {
+            double paddingValue = newVal.doubleValue() * 0.60; // 60% of height
+            mainStackPane.setPadding(new Insets(20, 20, paddingValue, 20));
+        });
+    }
 
     // session object
     Properties props = new Properties();
     public ResetPasswordController() {
+        userDAO = UserDAO.getInstance();
         props.put("mail.smtp.ssl.trust", "*");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.port", "587");
@@ -58,6 +76,14 @@ public class ResetPasswordController {
             Transport.send(message);
 
             System.out.println("message sent successfully via mail ... !!! ");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Reset Password");
+            alert.setHeaderText("Email Has Been Sent");
+            alert.setContentText("An email containing a temporary password for you to log in with has been sent.");
+            alert.showAndWait();
+            String userEmail = resetPwdEmail.getText();
+            userDAO.updateUserPassword(passwordHash(newTempPassword), userEmail);
+            System.out.println("password updated.");
         } catch (MessagingException e) {e.printStackTrace();}
     }
 
