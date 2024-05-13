@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import com.example.byebyeboxeyes.model.UserDAO;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import static com.example.byebyeboxeyes.controller.SignUpController.passwordHash;
 
@@ -16,7 +17,7 @@ public class SettingsController {
     public Button logoutButton;
     private final UserDAO userDAO;
     @FXML
-    public TextField newUserPassword;
+    public PasswordField newUserPassword;
 
     public SettingsController() {
         userDAO = UserDAO.getInstance();

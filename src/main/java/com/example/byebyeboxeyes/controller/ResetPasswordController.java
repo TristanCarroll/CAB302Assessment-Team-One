@@ -21,6 +21,8 @@ import javax.mail.internet.MimeMessage;
 import static org.apache.commons.text.CharacterPredicates.DIGITS;
 import static org.apache.commons.text.CharacterPredicates.LETTERS;
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ResetPasswordController {
     @FXML
@@ -33,6 +35,9 @@ public class ResetPasswordController {
     final String username = "byebyeboxeyes@gmail.com";
     final String password = "bnxcszmktwaltrzu";
     private final UserDAO userDAO;
+
+    public String emailPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+            + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
 
     private void setupListener() {
         StateManager.windowHeightProperty().addListener((obs, oldVal, newVal) -> {
@@ -59,32 +64,55 @@ public class ResetPasswordController {
         }
     );
 
-    public void onSendEmailClick(ActionEvent actionEvent) {
+    public void onSendEmailClick(ActionEvent actionEvent) throws Exception {
         // generate new temporary password
         String newTempPassword = generateTempPassword();
         // attempt to send email with new temporary password
-        try {
-            MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(username));
-            message.addRecipient(Message.RecipientType.TO,new InternetAddress(resetPwdEmail.getText()));
-            message.setSubject(" NEW TEMPORARY PASSWORD ");
-            //Text in email
-            String emailMessage = String.format("Hello, %s. Here is your temporary password: \n %s", resetPwdUsername.getText(), newTempPassword);
-            System.out.println(emailMessage);
-            message.setText(emailMessage);
-            //send the message
-            Transport.send(message);
 
-            System.out.println("message sent successfully via mail ... !!! ");
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Reset Password");
-            alert.setHeaderText("Email Has Been Sent");
-            alert.setContentText("An email containing a temporary password for you to log in with has been sent.");
+        try {
+            if (resetPwdUsername.getText().trim().isEmpty()) {
+                throw new Exception("Username cannot be empty");
+            }
+            if (resetPwdEmail.getText().trim().isEmpty()) {
+                throw new Exception("Email field cannot be empty");
+            }
+
+            Pattern pattern = Pattern.compile(emailPattern);
+            Matcher matcher = pattern.matcher(resetPwdEmail.getText());
+            if (matcher.matches()) {
+                try {
+                    MimeMessage message = new MimeMessage(session);
+                    message.setFrom(new InternetAddress(username));
+                    message.addRecipient(Message.RecipientType.TO,new InternetAddress(resetPwdEmail.getText()));
+                    message.setSubject(" NEW TEMPORARY PASSWORD ");
+                    //Text in email
+                    String emailMessage = String.format("Hello, %s. Here is your temporary password: \n %s", resetPwdUsername.getText(), newTempPassword);
+                    System.out.println(emailMessage);
+                    message.setText(emailMessage);
+                    //send the message
+                    Transport.send(message);
+
+                    System.out.println("message sent successfully via mail ... !!! ");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Reset Password");
+                    alert.setHeaderText("Email Has Been Sent");
+                    alert.setContentText("An email containing a temporary password for you to log in with has been sent.");
+                    alert.showAndWait();
+                    String userEmail = resetPwdEmail.getText();
+                    userDAO.updateUserPassword(passwordHash(newTempPassword), userEmail);
+                    System.out.println("password updated.");
+                } catch (MessagingException e) {e.printStackTrace();}
+            } else {
+                throw new Exception("Email is invalid");
+            }
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setHeaderText("Reset Failed");
+            alert.setContentText(e.getLocalizedMessage());
             alert.showAndWait();
-            String userEmail = resetPwdEmail.getText();
-            userDAO.updateUserPassword(passwordHash(newTempPassword), userEmail);
-            System.out.println("password updated.");
-        } catch (MessagingException e) {e.printStackTrace();}
+        }
+
     }
 
     public void onBackButtonClick(ActionEvent actionEvent) {

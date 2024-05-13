@@ -20,7 +20,7 @@
                  </rowConstraints>
                   <children>
                      <Button mnemonicParsing="false" onAction="#onResetButtonClick" text="Reset Password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                     <TextField fx:id="newUserPassword" GridPane.rowIndex="1" />
+                     <PasswordField fx:id="newUserPassword" GridPane.rowIndex="1" />
                      <Label text="Enter a new password:" />
                   </children>
                </GridPane>
