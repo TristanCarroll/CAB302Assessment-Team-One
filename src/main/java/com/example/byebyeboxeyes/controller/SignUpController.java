@@ -64,6 +64,17 @@ public class SignUpController {
     @FXML
     private void onRegisterButtonClick(){
         try{
+
+            if (registerUserNameTextField.getText().trim().isEmpty()) {
+                throw new Exception("Username cannot be empty");
+            }
+            if (registerEmailTextField.getText().trim().isEmpty()) {
+                throw new Exception("Email field cannot be empty");
+            }
+            if (registerPasswordTextField.getText().trim().isEmpty()) {
+                throw new Exception("Password cannot be empty");
+            }
+
             Pattern pattern = Pattern.compile(emailPattern);
             Matcher matcher = pattern.matcher(registerEmailTextField.getText());
             if (matcher.matches()) {
