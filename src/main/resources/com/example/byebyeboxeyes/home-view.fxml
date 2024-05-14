@@ -12,56 +12,55 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.byebyeboxeyes.controller.HomeController">
     <left>
-        <VBox prefHeight="400.0" prefWidth="140.0">
-            <VBox>
-                <fx:include source = "current-timer-view.fxml"
-                            prefHeight="50.0"
-                            prefWidth="116.0"/>
-            <VBox alignment="CENTER">
-                <children>
-                    <Button fx:id="timersNavButton"
-                            focusTraversable="false"
-                            onAction="#onNavButtonClick"
-                            prefHeight="65.0"
-                            prefWidth="116.0"
-                            text="Timers">
-                        <VBox.margin>
-                            <Insets />
-                        </VBox.margin></Button>
-                    <Button fx:id="statisticsNavButton"
-                            alignment="CENTER"
-                            focusTraversable="false"
-                            onAction="#onNavButtonClick"
-                            prefHeight="50.0"
-                            prefWidth="116.0"
-                            text="Statistics">
-                        <VBox.margin>
-                            <Insets />
-                        </VBox.margin></Button>
-                    <Button fx:id="goalsNavButton"
-                            contentDisplay="CENTER"
-                            focusTraversable="false"
-                            onAction="#onNavButtonClick"
-                            prefHeight="50.0"
-                            prefWidth="116.0"
-                            text="Goals">
-                        <VBox.margin>
-                            <Insets />
-                        </VBox.margin></Button>
-                </children>
-
-                <VBox.margin>
-                    <Insets top="50.0" />
-                </VBox.margin>
-                <VBox prefHeight="116.0" alignment="CENTER"/>
-                    <Button onAction="#eyeTipButton" prefHeight="40.0" prefWidth="116.0" text="See Tips!"/>
-                <TextArea fx:id="eyeTipTxtArea" wrapText="true" editable="false" minHeight="190.0">
-                    How can you improve your eye health
-                </TextArea>
-                </VBox>
+        <VBox prefHeight="400.0" prefWidth="140.0" style="-fx-background-color: #f4f4f4;">  <VBox>
+            <fx:include source="current-timer-view.fxml"
+                        prefHeight="50.0"
+                        prefWidth="116.0"/>
+            <VBox alignment="CENTER" style="-fx-padding: 10px;">  <children>
+                <Button fx:id="timersNavButton"
+                        focusTraversable="false"
+                        onAction="#onNavButtonClick"
+                        prefHeight="50.0"
+                        prefWidth="140.0"
+                        text="Timers"
+                        style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-weight: bold;">  <VBox.margin>
+                    <Insets top="5" />  </VBox.margin>
+                </Button>
+                <Button fx:id="statisticsNavButton"
+                        alignment="CENTER"
+                        focusTraversable="false"
+                        onAction="#onNavButtonClick"
+                        prefHeight="50.0"
+                        prefWidth="140.0"
+                        text="Statistics"
+                        style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-weight: bold;">
+                    <VBox.margin>
+                        <Insets top="5" />
+                    </VBox.margin>
+                </Button>
+                <Button fx:id="goalsNavButton"
+                        contentDisplay="CENTER"
+                        focusTraversable="false"
+                        onAction="#onNavButtonClick"
+                        prefHeight="50.0"
+                        prefWidth="140.0"
+                        text="Goals"
+                        style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-weight: bold;">
+                    <VBox.margin>
+                        <Insets top="5" />
+                    </VBox.margin>
+                </Button>
+            </children>
+                <VBox prefHeight="140.0" alignment="CENTER"/>
+                <Button onAction="#eyeTipButton" prefHeight="40.0" prefWidth="116.0" text="See Tips!" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;"/>
             </VBox>
         </VBox>
+            <TextArea fx:id="eyeTipTxtArea" wrapText="true" editable="false" minHeight="190.0" style="-fx-background-color: white; -fx-padding: 10px; -fx-font-size: 14px;">
+                Take regular breaks from screens to reduce eye strain.
+            </TextArea>
+        </VBox>
     </left>
+
     <center>
         <fx:include source="timer-view.fxml" />
     </center>

@@ -18,6 +18,7 @@ public class EventService {
     private List<ITimerEditListener> timerEditListeners = new ArrayList<>();
     private List<ITimerPlayListener> timerPlayListeners = new ArrayList<>();
     private List<ITimerDeleteListener> timerDeleteListeners = new ArrayList<>();
+    private List<ITimerFavouriteListener> timerFavouriteListeners = new ArrayList<>();
 
     private EventService() {
 
@@ -42,6 +43,7 @@ public class EventService {
     public void addDeleteListener(ITimerDeleteListener listener) {
         timerDeleteListeners.add(listener);
     }
+    public void addFavouriteListener(ITimerFavouriteListener listener) { timerFavouriteListeners.add(listener); }
     public void notifyLoginSuccessful() {
         for (INavigationEventListener listener : loginEventListeners) {
             listener.onLoginSuccessful();
@@ -70,6 +72,11 @@ public class EventService {
     public void notifyDeleteButtonClick(TimerContainer timerContainer) {
         for (ITimerDeleteListener listener : timerDeleteListeners) {
             listener.onDelete(timerContainer);
+        }
+    }
+    public void notifyFavouriteButtonClick(TimerContainer timerContainer) {
+        for (ITimerFavouriteListener listener : timerFavouriteListeners) {
+            listener.onFavourite(timerContainer);
         }
     }
 }
