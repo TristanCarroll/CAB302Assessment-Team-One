@@ -29,6 +29,9 @@ public class TimerController implements Initializable, ITimerPlayListener {
     }
 
     public void onPlay(Timer timer) {
+        if (!currentTimer.getChildren().isEmpty()) {
+            return;
+        }
         int sessionID = SessionsDAO.getInstance().startSession(
                 StateManager.getCurrentUser().getUserID(),
                 timer.getTimerID(),

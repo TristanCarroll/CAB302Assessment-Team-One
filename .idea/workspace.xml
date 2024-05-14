@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Adding logic for charts and statistics in general.&#10;Updated some tests.">
+    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Directory change.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/java/MockSqliteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MockSqliteConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/java/SessionsDAOTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SessionsDAOTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/java/StatisticsControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/StatisticsControllerTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/java/TimerDAOTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TimerDAOTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/java/TimerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TimerTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/java/UserDAOTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserDAOTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/java/UserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java" afterDir="false" />
     </list>
     <list id="80642f30-b092-4649-847e-c8ca193cd840" name="Changes by TJ" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +53,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
-    "Application.Unnamed.executor": "Debug",
+    "Application.Unnamed.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.All in ByeByeBoxEyes.executor": "Run",
     "JUnit.SessionsDAOTests.executor": "Run",
@@ -69,6 +63,7 @@
     "JUnit.UserDAOTests.executor": "Run",
     "JUnit.UserDaoTests.executor": "Run",
     "JUnit.UserTests.executor": "Run",
+    "Maven.ByeByeBoxEyes [test].executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -101,7 +96,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.ByeByeBoxEyes [test]">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.byebyeboxeyes.HelloApplication" />
       <module name="ByeByeBoxEyes" />
@@ -312,7 +307,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715684927228</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Directory change.">
+      <option name="closed" value="true" />
+      <created>1715685512468</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1715685512468</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -357,7 +360,8 @@
     <MESSAGE value="fixed bug with deleting fav timers" />
     <MESSAGE value="merged favourite timers with main" />
     <MESSAGE value="Adding logic for charts and statistics in general.&#10;Updated some tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding logic for charts and statistics in general.&#10;Updated some tests." />
+    <MESSAGE value="Directory change." />
+    <option name="LAST_COMMIT_MESSAGE" value="Directory change." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -381,6 +385,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/StatisticsController.java</url>
           <line>44</line>
           <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalStateException" package="java.lang" />
