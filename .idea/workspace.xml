@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="merged favourite timers with main">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/fixed_bug_with_deleting_fav_timers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/fixed_bug_with_deleting_fav_timers.xml" afterDir="false" />
+    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Adding logic for charts and statistics in general.&#10;Updated some tests.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/java/MockSqliteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MockSqliteConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/java/SessionsDAOTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SessionsDAOTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/java/StatisticsControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/StatisticsControllerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/java/TimerDAOTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TimerDAOTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/java/TimerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TimerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/java/UserDAOTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserDAOTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/java/UserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserTests.java" afterDir="false" />
     </list>
     <list id="80642f30-b092-4649-847e-c8ca193cd840" name="Changes by TJ" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="favourite" />
+        <entry key="$PROJECT_DIR$" value="UI" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,11 +59,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
-    "Application.Unnamed.executor": "Run",
+    "Application.Unnamed.executor": "Debug",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.All in ByeByeBoxEyes.executor": "Run",
+    "JUnit.SessionsDAOTests.executor": "Run",
+    "JUnit.StatisticsControllerTests.executor": "Run",
     "JUnit.TimerDAOTests.executor": "Run",
     "JUnit.TimerTests.executor": "Run",
+    "JUnit.UserDAOTests.executor": "Run",
     "JUnit.UserDaoTests.executor": "Run",
     "JUnit.UserTests.executor": "Run",
     "Repository.Attach.Annotations": "false",
@@ -65,7 +74,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "statistics",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ashwipe/Desktop/drip-feed-cab302/CAB302Assessment-Team-One/src/main/resources/com/example/byebyeboxeyes/images",
     "project.structure.last.edited": "Libraries",
@@ -92,7 +101,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="RunManager" selected="Maven.ByeByeBoxEyes [test]">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.byebyeboxeyes.HelloApplication" />
       <module name="ByeByeBoxEyes" />
@@ -108,12 +117,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ByeByeBoxEyes [test]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="test" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="JUnit.All in ByeByeBoxEyes" />
+      <item itemvalue="Maven.ByeByeBoxEyes [test]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Maven.ByeByeBoxEyes [test]" />
         <item itemvalue="JUnit.All in ByeByeBoxEyes" />
         <item itemvalue="JUnit.All in ByeByeBoxEyes" />
       </list>
@@ -263,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715604508770</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Adding logic for charts and statistics in general.&#10;Updated some tests.">
+      <option name="closed" value="true" />
+      <created>1715684927228</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1715684927228</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -307,7 +356,8 @@
     <MESSAGE value="Favouriting working with no known bugs" />
     <MESSAGE value="fixed bug with deleting fav timers" />
     <MESSAGE value="merged favourite timers with main" />
-    <option name="LAST_COMMIT_MESSAGE" value="merged favourite timers with main" />
+    <MESSAGE value="Adding logic for charts and statistics in general.&#10;Updated some tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding logic for charts and statistics in general.&#10;Updated some tests." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -322,6 +372,16 @@
           <line>50</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/StatisticsController.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/StatisticsController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="10" />
@@ -330,6 +390,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ByeByeBoxEyes$All_in_ByeByeBoxEyes.ic" NAME="All in ByeByeBoxEyes Coverage Results" MODIFIED="1714553211861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ByeByeBoxEyes$All_in_ByeByeBoxEyes.ic" NAME="All in ByeByeBoxEyes Coverage Results" MODIFIED="1715682513649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

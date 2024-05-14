@@ -100,7 +100,7 @@ public class TimersPageController implements
             timerContainers.put(timerID, timerContainer);
 
             // Determine the target FlowPane (recent or favorite)
-            FlowPane targetPane = (timer.isFavourite() == 1) ? favouriteTimersFlowPane : recentTimersFlowPane;
+            FlowPane targetPane = (timer.getIsFavourite() == 1) ? favouriteTimersFlowPane : recentTimersFlowPane;
 
             // Add the TimerContainer to the correct FlowPane
             targetPane.getChildren().add(0, timerContainer);
@@ -191,7 +191,7 @@ public class TimersPageController implements
         timerContainer.timer.setMinutes(minutes);
         timerContainer.timer.setSeconds(seconds);
 
-        timerDAO.updateTimer(timerContainer.timer.getTimerID(), hours, minutes, seconds, timerContainer.timer.isFavourite());
+        timerDAO.updateTimer(timerContainer.timer.getTimerID(), hours, minutes, seconds, timerContainer.timer.getIsFavourite());
         timerContainer.updateTimerText(timerContainer.timer.toString());
     }
     @Override

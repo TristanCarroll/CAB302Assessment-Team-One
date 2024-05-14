@@ -12,8 +12,7 @@ public class TimerTests {
 
     @BeforeEach
     public void setUp() {
-        timer = new Timer(timerID,userID, 1, 30, 0);
-        timerID++;
+        timer = new Timer(timerID, userID, 1, 30, 0, 0);
     }
 
     @Test
@@ -30,7 +29,12 @@ public class TimerTests {
     public void testGetSeconds() {
         assertEquals(0, timer.getSeconds());
     }
-
+    @Test
+    public void testGetUserId() { assertEquals(1, timer.getUserID());}
+    @Test
+    public void testGetTimerId() { assertEquals(1, timer.getTimerID());}
+    @Test
+    public void testGetIsFavourite() { assertEquals(0, timer.getIsFavourite());}
     @Test
     public void testSetHours() {
         timer.setHours(2);
@@ -48,7 +52,11 @@ public class TimerTests {
         timer.setSeconds(15);
         assertEquals(15, timer.getSeconds());
     }
-
+    @Test
+    public void testsetIsFavourite() {
+        timer.setIsFavourite(1);
+        assertEquals(1, timer.getIsFavourite());
+    }
     @Test
     public void testDecrementTime() {
         timer.decrementTime();
@@ -78,7 +86,6 @@ public class TimerTests {
         }
         assertTrue(timer.isFinished());
     }
-
     @Test
     public void testToString() {
         assertEquals("01:30:00", timer.toString());

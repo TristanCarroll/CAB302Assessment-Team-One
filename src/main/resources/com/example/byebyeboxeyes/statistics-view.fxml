@@ -10,10 +10,23 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.byebyeboxeyes.controller.StatisticsController"
             prefHeight="400.0" prefWidth="600.0">
-    <VBox>
-        <Label text="Statistics View"/>
-        <Label text="Statistics View"/>
-        <Label text="Statistics View"/>
-    </VBox>
-
+    <HBox>
+        <VBox>
+            <ChoiceBox fx:id="chartChoiceBox"
+                       VBox.vgrow="NEVER"
+                       prefWidth="150" />
+            <VBox fx:id="chartContainer" />
+        </VBox>
+        <VBox>
+            <Label text="Total Time Today" />
+            <Label fx:id="totalTimeToday" />
+            <Label text="Total Time Overall" />
+            <Label fx:id="totalTimeOverall" />
+            <Label text="Number of Sessions Today" />
+            <Label fx:id="numberSessionsToday" />
+            <Label text="Number of Sessions Overall" />
+            <Label fx:id="numberSessionsOverall" />
+        </VBox>
+    </HBox>
 </AnchorPane>
+
