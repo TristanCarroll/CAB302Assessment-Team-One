@@ -47,7 +47,7 @@ public class NavigationController implements INavigationEventListener {
             //TODO:
             // Add navigation fxml, load it once, always set the center to home.
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
-            if (fxmlPath.contains("home") || fxmlPath.contains("signup") || fxmlPath.contains("landing") ) {
+            if (fxmlPath.contains("home") || fxmlPath.contains("signup") || fxmlPath.contains("landing") || fxmlPath.contains(("reset")) ) {
                 StateManager.getCurrentScene().setRoot(fxmlLoader.load());
             }
             else {
