@@ -79,8 +79,12 @@ public class LandingController {
     }
 
     /** Sends user to Registration page when they click the hyperlink **/
-    public void onHyperlinkClick(ActionEvent actionEvent) {
+    public void onNoAccountClick(ActionEvent actionEvent) {
         EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/signup-view.fxml");
+    }
+
+    public void onForgotPwdClick(ActionEvent actionEvent) {
+        EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/reset-password-view.fxml");
     }
 
     @FXML

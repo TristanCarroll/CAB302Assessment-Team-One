@@ -14,12 +14,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
-
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TimerController implements Initializable, ITimerPlayListener {
-
+    String audioFile = "src/main/resources/com/example/byebyeboxeyes/audio/darude.mp3";
+    Media sound = new Media(new File(audioFile).toURI().toString());
     @FXML
     public AnchorPane currentTimer;
     private Timeline timeline;
@@ -43,6 +46,9 @@ public class TimerController implements Initializable, ITimerPlayListener {
                 timerContainer.timer.decrementTime();
                 timerContainer.updateTimerText(timerContainer.timer.toString());
                 if (timerContainer.timer.isFinished()) {
+                    // play sound here
+                    MediaPlayer mediaPlayer = new MediaPlayer(sound);
+                    mediaPlayer.play();
                     timeline.stop();
                     SessionsDAO.getInstance().endSession(sessionID, System.currentTimeMillis()/1000);
                 }
