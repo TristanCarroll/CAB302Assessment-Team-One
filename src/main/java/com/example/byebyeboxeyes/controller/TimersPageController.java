@@ -93,6 +93,7 @@ public class TimersPageController implements
             int minutes = getValidatedIntFromTextField(minutesField, 0, 59);
             int seconds = getValidatedIntFromTextField(secondsField, 0, 59);
 
+
             int timerID = timerDAO.saveTimer(1, hours, minutes, seconds, 0);
             Timer timer = new Timer(timerID, 1, hours, minutes, seconds, 0);
             TimerContainer timerContainer = createTimerContainer(timer);
@@ -112,7 +113,6 @@ public class TimersPageController implements
 
     private void displayTimersFromDatabase() {
         for (Map.Entry<Integer, TimerContainer> entry : timerContainers.entrySet()) {
-//            TimerContainer timerContainer = createTimerContainer(timer);
             if (entry.getValue().isFavourite() == 1) { // Compare to 1 for favorite
                 favouriteTimersFlowPane.getChildren().add(entry.getValue());
             } else {
@@ -120,9 +120,9 @@ public class TimersPageController implements
             }
 //            timerContainers.put(timer.getTimerID(), timerContainer);
         }
-        Button addButton = new Button("Add");
-        addButton.setOnAction(event -> createNewTimer());
-        recentTimersFlowPane.getChildren().add(addButton);
+//        Button addButton = new Button("Add");
+//       addButton.setOnAction(event -> createNewTimer());
+//        recentTimersFlowPane.getChildren().add(addButton);
     }
     private TimerContainer createTimerContainer(Timer timer) {
         TimerContainer timerContainer = new TimerContainer(timer);

@@ -21,6 +21,7 @@ public class TimerDAO implements ITimerDAO {
     private static final String COLUMN_SECONDS = "seconds";
     private static final String COLUMN_STATUS = "status";
     private static final String COLUMN_FAV = "favourite";
+
     private Connection connection;
     private static TimerDAO instance = new TimerDAO(SqliteConnection.getInstance());
     private TimerDAO(Connection connection) {
