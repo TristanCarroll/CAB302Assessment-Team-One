@@ -75,7 +75,6 @@ public class TimerDAO implements ITimerDAO {
         }
     }
 
-
     public void loadTimers(int userID, TimersLoadCallback callback) {
         Task<ArrayList<Timer>> loadTimersTask = new Task<>() {
             @Override
@@ -101,7 +100,6 @@ public class TimerDAO implements ITimerDAO {
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
-                    // Throw a custom exception if you want the controller to handle it.
                     throw new RuntimeException("Error loading timers from the database", e);
                 }
                 return timers;

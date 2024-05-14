@@ -1,12 +1,14 @@
 package com.example.byebyeboxeyes.model;
 
-import com.example.byebyeboxeyes.timer.Timer;
+import com.example.byebyeboxeyes.model.SessionsDataCollator.TotalDailyData;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class SessionsDAO implements ISessionsDAO {
     private Connection connection;
@@ -56,7 +58,8 @@ public class SessionsDAO implements ISessionsDAO {
         }
     }
     public void endSession(int sessionID, long unixEndTime) {
-        String sql = "UPDATE sessions\n" +
+        String sql =
+                "UPDATE sessions\n" +
                 "SET unixEndTime = ?\n" +
                 "WHERE sessionID = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -67,4 +70,134 @@ public class SessionsDAO implements ISessionsDAO {
             e.printStackTrace();
         }
     }
+    public List<TotalDailyData> getTotalSessionTimePerDay(int userId) {
+        List<TotalDailyData> data = new ArrayList<>();
+
+        String sql =
+                // TODO:
+                //  This considers only the start time for calculating averages.
+                //  It's arguable whether or not this is correct for sessions occuring over midnight.
+                "SELECT date(datetime(unixStartTime, 'unixepoch')) AS sessionDate, " +
+                        "SUM((unixEndTime - unixStartTime)) AS totalSessionTime " +
+                        "FROM sessions " +
+                        "WHERE unixEndTime IS NOT NULL " +
+                        "AND userID = ? " +
+                        "GROUP BY sessionDate";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, userId);
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                String date = rs.getString("sessionDate");
+                double averageTime = rs.getDouble("totalSessionTime");
+                data.add(new TotalDailyData(date, averageTime));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+    public List<TotalDailyData> getTotalUsageToday(int userId) {
+        List<TotalDailyData> data = new ArrayList<>();
+
+        String sql =
+                "SELECT SUM((unixEndTime - unixStartTime)) AS totalUsage " +
+                        "FROM sessions " +
+                        "WHERE unixEndTime IS NOT NULL " +
+                        "AND userID = ? " +
+                        "AND date(datetime(unixStartTime, 'unixepoch')) = date('now')";
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, userId);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                double totalUsage = rs.getDouble("totalUsage");
+                data.add(new TotalDailyData(LocalDate.now().toString(), totalUsage));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return data;
+    }
+    public List<TotalDailyData> getTotalUsageOverall(int userId) {
+        List<TotalDailyData> data = new ArrayList<>();
+
+        String sql =
+                "SELECT SUM((unixEndTime - unixStartTime)) AS totalUsage " +
+                        "FROM sessions " +
+                        "WHERE unixEndTime IS NOT NULL " +
+                        "AND userID = ? ";
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, userId);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                double totalUsage = rs.getDouble("totalUsage");
+                data.add(new TotalDailyData(LocalDate.now().toString(), totalUsage));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return data;
+    }
+    public int getNumberOfSessionsToday(int userId) {
+        int numberOfSessions = 0;
+
+        String sql =
+                "SELECT COUNT(*) AS sessionCount " +
+                        "FROM sessions " +
+                        "WHERE userID = ? " +
+                        "AND date(datetime(unixStartTime, 'unixepoch')) = date('now')";
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, userId);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                numberOfSessions = rs.getInt("sessionCount");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return numberOfSessions;
+    }
+    public int getNumberOfSessionsOverall(int userId) {
+        int numberOfSessions = 0;
+
+        String sql =
+                "SELECT COUNT(*) AS sessionCount " +
+                        "FROM sessions " +
+                        "WHERE userID = ? ";
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, userId);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                numberOfSessions = rs.getInt("sessionCount");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return numberOfSessions;
+    }
+//    public void insertMockDataForCharts(int userID, int timerID, long unixStartTime, long unixEndtime) {
+//        String sql = "INSERT INTO sessions(userID, timerID, unixStartTime, unixEndtime) VALUES(?, ?, ?, ?)";
+//
+//        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+//            stmt.setInt(1, userID);
+//            stmt.setInt(2, timerID);
+//            stmt.setLong(3, unixStartTime);
+//            stmt.setLong(4, unixEndtime);
+//            stmt.executeUpdate();
+//        } catch (SQLException e) {
+//            System.out.println(e.getMessage());
+//        }
+//    }
 }

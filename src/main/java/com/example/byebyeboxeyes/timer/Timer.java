@@ -32,7 +32,7 @@ public class Timer {
 
     public int getUserID() { return userID; }
     public int getTimerID() { return timerID; }
-    public void setTimerID(int timerID) { timerID = timerID; }
+    public int getIsFavourite() { return isFavourite; }
     public void setHours(int hours) {
         this.hours = hours;
     }
@@ -42,7 +42,6 @@ public class Timer {
     public void setSeconds(int seconds) {
         this.seconds = seconds;
     }
-    public void setUserID(int userID) { this.userID = userID; }
     public void setIsFavourite(int isFavourite) { this.isFavourite = isFavourite; }
 
 
@@ -61,11 +60,6 @@ public class Timer {
     public boolean isFinished() {
         return hours == 0 && minutes == 0 && seconds == 0;
     }
-
-    public int isFavourite() {
-        return isFavourite;
-    }
-
 
     @Override
     public String toString() {

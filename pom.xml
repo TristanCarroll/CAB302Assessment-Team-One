@@ -63,6 +63,9 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
+              <argline>
+                --add-opens com.example.byebyeboxeyes/com.example.byebyeboxeyes=ALL-UNNAMED
+              </argline>
               <mainClass>com.example.byebyeboxeyes/com.example.byebyeboxeyes.HelloApplication</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
