@@ -35,6 +35,7 @@ public class TimerController implements Initializable, ITimerPlayListener {
         if (!currentTimer.getChildren().isEmpty()) {
             return;
         }
+
         int sessionID = SessionsDAO.getInstance().startSession(
                 StateManager.getCurrentUser().getUserID(),
                 timer.getTimerID(),
@@ -54,6 +55,7 @@ public class TimerController implements Initializable, ITimerPlayListener {
                     mediaPlayer.play();
                     timeline.stop();
                     SessionsDAO.getInstance().endSession(sessionID, System.currentTimeMillis()/1000);
+                    currentTimer.getChildren().remove(timerContainer);
                 }
             }
         }));
