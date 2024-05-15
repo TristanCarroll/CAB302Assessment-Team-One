@@ -33,6 +33,11 @@ public class HomeController implements Initializable {
     private Button statisticsNavButton;
     @FXML
     private Button goalsNavButton;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        userSignedIn();
+    }
     @FXML
     public void onNavButtonClick(ActionEvent event) {
         //TODO:
@@ -83,8 +88,5 @@ public class HomeController implements Initializable {
         EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/settings-view.fxml");
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
 
-    }
 }
