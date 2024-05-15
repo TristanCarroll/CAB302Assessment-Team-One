@@ -79,6 +79,7 @@ public class TimerController implements Initializable, ITimerPlayListener {
                     SessionsDAO.getInstance().endSession(sessionID, System.currentTimeMillis()/1000);
                     currentTimer.getChildren().remove(timerContainer);
 
+                    nid.szInfoTitle = "Timer Finished".toCharArray();
                     Shell32.Shell_NotifyIcon(Shell32.NIM_MODIFY, nid);
                     Shell32.Shell_NotifyIcon(WinApi.Shell32.NIM_DELETE, nid);
                     //User32.INSTANCE.ShowWindow(hWnd, WinUser.SW_MAXIMIZE);
