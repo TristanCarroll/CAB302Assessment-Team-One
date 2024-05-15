@@ -58,7 +58,9 @@ public class HomeController implements Initializable {
         }
     }
 
-    //TODO: implement
+    /**
+     * Get current user and Display their username next to the settings icon
+     */
     @FXML
     public void userSignedIn() {
         userSignedIn.setText(StateManager.getCurrentUser().getUserName());
@@ -87,6 +89,5 @@ public class HomeController implements Initializable {
     public void onImageClick(MouseEvent mouseEvent) {
         EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/settings-view.fxml");
     }
-
 
 }
