@@ -64,7 +64,6 @@ public class TimerController implements Initializable, ITimerPlayListener {
         nid.guidItem = GUID.newGuid();
 
         Shell32.Shell_NotifyIcon(WinApi.Shell32.NIM_ADD, nid);
-        Shell32.Shell_NotifyIcon(WinApi.Shell32.NIM_DELETE, nid);
 
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
             @Override
@@ -77,6 +76,12 @@ public class TimerController implements Initializable, ITimerPlayListener {
                     mediaPlayer.play();
                     timeline.stop();
                     SessionsDAO.getInstance().endSession(sessionID, System.currentTimeMillis()/1000);
+
+                    nid.szInfoTitle = "Timer Finished".toCharArray();
+
+                    Shell32.Shell_NotifyIcon(Shell32.NIM_MODIFY, nid);
+                    Shell32.Shell_NotifyIcon(WinApi.Shell32.NIM_DELETE, nid);
+                    //User32.INSTANCE.ShowWindow(hWnd, WinUser.SW_MAXIMIZE);
                 }
             }
         }));
