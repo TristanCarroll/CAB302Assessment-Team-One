@@ -68,7 +68,7 @@ public class WinApi {
         public char[] szInfoTitle = new char[64];
         public int dwInfoFlags;
         public GUID guidItem;
-        Pointer hBalloonIcon;
+        public Pointer hBalloonIcon;
 
         {
             cbSize = size();
