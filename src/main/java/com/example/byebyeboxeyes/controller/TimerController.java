@@ -1,10 +1,18 @@
 package com.example.byebyeboxeyes.controller;
 
 import com.example.byebyeboxeyes.StateManager;
+import com.example.byebyeboxeyes.WinApi;
+import com.example.byebyeboxeyes.WinApi.Shell32;
+import com.example.byebyeboxeyes.WinApi.NOTIFYICONDATA;
 import com.example.byebyeboxeyes.events.EventService;
 import com.example.byebyeboxeyes.events.ITimerPlayListener;
 import com.example.byebyeboxeyes.model.SessionsDAO;
 import com.example.byebyeboxeyes.timer.Timer;
+import com.sun.jna.platform.win32.Guid.GUID;
+import com.sun.jna.platform.win32.User32;
+import com.sun.jna.platform.win32.WinDef;
+import com.sun.jna.platform.win32.WinDef.HWND;
+import com.sun.jna.platform.win32.WinUser;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -43,6 +51,21 @@ public class TimerController implements Initializable, ITimerPlayListener {
         );
         CurrentTimerContainer timerContainer = new CurrentTimerContainer(timer);
         currentTimer.getChildren().add(timerContainer);
+
+        HWND hWnd = User32.INSTANCE.FindWindow(null, "Bye Bye Box Eyes");
+        User32.INSTANCE.ShowWindow(hWnd, WinUser.SW_MINIMIZE);
+
+        NOTIFYICONDATA nid = new NOTIFYICONDATA();
+        nid.hWnd = hWnd;
+        nid.uFlags = NOTIFYICONDATA.NIF_INFO;
+        nid.szInfo = "Bye Bye Box Eyes".toCharArray();
+        nid.szInfoTitle = "Timer Started".toCharArray();
+        nid.dwInfoFlags = NOTIFYICONDATA.NIIF_INFO;
+        nid.guidItem = GUID.newGuid();
+
+        Shell32.Shell_NotifyIcon(WinApi.Shell32.NIM_ADD, nid);
+        Shell32.Shell_NotifyIcon(WinApi.Shell32.NIM_DELETE, nid);
+
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
