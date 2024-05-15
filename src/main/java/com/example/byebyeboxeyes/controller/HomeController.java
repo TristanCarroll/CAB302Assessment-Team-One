@@ -33,6 +33,11 @@ public class HomeController implements Initializable {
     private Button statisticsNavButton;
     @FXML
     private Button goalsNavButton;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        userSignedIn();
+    }
     @FXML
     public void onNavButtonClick(ActionEvent event) {
         //TODO:
@@ -53,7 +58,9 @@ public class HomeController implements Initializable {
         }
     }
 
-    //TODO: implement
+    /**
+     * Get current user and Display their username next to the settings icon
+     */
     @FXML
     public void userSignedIn() {
         userSignedIn.setText(StateManager.getCurrentUser().getUserName());
@@ -83,8 +90,4 @@ public class HomeController implements Initializable {
         EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/settings-view.fxml");
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
 }
