@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Directory change.">
+    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Can't start multiple timers at once.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java" afterDir="false" />
     </list>
@@ -26,20 +26,13 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="UI" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -69,10 +62,10 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "statistics",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ashwipe/Desktop/drip-feed-cab302/CAB302Assessment-Team-One/src/main/resources/com/example/byebyeboxeyes/images",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
@@ -361,7 +354,8 @@
     <MESSAGE value="merged favourite timers with main" />
     <MESSAGE value="Adding logic for charts and statistics in general.&#10;Updated some tests." />
     <MESSAGE value="Directory change." />
-    <option name="LAST_COMMIT_MESSAGE" value="Directory change." />
+    <MESSAGE value="Can't start multiple timers at once." />
+    <option name="LAST_COMMIT_MESSAGE" value="Can't start multiple timers at once." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -385,11 +379,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/StatisticsController.java</url>
           <line>44</line>
           <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="27" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalStateException" package="java.lang" />

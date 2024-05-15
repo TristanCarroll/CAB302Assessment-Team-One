@@ -43,6 +43,7 @@ public class TimerController implements Initializable, ITimerPlayListener {
         if (!currentTimer.getChildren().isEmpty()) {
             return;
         }
+
         int sessionID = SessionsDAO.getInstance().startSession(
                 StateManager.getCurrentUser().getUserID(),
                 timer.getTimerID(),
@@ -76,12 +77,7 @@ public class TimerController implements Initializable, ITimerPlayListener {
                     mediaPlayer.play();
                     timeline.stop();
                     SessionsDAO.getInstance().endSession(sessionID, System.currentTimeMillis()/1000);
-
-                    nid.szInfoTitle = "Timer Finished".toCharArray();
-
-                    Shell32.Shell_NotifyIcon(Shell32.NIM_MODIFY, nid);
-                    Shell32.Shell_NotifyIcon(WinApi.Shell32.NIM_DELETE, nid);
-                    //User32.INSTANCE.ShowWindow(hWnd, WinUser.SW_MAXIMIZE);
+                    currentTimer.getChildren().remove(timerContainer);
                 }
             }
         }));
