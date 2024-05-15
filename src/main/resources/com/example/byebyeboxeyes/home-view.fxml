@@ -12,25 +12,42 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.byebyeboxeyes.controller.HomeController">
     <left>
-        <VBox prefHeight="400.0" prefWidth="140.0" style="-fx-background-color: #f4f4f4;">  <VBox>
+        <VBox prefHeight="400.0" prefWidth="160.0" style="-fx-background-color: #f4f4f4;">  <VBox>
             <fx:include source="current-timer-view.fxml"
-                        prefHeight="50.0"
+                        prefHeight="225.0"
                         prefWidth="116.0"/>
+
+            <VBox>
+                <HBox style=" -fx-padding: 0 0 0 10px;">
+                    <ImageView fx:id="settingsNavButton"
+                               fitHeight="24.0"
+                               fitWidth="23.0"
+                               onMouseClicked="#onImageClick"
+                               pickOnBounds="true"
+                               preserveRatio="true">
+                        <image>
+                            <Image url="@images/settings-icon.png" />
+                        </image>
+                    </ImageView>
+                    <Label fx:id="userSignedIn" text="HERE" wrapText="true" minWidth="100.0" style=" -fx-padding: 0 0 0 5px; -fx-font-size: 14px;">
+                    </Label>
+                </HBox>
+            </VBox>
+
             <VBox alignment="CENTER" style="-fx-padding: 10px;">  <children>
                 <Button fx:id="timersNavButton"
                         focusTraversable="false"
                         onAction="#onNavButtonClick"
-                        prefHeight="50.0"
+                        prefHeight="60.0"
                         prefWidth="140.0"
                         text="Timers"
-                        style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-weight: bold;">  <VBox.margin>
-                    <Insets top="5" />  </VBox.margin>
+                        style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-weight: bold;">
                 </Button>
                 <Button fx:id="statisticsNavButton"
                         alignment="CENTER"
                         focusTraversable="false"
                         onAction="#onNavButtonClick"
-                        prefHeight="50.0"
+                        prefHeight="60.0"
                         prefWidth="140.0"
                         text="Statistics"
                         style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-weight: bold;">
@@ -42,7 +59,7 @@
                         contentDisplay="CENTER"
                         focusTraversable="false"
                         onAction="#onNavButtonClick"
-                        prefHeight="50.0"
+                        prefHeight="60.0"
                         prefWidth="140.0"
                         text="Goals"
                         style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-weight: bold;">
@@ -52,10 +69,10 @@
                 </Button>
             </children>
                 <VBox prefHeight="140.0" alignment="CENTER"/>
-                <Button onAction="#eyeTipButton" prefHeight="40.0" prefWidth="116.0" text="See Tips!" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button onAction="#eyeTipButton" prefHeight="50.0" prefWidth="116.0" text="See Tips!" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;"/>
             </VBox>
         </VBox>
-            <TextArea fx:id="eyeTipTxtArea" wrapText="true" editable="false" minHeight="190.0" style="-fx-background-color: white; -fx-padding: 10px; -fx-font-size: 14px;">
+            <TextArea fx:id="eyeTipTxtArea" wrapText="true" editable="false" minHeight="215.0" style=" -fx-text-fill: #2a3439; -fx-background-color: white; -fx-padding: 5px; -fx-font-size: 14px;">
                 Take regular breaks from screens to reduce eye strain.
             </TextArea>
         </VBox>
@@ -64,20 +81,24 @@
     <center>
         <fx:include source="timer-view.fxml" />
     </center>
+
    <right>
-      <ImageView fx:id="settingsNavButton"
-                 fitHeight="24.0"
-                 fitWidth="23.0"
-                 onMouseClicked="#onImageClick"
-                 pickOnBounds="true"
-                 preserveRatio="true"
-                 BorderPane.alignment="TOP_RIGHT">
-         <image>
-            <Image url="@images/settings-icon.png" />
-         </image>
-         <BorderPane.margin>
-            <Insets right="10.0" top="10.0" />
-         </BorderPane.margin>
-      </ImageView>
+       <VBox prefWidth="25.0">
+<!--           Padding on right side-->
+       </VBox>
+<!--      <ImageView fx:id="settingsNavButton"-->
+<!--                 fitHeight="24.0"-->
+<!--                 fitWidth="23.0"-->
+<!--                 onMouseClicked="#onImageClick"-->
+<!--                 pickOnBounds="true"-->
+<!--                 preserveRatio="true"-->
+<!--                 BorderPane.alignment="TOP_RIGHT">-->
+<!--         <image>-->
+<!--            <Image url="@images/settings-icon.png" />-->
+<!--         </image>-->
+<!--         <BorderPane.margin>-->
+<!--            <Insets right="10.0" top="10.0" />-->
+<!--         </BorderPane.margin>-->
+<!--      </ImageView>-->
    </right>
 </BorderPane>
