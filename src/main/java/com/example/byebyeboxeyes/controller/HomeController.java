@@ -1,5 +1,6 @@
 package com.example.byebyeboxeyes.controller;
 
+import com.example.byebyeboxeyes.StateManager;
 import com.example.byebyeboxeyes.events.EventService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +17,9 @@ import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
     //TODO: Add css styling to heading
+
+    @FXML
+    private Label userSignedIn;
     @FXML
     private Button eyeTipButton;
     @FXML
@@ -47,6 +51,12 @@ public class HomeController implements Initializable {
         else if (event.getSource() == goalsNavButton){
             EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/goals-view.fxml");
         }
+    }
+
+    //TODO: implement
+    @FXML
+    public void userSignedIn() {
+        userSignedIn.setText(StateManager.getCurrentUser().getUserName());
     }
 
     /**
