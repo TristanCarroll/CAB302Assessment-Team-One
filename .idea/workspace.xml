@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Directory change.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/fixed_bug_with_deleting_fav_timers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/fixed_bug_with_deleting_fav_timers.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/home-view.fxml" afterDir="false" />
     </list>
     <list id="80642f30-b092-4649-847e-c8ca193cd840" name="Changes by TJ" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -385,6 +382,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java</url>
           <line>32</line>
           <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/HomeController.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalStateException" package="java.lang" />
