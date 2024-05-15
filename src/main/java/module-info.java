@@ -6,6 +6,8 @@ module com.example.byebyeboxeyes {
     requires org.apache.commons.text;
     requires java.mail;
     requires javafx.media;
+    requires com.sun.jna;
+    requires com.sun.jna.platform;
 
     opens com.example.byebyeboxeyes.model;
     opens com.example.byebyeboxeyes to javafx.fxml;
