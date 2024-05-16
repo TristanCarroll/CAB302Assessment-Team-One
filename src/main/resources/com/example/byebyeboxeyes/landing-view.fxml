@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.*?>
 
 <StackPane fx:id="mainStackPane" prefHeight="313.0" prefWidth="575.0" style="-fx-border-color: black; -fx-border-width: 1px;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.byebyeboxeyes.controller.LandingController">
-
     <VBox >
         <VBox alignment="TOP_CENTER" fx:id="TitleArea">
             <Label fx:id="Title">Bye Bye Box Eyes</Label>
         </VBox>
     </VBox>
-
-
+  <VBox alignment="BOTTOM_CENTER">
+    <Label fx:id="Motto">Eye Health the Smart Way</Label>
+  </VBox>
   <GridPane alignment="CENTER" prefHeight="311.0" prefWidth="483.0" style="-fx-border-color: black; -fx-border-width: 1px;">
     <columnConstraints>
       <ColumnConstraints percentWidth="50" />

@@ -2,6 +2,26 @@
 
 .root {
     -fx-background-color: #F0F0EF;
+    -fx-background-color: linear-gradient(#F0F0EF 74%, #0E1609 85%, #0E1609 85%, #0E1609 90%);
+
+}
+
+#TitleArea {
+    -fx-background-color: #0E1609;
+}
+#Title {
+      -fx-font-family: "Dancing Script", cursive;
+      -fx-text-fill: linear-gradient(from 25% 25% to 100% 100%, #F0F0EF, #F5B400);
+      -fx-font-size: 5em;
+      -fx-font-weight: bold;
+      -fx-padding: 35px;
+}
+#Motto {
+      -fx-font-family: "Kaushan Script", cursive;
+      -fx-font-size: 3em;
+      -fx-font-weight: bold;
+      -fx-padding: 35px;
+      -fx-text-fill: #F0F0EF;
 }
 
 #userNameTextField, #passwordTextField,
@@ -55,16 +75,6 @@
     -fx-max-height: 30px;
 }
 
-#TitleArea {
-    -fx-background-color: #0E1609;
-}
-#Title {
-      -fx-font-family: "Dancing Script", cursive;
-      -fx-text-fill: linear-gradient(from 25% 25% to 100% 100%, #F0F0EF, #F5B400);
-      -fx-font-size: 5em;
-      -fx-font-weight: bold;
-      -fx-padding: 35px;
-}
 
 /* colors
 #0E1609 - green

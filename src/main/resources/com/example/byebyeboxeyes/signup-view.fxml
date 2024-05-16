@@ -13,7 +13,9 @@
             <Label fx:id="Title">Bye Bye Box Eyes</Label>
         </VBox>
     </VBox>
-
+    <VBox alignment="BOTTOM_CENTER">
+        <Label fx:id="Motto">Eye Health the Smart Way</Label>
+    </VBox>
     <GridPane alignment="CENTER" style="-fx-border-color: black; -fx-border-width: 1px;">
         <columnConstraints>
             <ColumnConstraints percentWidth="50" />
