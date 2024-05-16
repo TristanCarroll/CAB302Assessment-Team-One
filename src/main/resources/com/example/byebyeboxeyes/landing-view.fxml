@@ -43,7 +43,7 @@
     <!-- Left Half -->
     <VBox alignment="CENTER" prefHeight="216.0" prefWidth="286.0" spacing="20.0">
 <!--      TODO: Center the label text perhaps with an id later in the CSS-->
-      <Label text="Enter your details below to sign in" />
+      <Label text="Enter your details below to sign in" style="-fx-padding: 0 0 0 60px;"/>
       <GridPane alignment="CENTER" hgap="5.0" prefHeight="187.0" prefWidth="231.0" vgap="10.0">
         <columnConstraints>
           <ColumnConstraints minWidth="60.0" />

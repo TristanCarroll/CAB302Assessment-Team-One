@@ -20,16 +20,16 @@
             <VBox>
                 <HBox style=" -fx-padding: 0 0 0 10px;">
                     <ImageView fx:id="settingsNavButton"
-                               fitHeight="24.0"
-                               fitWidth="23.0"
+                               fitHeight="30.0"
+                               fitWidth="26.0"
                                onMouseClicked="#onImageClick"
                                pickOnBounds="true"
                                preserveRatio="true">
                         <image>
-                            <Image url="@images/settings-icon.png" />
+                            <Image url="@images/user.png" />
                         </image>
                     </ImageView>
-                    <Label fx:id="userSignedIn" wrapText="true" minWidth="100.0" style=" -fx-padding: 0 0 0 5px; -fx-font-size: 14px;">
+                    <Label fx:id="userSignedIn" wrapText="true" minWidth="100.0" style=" -fx-padding: 8px 0 0 5px; -fx-font-size: 14px;">
                     </Label>
                 </HBox>
             </VBox>

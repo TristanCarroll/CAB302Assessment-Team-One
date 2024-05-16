@@ -43,8 +43,8 @@
             </children>
         </StackPane>
         <!-- Left half -->
-        <VBox alignment="CENTER" spacing="20.0">
-            <Label text="Enter your details below to sign up" />
+        <VBox alignment="CENTER" spacing="20.0" >
+            <Label text="Enter your details below to sign up" style="-fx-padding: 0 0 0 60px;"/>
             <GridPane alignment="CENTER" hgap="5.0" vgap="10.0">
                 <columnConstraints>
                     <ColumnConstraints minWidth="60.0" />
@@ -64,7 +64,7 @@
                 </rowConstraints>
             </GridPane>
 <!--            TODO: FIX ALIGNMENT-->
-            <HBox spacing="10.0" alignment="CENTER">
+            <HBox spacing="10.0" alignment="CENTER" style="-fx-padding: 0 0 0 75px;">
                 <Button fx:id="registerButton" onAction="#onRegisterButtonClick" text="Register" />
                 <Button fx:id="cancelButton" onAction="#oncancelButtonClick" text="Cancel"/>
             </HBox>
