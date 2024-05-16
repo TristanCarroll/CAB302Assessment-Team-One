@@ -25,17 +25,20 @@
 }
 
 #userNameTextField, #passwordTextField,
- #registerUserNameTextField, #registerEmailTextField, #registerPasswordTextField{
+ #registerUserNameTextField, #registerEmailTextField, #registerPasswordTextField,
+ #resetPwdUsername, #resetPwdEmail
+{
     -fx-focus-color: #5C2B0F ;
-    -fx-text-fill: #5C2B0F;
+    -fx-text-fill: black;
     -fx-font-weight: bold;
-    -fx-font-size: 1.2em;
+    -fx-font-size: 1.1em;
 }
 
-#userText, #userEmail, #userPWD, #orLogin {
+#userText, #userEmail, #userPWD, #orLogin,  #resetUsername, #resetEmail
+{
     -fx-font-family: "Open Sans", sans-serif;
     -fx-font-weight: bold;
-    -fx-font-size: 1.25em;
+    -fx-font-size: 1.2em;
 }
 
 #hyperlink, #hyperlink1 {
@@ -46,10 +49,10 @@
     -fx-text-fill: #5C2B0F;
 }
 
-#EnterDetailsSection {
+#EnterDetailsSection, #enterResetPWD {
     -fx-font-family: "Open Sans", sans-serif;
     -fx-font-weight: bold;
-    -fx-font-size: 1.5em;
+    -fx-font-size: 1.3em;
 }
 
 .button:hover {
