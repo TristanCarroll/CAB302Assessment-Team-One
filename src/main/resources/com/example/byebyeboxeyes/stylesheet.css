@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Kaushan+Script&family=Open+Sans:wght@300&display=swap');
+
+.root {
+    -fx-background-color: #F0F0EF;
+}
+
+#userNameTextField, #passwordTextField,
+ #registerUserNameTextField, #registerEmailTextField, #registerPasswordTextField{
+    -fx-focus-color: #5C2B0F ;
+    -fx-text-fill: #5C2B0F;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.2em;
+}
+
+#userText, #userEmail, #userPWD, #orLogin {
+    -fx-font-family: "Open Sans", sans-serif;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.25em;
+}
+
+#hyperlink, #hyperlink1 {
+    -fx-font-size: 1.1em;
+}
+
+#hyperlink: hover, #hyperlink1: hover {
+    -fx-text-fill: #5C2B0F;
+}
+
+#EnterDetailsSection {
+    -fx-font-family: "Open Sans", sans-serif;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.5em;
+}
+
+.button:hover {
+      -fx-background-color: #5C2B0F;
+      -fx-text-fill: white;
+      -fx-background-radius: 85;
+      -fx-min-width: 100px;
+      -fx-min-height: 30px;
+      -fx-max-width: 30px;
+      -fx-max-height: 30px;
+}
+.button {
+    -fx-font-weight: bold;
+    -fx-background-radius: 85;
+    -fx-background-color: #F0F0EF;
+    -fx-border-radius: 85;
+    -fx-border-width: 2.5px;
+    -fx-border-color: #5C2B0F;
+    -fx-text-fill: #141E1F;
+    -fx-min-width: 100px;
+    -fx-min-height: 30px;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+}
+
+#TitleArea {
+    -fx-background-color: #0E1609;
+}
+#Title {
+      -fx-font-family: "Dancing Script", cursive;
+      -fx-text-fill: linear-gradient(from 25% 25% to 100% 100%, #F0F0EF, #F5B400);
+      -fx-font-size: 5em;
+      -fx-font-weight: bold;
+      -fx-padding: 35px;
+}
+
+/* colors
+#0E1609 - green
+#5C2B0F - brown
+#F5B400 - gold
+#141E1F - navy
+#F0F0EF - white */

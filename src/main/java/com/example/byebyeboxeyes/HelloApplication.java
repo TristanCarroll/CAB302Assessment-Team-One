@@ -15,6 +15,8 @@ public class HelloApplication extends Application {
     // TODO: Create and implement responsive design elements
     @Override
     public void start(Stage stage) throws IOException {
+
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
         setupWindowDimensionListeners(stage);
         setupSceneListener(stage);
         StateManager.setCurrentStage(stage);
@@ -26,6 +28,7 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1000, 650);
         stage.setTitle(title);
         stage.setScene(scene);
+        scene.getStylesheets().add(stylesheet);
         stage.show();
     }
 

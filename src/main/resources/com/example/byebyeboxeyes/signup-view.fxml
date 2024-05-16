@@ -8,9 +8,10 @@
 
 <StackPane fx:id="mainStackPane" style="-fx-border-color: black; -fx-border-width: 1px;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.byebyeboxeyes.controller.SignUpController">
 
-    <VBox alignment="TOP_CENTER">
-        <!--TODO: EDIT in CSS fx:id just for reference-->
-        <Label fx:id="Title" style="-fx-font-size: 40px; -fx-font-weight: bold; -fx-padding: 35px; ">Bye Bye Box Eyes</Label>
+    <VBox >
+        <VBox alignment="TOP_CENTER" fx:id="TitleArea">
+            <Label fx:id="Title">Bye Bye Box Eyes</Label>
+        </VBox>
     </VBox>
 
     <GridPane alignment="CENTER" style="-fx-border-color: black; -fx-border-width: 1px;">
@@ -44,15 +45,15 @@
         </StackPane>
         <!-- Left half -->
         <VBox alignment="CENTER" spacing="20.0" >
-            <Label text="Enter your details below to sign up" style="-fx-padding: 0 0 0 60px;"/>
+            <Label fx:id="EnterDetailsSection" text="Enter your details below to sign up" style="-fx-padding: 0 0 0 60px;"/>
             <GridPane alignment="CENTER" hgap="5.0" vgap="10.0">
                 <columnConstraints>
                     <ColumnConstraints minWidth="60.0" />
                     <ColumnConstraints />
                 </columnConstraints>
-                <Label text="Username:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
-                <Label text="Email:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                <Label text="Password:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                <Label fx:id="userText" text="Username:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+                <Label fx:id="userEmail" text="Email:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                <Label fx:id="userPWD" text="Password:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
                 <TextField fx:id="registerUserNameTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                 <TextField fx:id="registerEmailTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <PasswordField fx:id="registerPasswordTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="2" />
