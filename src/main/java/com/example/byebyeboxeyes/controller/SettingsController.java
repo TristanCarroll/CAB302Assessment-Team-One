@@ -39,5 +39,7 @@ public class SettingsController {
         alert.showAndWait();
     }
 
-
+    //TODO: ADD THE LOGIC
+    public void onDeleteButtonClick(ActionEvent actionEvent) {
+    }
 }

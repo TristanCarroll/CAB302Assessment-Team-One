@@ -24,7 +24,11 @@
                      <Label fx:id="ResetPwdTitle" text="Enter a new password:" minWidth="300.0"/>
                   </children>
                </GridPane>
-               <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="25.0" prefWidth="99.0" text="Logout" />
+                <VBox>
+                    <Label fx:id="DeleteAccount" text="Delete account" minWidth="300.0"/>
+                    <Button onAction="#onDeleteButtonClick" prefHeight="25.0" prefWidth="99.0" text="Delete" />
+                </VBox>
+                <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="25.0" prefWidth="99.0" text="Logout" />
             </children>
          </VBox>
       </children>

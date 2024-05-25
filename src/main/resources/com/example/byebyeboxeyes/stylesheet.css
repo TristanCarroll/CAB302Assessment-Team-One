@@ -26,7 +26,7 @@
 
 #userNameTextField, #passwordTextField,
  #registerUserNameTextField, #registerEmailTextField, #registerPasswordTextField,
- #resetPwdUsername, #resetPwdEmail, #ResetPwdTitle
+ #resetPwdUsername, #resetPwdEmail, #ResetPwdTitle, #DeleteAccount
 {
     -fx-focus-color: #5C2B0F ;
     -fx-text-fill: black;
