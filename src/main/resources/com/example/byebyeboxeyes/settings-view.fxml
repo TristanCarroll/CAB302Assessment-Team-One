@@ -19,9 +19,9 @@
                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                  </rowConstraints>
                   <children>
-                     <Button mnemonicParsing="false" onAction="#onResetButtonClick" text="Reset Password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                     <PasswordField fx:id="newUserPassword" GridPane.rowIndex="1" />
-                     <Label text="Enter a new password:" />
+                     <Button mnemonicParsing="false" onAction="#onResetButtonClick" text="Reset Password" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                     <PasswordField alignment="CENTER" fx:id="newUserPassword" GridPane.rowIndex="1" minWidth="130.0" />
+                     <Label fx:id="ResetPwdTitle" text="Enter a new password:" minWidth="300.0"/>
                   </children>
                </GridPane>
                <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="25.0" prefWidth="99.0" text="Logout" />

@@ -52,8 +52,8 @@
         </columnConstraints>
         <Label fx:id="userText" text="Username:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
         <Label fx:id="userPWD" text="Password:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-        <TextField fx:id="userNameTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-        <PasswordField fx:id="passwordTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="userNameTextField" alignment="CENTER" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <PasswordField fx:id="passwordTextField" alignment="CENTER" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <HBox fx:id="loginB" alignment="CENTER" prefHeight="0.0" prefWidth="166.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
           <Button fx:id="loginButton" contentDisplay="CENTER" onAction="#onLoginButtonClick" text="Login" />
           <Button fx:id="closeButton" contentDisplay="CENTER" onAction="#onCloseButtonClick" text="Close" />
