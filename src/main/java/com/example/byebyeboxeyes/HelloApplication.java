@@ -22,8 +22,6 @@ public class HelloApplication extends Application {
         StateManager.setCurrentStage(stage);
         NavigationController.getInstance();
 
-        // Responsive design elements here.
-
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("landing-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 650);
         stage.setTitle(title);
@@ -31,6 +29,7 @@ public class HelloApplication extends Application {
         scene.getStylesheets().add(stylesheet);
         stage.show();
     }
+
 
     public static void main(String[] args) {
         launch();
