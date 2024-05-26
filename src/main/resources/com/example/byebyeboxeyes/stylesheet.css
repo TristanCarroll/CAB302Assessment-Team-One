@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Kaushan+Script&family=Open+Sans:wght@300&display=swap');
+
+.root {
+    -fx-background-color: #F0F0EF;
+    -fx-background-color: linear-gradient(#F0F0EF 74%, #0E1609 85%, #0E1609 85%, #0E1609 90%);
+
+}
+
+#TitleArea {
+    -fx-background-color: #0E1609;
+}
+#Title {
+      -fx-font-family: "Dancing Script", cursive;
+      -fx-text-fill: linear-gradient(from 25% 25% to 100% 100%, #F0F0EF, #F5B400);
+      -fx-font-size: 5em;
+      -fx-font-weight: bold;
+      -fx-padding: 35px;
+}
+#Motto {
+      -fx-font-family: "Kaushan Script", cursive;
+      -fx-font-size: 3em;
+      -fx-font-weight: bold;
+      -fx-padding: 35px;
+      -fx-text-fill: #F0F0EF;
+}
+
+#userNameTextField, #passwordTextField,
+ #registerUserNameTextField, #registerEmailTextField, #registerPasswordTextField,
+ #resetPwdUsername, #resetPwdEmail, #ResetPwdTitle, #DeleteAccount, #ResetPwdHeading,
+ #newUserPassword
+{
+    -fx-focus-color: #5C2B0F ;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+#ResetPwdButton {
+    -fx-font-weight: bold;
+    -fx-background-radius: 85;
+    -fx-background-color: #F0F0EF;
+    -fx-border-radius: 85;
+    -fx-border-width: 2.5px;
+    -fx-border-color: #5C2B0F;
+    -fx-min-width: 125px;
+}
+#ResetPwdButton:hover {
+    -fx-background-color: #5C2B0F;
+    -fx-text-fill: white;
+    -fx-background-radius: 85;
+    -fx-min-width: 125px;
+}
+
+#SignedIn {
+    -fx-font-family: "Open Sans", sans-serif;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.2em;
+}
+
+#userText, #userEmail, #userPWD, #orLogin,  #resetUsername, #resetEmail
+{
+    -fx-font-family: "Open Sans", sans-serif;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.2em;
+}
+
+#hyperlink, #hyperlink1 {
+    -fx-font-size: 1.1em;
+}
+
+#hyperlink: hover, #hyperlink1: hover {
+    -fx-text-fill: #5C2B0F;
+}
+
+#EnterDetailsSection, #enterResetPWD {
+    -fx-font-family: "Open Sans", sans-serif;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.3em;
+}
+
+#settingsNavButton {
+    -fx-cursor: hand;
+}
+
+#timersNavButton, #statisticsNavButton, #goalsNavButton {
+    -fx-background-color: #141E1F;
+    -fx-text-fill: white;
+    -fx-border-width: 2.5px;
+    -fx-background-radius: 85;
+    -fx-font-weight: bold;
+    -fx-border-radius: 90;
+    -fx-border-color: #F0F0EF;
+    -fx-min-height: 60px;
+    -fx-min-width: 140px;
+}
+
+#timersNavButton:hover, #statisticsNavButton:hover, #goalsNavButton:hover {
+    -fx-background-color: #F0F0EF;
+    -fx-text-fill: #141E1F;
+    -fx-border-color: #141E1F;
+    -fx-border-width: 2.5px;
+    -fx-background-radius: 85;
+    -fx-min-height: 60px;
+    -fx-min-width: 140px;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+}
+#statisticsNavButton:pressed, #timersNavButton:pressed, #goalsNavButton:pressed {
+    -fx-background-color: #5C2B0F;
+    -fx-text-fill: #F0F0EF;
+    -fx-underline: true;
+}
+
+#tipButton {
+    -fx-background-color: #5C2B0F;
+    -fx-background-radius: 85;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-min-width: 116;
+    -fx-min-height: 45;
+}
+
+#createNewTimer {
+    -fx-background-color: #5C2B0F;
+    -fx-background-radius: 85;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-min-width: 100;
+    -fx-min-height: 30;
+}
+
+#tipButton:hover, #createNewTimer:hover {
+    -fx-cursor: hand;
+}
+
+#loginButton:hover, #closeButton:hover, #registerButton:hover, #cancelButton:hover,
+ #sendEmailButton:hover, #cancelButton:hover, #settingsLogoutButton:hover, #DeleteAccountButton:hover {
+      -fx-background-color: #5C2B0F;
+      -fx-text-fill: white;
+      -fx-background-radius: 85;
+      -fx-min-width: 100px;
+      -fx-min-height: 30px;
+      -fx-max-width: 30px;
+      -fx-max-height: 30px;
+}
+#loginButton, #closeButton, #registerButton, #cancelButton,
+  #sendEmailButton, #cancelButton, #settingsLogoutButton, #DeleteAccountButton {
+    -fx-font-weight: bold;
+    -fx-background-radius: 85;
+    -fx-background-color: #F0F0EF;
+    -fx-border-radius: 85;
+    -fx-border-width: 2.5px;
+    -fx-border-color: #5C2B0F;
+    -fx-text-fill: #141E1F;
+    -fx-min-width: 100px;
+    -fx-min-height: 30px;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+}
+
+
+/* colors
+#0E1609 - green
+#5C2B0F - brown
+#F5B400 - gold
+#141E1F - navy
+#F0F0EF - white */

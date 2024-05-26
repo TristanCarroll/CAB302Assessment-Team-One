@@ -23,7 +23,7 @@
             <TextField fx:id="hoursField" promptText="Hours" maxWidth="60" />
             <TextField fx:id="minutesField" promptText="Minutes" maxWidth="60" />
             <TextField fx:id="secondsField" promptText="Seconds" maxWidth="60" />
-            <Button fx:id="createNewTimer" onAction="#createNewTimer" text="Create Timer" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+            <Button fx:id="createNewTimer" onAction="#createNewTimer" text="Create Timer"/>
         </HBox>
 
         <Separator style="-fx-padding: 5 0 5 0;"/>

@@ -1,5 +1,6 @@
 package com.example.byebyeboxeyes.controller;
 
+import com.example.byebyeboxeyes.HelloApplication;
 import com.example.byebyeboxeyes.StateManager;
 import com.example.byebyeboxeyes.events.EventService;
 import com.example.byebyeboxeyes.events.INavigationEventListener;
@@ -31,6 +32,8 @@ public class NavigationController implements INavigationEventListener {
             Scene scene = new Scene(fxmlLoader.load(),
                     StateManager.getCurrentScene().getWidth(), StateManager.getCurrentScene().getHeight());
             Stage stage = StateManager.getCurrentStage();
+            String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+            scene.getStylesheets().add(stylesheet);
             stage.setScene(scene);
         } catch (IOException e) {
             // TODO:
@@ -49,6 +52,8 @@ public class NavigationController implements INavigationEventListener {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
             if (fxmlPath.contains("home") || fxmlPath.contains("signup") || fxmlPath.contains("landing") || fxmlPath.contains(("reset")) ) {
                 StateManager.getCurrentScene().setRoot(fxmlLoader.load());
+                String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+                StateManager.getCurrentScene().getStylesheets().add(stylesheet);
             }
             else {
                 ((BorderPane)StateManager.getCurrentScene().getRoot()).setCenter(fxmlLoader.load());

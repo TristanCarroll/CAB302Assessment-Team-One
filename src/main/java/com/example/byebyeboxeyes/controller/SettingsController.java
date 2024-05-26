@@ -5,19 +5,32 @@ import com.example.byebyeboxeyes.events.EventService;
 import com.example.byebyeboxeyes.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import com.example.byebyeboxeyes.model.UserDAO;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import static com.example.byebyeboxeyes.controller.SignUpController.passwordHash;
 
 
-public class SettingsController {
+public class SettingsController implements Initializable {
     public Button logoutButton;
     private final UserDAO userDAO;
     @FXML
     public PasswordField newUserPassword;
+    @FXML
+    private Button DeleteAccountButton;
+    @FXML
+    private Label DeleteAccount;
+    @FXML
+    private Label SignedIn;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        SignedIn();
+    }
 
     public SettingsController() {
         userDAO = UserDAO.getInstance();
@@ -39,5 +52,12 @@ public class SettingsController {
         alert.showAndWait();
     }
 
+    @FXML
+    public void SignedIn() {
+        SignedIn.setText(StateManager.getCurrentUser().getUserName());
+    }
 
+    //TODO: ADD THE LOGIC DELETEACCOUNT IS ADDED ABOVE
+    public void onDeleteButtonClick(ActionEvent actionEvent) {
+    }
 }
