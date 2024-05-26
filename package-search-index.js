@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"com.example.byebyeboxeyes","l":"com.example.byebyeboxeyes"},{"m":"com.example.byebyeboxeyes","l":"com.example.byebyeboxeyes.controller"},{"m":"com.example.byebyeboxeyes","l":"com.example.byebyeboxeyes.model"},{"m":"com.example.byebyeboxeyes","l":"com.example.byebyeboxeyes.timer"}];updateSearchResults();
