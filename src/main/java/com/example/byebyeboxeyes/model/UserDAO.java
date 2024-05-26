@@ -68,11 +68,11 @@ public class UserDAO implements IUserDAO{
         }
     }
 
-    public void deleteUser(String username) {
-        String query = "DELETE FROM users WHERE userName = ?";
+    public void deleteUser(int userId) {
+        String query = "DELETE FROM users WHERE userID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, username);
+            statement.setInt(1, userId);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

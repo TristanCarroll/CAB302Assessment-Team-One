@@ -46,7 +46,7 @@ public class UserDAOTests {
     @Test
     public void testDeleteUser() throws Exception {
         try {
-            userDAO.deleteUser(username);
+            userDAO.deleteUser(1);
             assertTrue(true);
         } catch (Exception e) {
             fail("Deleting user failed: " + e.getMessage());

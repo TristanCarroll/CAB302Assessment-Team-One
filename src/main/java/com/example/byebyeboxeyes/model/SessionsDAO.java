@@ -187,6 +187,17 @@ public class SessionsDAO implements ISessionsDAO {
 
         return numberOfSessions;
     }
+
+    public void deleteSessionsForUser(int userId) {
+        String query = "DELETE FROM sessions WHERE userID = ?";
+
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, userId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 //    public void insertMockDataForCharts(int userID, int timerID, long unixStartTime, long unixEndtime) {
 //        String sql = "INSERT INTO sessions(userID, timerID, unixStartTime, unixEndtime) VALUES(?, ?, ?, ?)";
 //

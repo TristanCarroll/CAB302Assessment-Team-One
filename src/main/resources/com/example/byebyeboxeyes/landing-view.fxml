@@ -5,12 +5,14 @@
 <?import javafx.scene.layout.*?>
 
 <StackPane fx:id="mainStackPane" prefHeight="313.0" prefWidth="575.0" style="-fx-border-color: black; -fx-border-width: 1px;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.byebyeboxeyes.controller.LandingController">
-
-  <VBox alignment="TOP_CENTER">
-    <!--TODO: EDIT in CSS fx:id just for reference-->
-    <Label fx:id="Title" style="-fx-font-size: 40px; -fx-font-weight: bold; -fx-padding: 35px;">Bye Bye Box Eyes</Label>
+    <VBox >
+        <VBox alignment="TOP_CENTER" fx:id="TitleArea">
+            <Label fx:id="Title">Bye Bye Box Eyes</Label>
+        </VBox>
+    </VBox>
+  <VBox alignment="BOTTOM_CENTER">
+    <Label fx:id="Motto">Eye Health the Smart Way</Label>
   </VBox>
-
   <GridPane alignment="CENTER" prefHeight="311.0" prefWidth="483.0" style="-fx-border-color: black; -fx-border-width: 1px;">
     <columnConstraints>
       <ColumnConstraints percentWidth="50" />
@@ -42,26 +44,25 @@
     </StackPane>
     <!-- Left Half -->
     <VBox alignment="CENTER" prefHeight="216.0" prefWidth="286.0" spacing="20.0">
-<!--      TODO: Center the label text perhaps with an id later in the CSS-->
-      <Label text="Enter your details below to sign in" />
+      <Label fx:id="EnterDetailsSection" text="Enter your details below to sign in" style="-fx-padding: 0 0 0 60px;"/>
       <GridPane alignment="CENTER" hgap="5.0" prefHeight="187.0" prefWidth="231.0" vgap="10.0">
         <columnConstraints>
           <ColumnConstraints minWidth="60.0" />
           <ColumnConstraints />
         </columnConstraints>
-        <Label text="Username:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
-        <Label text="Password:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-        <TextField fx:id="userNameTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-        <PasswordField fx:id="passwordTextField" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="166.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <Label fx:id="userText" text="Username:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+        <Label fx:id="userPWD" text="Password:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+        <TextField fx:id="userNameTextField" alignment="CENTER" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <PasswordField fx:id="passwordTextField" alignment="CENTER" maxWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <HBox fx:id="loginB" alignment="CENTER" prefHeight="0.0" prefWidth="166.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
           <Button fx:id="loginButton" contentDisplay="CENTER" onAction="#onLoginButtonClick" text="Login" />
           <Button fx:id="closeButton" contentDisplay="CENTER" onAction="#onCloseButtonClick" text="Close" />
         </HBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
-              <Hyperlink fx:id="hyperlink" alignment="CENTER" contentDisplay="CENTER" onAction="#onNoAccountClick" prefHeight="23.0" prefWidth="143.0" text="Don't have an account?" />
-                  <Label text="or" />
-                  <Hyperlink fx:id="hyperlink1" alignment="CENTER" contentDisplay="CENTER" onAction="#onForgotPwdClick" prefHeight="23.0" prefWidth="143.0" text="Forgot your password?" />
+              <Hyperlink fx:id="hyperlink" alignment="CENTER" contentDisplay="CENTER" onAction="#onNoAccountClick" prefHeight="23.0" text="Don't have an account?" />
+                  <Label fx:id="orLogin" text="or" />
+                  <Hyperlink fx:id="hyperlink1" alignment="CENTER" contentDisplay="CENTER" onAction="#onForgotPwdClick" prefHeight="23.0" text="Forgot your password?" />
                </children>
             </VBox>
         <rowConstraints>

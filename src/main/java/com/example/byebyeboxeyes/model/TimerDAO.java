@@ -125,6 +125,16 @@ public class TimerDAO implements ITimerDAO {
             e.printStackTrace();
         }
     }
+    public void deleteTimersForUser(int userId) {
+        String query = "DELETE FROM timers WHERE userID = ?";
+
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, userId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public void updateTimer(int pk, int hours, int minutes, int seconds, int isFavourite) {
         String query = "UPDATE " + TABLE_NAME + " SET " + COLUMN_HOURS + " = ?, "
                 + COLUMN_MINUTES + " = ?, " + COLUMN_SECONDS + " = ?, " + COLUMN_FAV + " = ? WHERE "
