@@ -26,12 +26,34 @@
 
 #userNameTextField, #passwordTextField,
  #registerUserNameTextField, #registerEmailTextField, #registerPasswordTextField,
- #resetPwdUsername, #resetPwdEmail, #ResetPwdTitle, #DeleteAccount
+ #resetPwdUsername, #resetPwdEmail, #ResetPwdTitle, #DeleteAccount, #ResetPwdHeading,
+ #newUserPassword
 {
     -fx-focus-color: #5C2B0F ;
     -fx-text-fill: black;
     -fx-font-weight: bold;
     -fx-font-size: 1.1em;
+}
+#ResetPwdButton {
+    -fx-font-weight: bold;
+    -fx-background-radius: 85;
+    -fx-background-color: #F0F0EF;
+    -fx-border-radius: 85;
+    -fx-border-width: 2.5px;
+    -fx-border-color: #5C2B0F;
+    -fx-min-width: 125px;
+}
+#ResetPwdButton:hover {
+    -fx-background-color: #5C2B0F;
+    -fx-text-fill: white;
+    -fx-background-radius: 85;
+    -fx-min-width: 125px;
+}
+
+#SignedIn {
+    -fx-font-family: "Open Sans", sans-serif;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.2em;
 }
 
 #userText, #userEmail, #userPWD, #orLogin,  #resetUsername, #resetEmail
@@ -55,7 +77,63 @@
     -fx-font-size: 1.3em;
 }
 
-.button:hover {
+#settingsNavButton {
+    -fx-cursor: hand;
+}
+
+#timersNavButton, #statisticsNavButton, #goalsNavButton {
+    -fx-background-color: #141E1F;
+    -fx-text-fill: white;
+    -fx-border-width: 2.5px;
+    -fx-background-radius: 85;
+    -fx-font-weight: bold;
+    -fx-border-radius: 90;
+    -fx-border-color: #F0F0EF;
+    -fx-min-height: 60px;
+    -fx-min-width: 140px;
+}
+
+#timersNavButton:hover, #statisticsNavButton:hover, #goalsNavButton:hover {
+    -fx-background-color: #F0F0EF;
+    -fx-text-fill: #141E1F;
+    -fx-border-color: #141E1F;
+    -fx-border-width: 2.5px;
+    -fx-background-radius: 85;
+    -fx-min-height: 60px;
+    -fx-min-width: 140px;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+}
+#statisticsNavButton:pressed, #timersNavButton:pressed, #goalsNavButton:pressed {
+    -fx-background-color: #5C2B0F;
+    -fx-text-fill: #F0F0EF;
+    -fx-underline: true;
+}
+
+#tipButton {
+    -fx-background-color: #5C2B0F;
+    -fx-background-radius: 85;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-min-width: 116;
+    -fx-min-height: 45;
+}
+
+#createNewTimer {
+    -fx-background-color: #5C2B0F;
+    -fx-background-radius: 85;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-min-width: 100;
+    -fx-min-height: 30;
+}
+
+#tipButton:hover, #createNewTimer:hover {
+    -fx-cursor: hand;
+}
+
+#loginButton:hover, #closeButton:hover, #registerButton:hover, #cancelButton:hover,
+ #sendEmailButton:hover, #cancelButton:hover, #settingsLogoutButton:hover, #DeleteAccountButton:hover {
       -fx-background-color: #5C2B0F;
       -fx-text-fill: white;
       -fx-background-radius: 85;
@@ -64,7 +142,8 @@
       -fx-max-width: 30px;
       -fx-max-height: 30px;
 }
-.button {
+#loginButton, #closeButton, #registerButton, #cancelButton,
+  #sendEmailButton, #cancelButton, #settingsLogoutButton, #DeleteAccountButton {
     -fx-font-weight: bold;
     -fx-background-radius: 85;
     -fx-background-color: #F0F0EF;

@@ -41,10 +41,10 @@ public class TimerContainer extends VBox {
     private void createContainer() {
         // --- Styling ---
         String mainBackgroundColor = "#C8E6C9"; // Light green background
-        String borderColor = "#4CAF50"; // Green border
+        String borderColor = "#141E1F"; // Green border
         String buttonBackgroundColor = "#81C784"; // Medium green button
         String buttonHoverColor = "#66BB6A"; // Slightly darker green on hover
-        String labelTextColor = "#388E3C"; // Dark green text
+        String labelTextColor = "#141E1F"; // Dark green text
 
         // --- Layout ---
         StackPane timerPane = new StackPane();

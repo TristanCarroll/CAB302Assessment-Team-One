@@ -5,8 +5,16 @@
 
 <AnchorPane prefHeight="650.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.byebyeboxeyes.controller.SettingsController">
    <HBox alignment="CENTER" prefHeight="650.0" prefWidth="883.0">
+       <VBox prefHeight="650.0" prefWidth="291.0">
+           <Label text="Account Settings" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 30px 0 20px 0; " />
+           <Label alignment="CENTER" fx:id="SignedIn" wrapText="true" minWidth="100.0"
+                  style=" -fx-padding: 0 0 2px 0; -fx-font-size: 18px;">
+           </Label>
+       </VBox>
+   </HBox>
+    <HBox alignment="CENTER" prefHeight="650.0" prefWidth="883.0">
       <children>
-         <VBox alignment="CENTER" prefHeight="650.0" prefWidth="241.0">
+         <VBox alignment="CENTER" prefHeight="650.0" prefWidth="291.0">
             <children>
                <GridPane alignment="CENTER" prefHeight="90.0" prefWidth="782.0">
                  <columnConstraints>
@@ -19,16 +27,22 @@
                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                  </rowConstraints>
                   <children>
-                     <Button mnemonicParsing="false" onAction="#onResetButtonClick" text="Reset Password" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-                     <PasswordField alignment="CENTER" fx:id="newUserPassword" GridPane.rowIndex="1" minWidth="130.0" />
-                     <Label fx:id="ResetPwdTitle" text="Enter a new password:" minWidth="300.0"/>
+                      <VBox spacing="5.0">
+                          <Label fx:id="ResetPwdTitle" text="Reset Password" style="-fx-font-size:16px;"/>
+                          <Label fx:id="ResetPwdHeading" text="Enter a new password:" minWidth="300.0"/>
+                          <HBox alignment="CENTER_LEFT" spacing="15.0">
+                              <PasswordField alignment="CENTER" fx:id="newUserPassword" maxWidth="145.0" />
+                              <Button fx:id="ResetPwdButton" mnemonicParsing="false" onAction="#onResetButtonClick" text="Reset Password" />
+                          </HBox>
+                      </VBox>
+
                   </children>
                </GridPane>
-                <VBox>
-                    <Label fx:id="DeleteAccount" text="Delete account" minWidth="300.0"/>
-                    <Button onAction="#onDeleteButtonClick" prefHeight="25.0" prefWidth="99.0" text="Delete" />
+                <VBox spacing="20.0">
+                    <Button id="settingsLogoutButton" contentDisplay="CENTER" alignment="CENTER" onAction="#onLogoutButtonClick" prefHeight="25.0" prefWidth="99.0" text="Logout" />
+                    <Label fx:id="DeleteAccount" alignment="CENTER" text="Delete account"/>
+                    <Button fx:id="DeleteAccountButton" onAction="#onDeleteButtonClick" alignment="CENTER" prefHeight="25.0" prefWidth="99.0" text="Delete" />
                 </VBox>
-                <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="25.0" prefWidth="99.0" text="Logout" />
             </children>
          </VBox>
       </children>
