@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
@@ -14,11 +17,25 @@
         <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
             <Label text="Statistics" alignment="TOP_CENTER" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-padding: 10 0 15 0;" />
 
-            <ChoiceBox fx:id="chartChoiceBox"
-                       VBox.vgrow="NEVER"
-                       prefWidth="150" />
+            <ChoiceBox fx:id="chartChoiceBox" VBox.vgrow="NEVER" prefWidth="150" />
             <VBox fx:id="chartContainer" />
+
+            <HBox spacing="5"> <ToggleButton fx:id="viewToggleButton" text="Weekly View" onAction="#toggleView" />
+                <Button fx:id="previousButton" text="Previous" />
+                <Button fx:id="nextButton" text="Next" />
+            </HBox>
+
+            <VBox fx:id="weeklyTrackerContainer" spacing="5">
+                <Label fx:id="weekLabel" />
+                <HBox fx:id="weeklyTracker" spacing="5"/>
+            </VBox>
+
+            <VBox fx:id="monthlyTrackerContainer" spacing="5">
+                <Label fx:id="monthLabel" />
+                <GridPane fx:id="monthlyTracker" hgap="5" vgap="5"/>
+            </VBox>
         </VBox>
+
         <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
             <Label text="Total Time Today" />
             <Label fx:id="totalTimeToday" />
@@ -31,4 +48,3 @@
         </VBox>
     </HBox>
 </AnchorPane>
-

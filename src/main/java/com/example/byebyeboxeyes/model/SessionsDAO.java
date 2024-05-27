@@ -60,8 +60,8 @@ public class SessionsDAO implements ISessionsDAO {
     public void endSession(int sessionID, long unixEndTime) {
         String sql =
                 "UPDATE sessions\n" +
-                "SET unixEndTime = ?\n" +
-                "WHERE sessionID = ?";
+                        "SET unixEndTime = ?\n" +
+                        "WHERE sessionID = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setLong(1, unixEndTime);
             stmt.setInt(2, sessionID);
@@ -187,6 +187,25 @@ public class SessionsDAO implements ISessionsDAO {
 
         return numberOfSessions;
     }
+
+    public List<LocalDate> getUniqueSessionDates(int userId) {
+        List<LocalDate> dates = new ArrayList<>();
+        String sql = "SELECT DISTINCT DATE(datetime(unixStartTime, 'unixepoch')) AS sessionDate " +
+                "FROM sessions " +
+                "WHERE userID = ?";
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                dates.add(LocalDate.parse(rs.getString("sessionDate")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return dates;
+    }
+
 //    public void insertMockDataForCharts(int userID, int timerID, long unixStartTime, long unixEndtime) {
 //        String sql = "INSERT INTO sessions(userID, timerID, unixStartTime, unixEndtime) VALUES(?, ?, ?, ?)";
 //
