@@ -9,7 +9,7 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.byebyeboxeyes.controller.StatisticsController"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F0F0EF;">
     <HBox style="-fx-padding: 0 45 0 45">
         <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
             <Label text="Statistics" alignment="TOP_CENTER" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-padding: 10 0 15 0;" />
