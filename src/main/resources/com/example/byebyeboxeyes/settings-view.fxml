@@ -3,7 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="650.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.byebyeboxeyes.controller.SettingsController">
+<AnchorPane prefHeight="650.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.byebyeboxeyes.controller.SettingsController"
+        style="-fx-background-color: linear-gradient(#F0F0EF 74%, #0E1609 85%, #0E1609 85%, #0E1609 90%);">
    <HBox alignment="CENTER" prefHeight="650.0" prefWidth="883.0">
        <VBox prefHeight="650.0" prefWidth="291.0">
            <Label text="Account Settings" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 30px 0 20px 0; " />
