@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.byebyeboxeyes.controller.StatisticsController"
-            prefHeight="400.0" prefWidth="600.0">
-    <HBox style="-fx-padding: 0 45 0 45">
-        <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
-            <Label text="Statistics" alignment="TOP_CENTER" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-padding: 10 0 15 0;" />
+            prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F0F0EF;">
+    <HBox style="-fx-padding: 0 45 0 45" alignment="TOP_CENTER">
+        <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+            <Label text="Statistics" alignment="TOP_CENTER" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-padding: 10 0 15 0;" minWidth="500" />
 
-            <ChoiceBox fx:id="chartChoiceBox"
-                       VBox.vgrow="NEVER"
-                       prefWidth="150" />
-            <VBox fx:id="chartContainer" />
+            <ChoiceBox fx:id="chartChoiceBox" VBox.vgrow="NEVER" prefWidth="150" />
+            <VBox fx:id="chartContainer"  />
+
+            <HBox spacing="5" alignment="TOP_CENTER">
+                <ToggleButton fx:id="viewToggleButton" text="Weekly View" onAction="#toggleView" />
+                <Button fx:id="previousButton" text="Previous" />
+                <Button fx:id="nextButton" text="Next" />
+            </HBox>
+
+            <VBox fx:id="weeklyTrackerContainer" spacing="5" alignment="TOP_CENTER">
+                <Label fx:id="weekLabel" />
+                <HBox fx:id="weeklyTracker" spacing="5" alignment="TOP_CENTER"/>
+            </VBox>
+
+            <VBox fx:id="monthlyTrackerContainer" spacing="5" alignment="TOP_CENTER">
+                <Label fx:id="monthLabel" />
+                <GridPane fx:id="monthlyTracker" hgap="5" vgap="5" alignment="TOP_CENTER"/>
+            </VBox>
         </VBox>
-        <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+
+        <VBox alignment="CENTER" VBox.vgrow="ALWAYS" minHeight="600">
             <Label text="Total Time Today" />
             <Label fx:id="totalTimeToday" />
             <Label text="Total Time Overall" />
@@ -31,4 +49,3 @@
         </VBox>
     </HBox>
 </AnchorPane>
-
