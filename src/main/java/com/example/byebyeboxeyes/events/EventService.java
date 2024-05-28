@@ -45,6 +45,12 @@ public class EventService {
     public void addDeleteListener(ITimerDeleteListener listener) {
         timerDeleteListeners.add(listener);
     }
+    public void addStopListener(ITimerStopListener listener) {
+        stopListeners.add(listener);
+    }
+    public void addDeleteAccountEventListener(IDeleteAccountEventListener listener) {
+        deleteAccountListeners.add(listener);
+    }
     public void addFavouriteListener(ITimerFavouriteListener listener) { timerFavouriteListeners.add(listener); }
     public void notifyLoginSuccessful() {
         for (INavigationEventListener listener : loginEventListeners) {
