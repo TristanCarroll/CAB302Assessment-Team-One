@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="made it prettier :)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/IStopListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/byebyeboxeyes/images/stop-button.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_2_33_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_2_33_pm__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/fixed_bug_with_deleting_fav_timers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/fixed_bug_with_deleting_fav_timers.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerContainer.java" afterDir="false" />
+    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="added stop button">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/EventService.java" afterDir="false" />
     </list>
     <list id="80642f30-b092-4649-847e-c8ca193cd840" name="Changes by TJ" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -279,15 +272,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715615578155</updated>
     </task>
-    <task id="LOCAL-00018" summary="Directory change.">
+    <task id="LOCAL-00018" summary="added stop button">
       <option name="closed" value="true" />
-      <created>1715685512468</created>
+      <created>1716873954324</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1715685512468</updated>
+      <updated>1716873954324</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -335,7 +328,8 @@
     <MESSAGE value="Directory change." />
     <MESSAGE value="Can't start multiple timers at once." />
     <MESSAGE value="made it prettier :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="made it prettier :)" />
+    <MESSAGE value="added stop button" />
+    <option name="LAST_COMMIT_MESSAGE" value="added stop button" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

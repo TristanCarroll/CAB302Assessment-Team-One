@@ -35,6 +35,7 @@ public class TimerController implements Initializable, ITimerPlayListener {
     @FXML
     public AnchorPane currentTimer;
     private Timeline timeline;
+    private int sessionID;
     private CurrentTimerContainer currentTimerContainer;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -96,6 +97,7 @@ public class TimerController implements Initializable, ITimerPlayListener {
         if (timeline != null) {
             timeline.stop();  // Stop the timeline
             currentTimer.getChildren().clear(); // Remove the timer from the UI
+            SessionsDAO.getInstance().endSession(sessionID, System.currentTimeMillis()/1000);
         }
     }
 }
