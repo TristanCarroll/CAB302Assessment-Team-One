@@ -83,8 +83,7 @@ public class StatisticsController implements Initializable {
         numberSessionsToday.setText(getNumberOfSessionsToday());
         numberSessionsOverall.setText(getNumberOfSessionsOverall());
         chartChoiceBox.getItems().addAll(options);
-        setupWeeklyTracker();
-        setupMonthlyTracker();
+
 
         chartChoiceBox.setOnAction(event -> {
             String selectedOption = chartChoiceBox.getValue();
@@ -109,6 +108,8 @@ public class StatisticsController implements Initializable {
                         chartContainer.getChildren().remove(0);
                     }
                     currentChoice = DAYS_USED;
+                    setupMonthlyTracker();
+                    setupWeeklyTracker();
                     weeklyTrackerContainer.setVisible(true);
                     monthlyTrackerContainer.setVisible(true);
                     viewToggleButton.setVisible(true);  // Show toggle button
@@ -125,22 +126,6 @@ public class StatisticsController implements Initializable {
 
         updateTrackerLabels();
         updateButtonStates();
-    }
-
-
-    private void handlePreviousButtonClick(ActionEvent event) {
-        if (isWeeklyView) {
-            previousWeek(event);
-        } else {
-            previousMonth(event);
-        }
-    }
-    private void handleNextButtonClick(ActionEvent event) {
-        if (isWeeklyView) {
-            nextWeek(event);
-        } else {
-            nextMonth(event);
-        }
     }
 
     private void setupTotalPerDayChart() {
@@ -186,19 +171,9 @@ public class StatisticsController implements Initializable {
         return String.valueOf(SessionsDAO.getInstance().getNumberOfSessionsOverall(
                 StateManager.getCurrentUser().getUserID()));
     }
-
-    private long getDaysUsedThisWeek() {
-        List<LocalDate> sessionDates = SessionsDAO.getInstance().getUniqueSessionDates(StateManager.getCurrentUser().getUserID());
-        LocalDate today = LocalDate.now();
-        LocalDate startOfWeek = today.minusDays(today.getDayOfWeek().getValue() - 1); // Assuming Monday as the start of the week
-        LocalDate endOfWeek = startOfWeek.plusDays(6);
-
-        return sessionDates.stream()
-                .filter(date -> !date.isBefore(startOfWeek) && !date.isAfter(endOfWeek))
-                .count();
-    }
     private void setupWeeklyTracker() {
-        weeklyTracker.getChildren().clear(); // Clear existing children
+        monthlyTracker.getChildren().clear();
+        weeklyTracker.getChildren().clear();
 
         LocalDate today = LocalDate.now();
         LocalDate startOfWeek = currentWeekStart;
@@ -216,7 +191,8 @@ public class StatisticsController implements Initializable {
     }
 
     private void setupMonthlyTracker() {
-        monthlyTracker.getChildren().clear(); // Clear existing children
+        weeklyTracker.getChildren().clear();
+        monthlyTracker.getChildren().clear();
 
         LocalDate startOfMonth = currentMonth.atDay(1); // Start from the 1st of the selected month
         int daysInMonth = currentMonth.lengthOfMonth(); // Get the number of days in the selected month
@@ -231,16 +207,6 @@ public class StatisticsController implements Initializable {
             dayContainer.setPadding(new Insets(5));
             monthlyTracker.add(dayContainer, (i % 7), (i / 7));
         }
-    }
-    private long getDaysUsedThisMonth() {
-        List<LocalDate> sessionDates = SessionsDAO.getInstance().getUniqueSessionDates(StateManager.getCurrentUser().getUserID());
-        LocalDate today = LocalDate.now();
-        LocalDate startOfMonth = today.withDayOfMonth(1);
-        LocalDate endOfMonth = today.withDayOfMonth(today.lengthOfMonth());
-
-        return sessionDates.stream()
-                .filter(date -> !date.isBefore(startOfMonth) && !date.isAfter(endOfMonth))
-                .count();
     }
     private void updateTrackerLabels() {
         weekLabel.setText("Week of " + currentWeekStart.format(DateTimeFormatter.ofPattern("MMMM d, yyyy")));
@@ -290,7 +256,7 @@ public class StatisticsController implements Initializable {
     public void toggleView(ActionEvent event) {
         isWeeklyView = !isWeeklyView;
 
-        // Update currentWeekStart to match the 1st day of the currentMonth if switching to weekly view
+
         if (isWeeklyView) {
             currentWeekStart = currentMonth.atDay(1);
         }
@@ -310,8 +276,10 @@ public class StatisticsController implements Initializable {
 
         // Refresh the tracker for the new view
         if (isWeeklyView) {
+            weekLabel.setManaged(true);
             setupWeeklyTracker();
         } else {
+            weekLabel.setManaged(false);
             setupMonthlyTracker();
         }
 
