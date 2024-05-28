@@ -1,7 +1,6 @@
 package com.example.byebyeboxeyes.events;
 
 import com.example.byebyeboxeyes.controller.TimerContainer;
-import com.example.byebyeboxeyes.controller.TimerController;
 import com.example.byebyeboxeyes.timer.Timer;
 
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class EventService {
     private List<ITimerPlayListener> timerPlayListeners = new ArrayList<>();
     private List<ITimerDeleteListener> timerDeleteListeners = new ArrayList<>();
     private List<ITimerFavouriteListener> timerFavouriteListeners = new ArrayList<>();
-    private List<IStopListener> stopListeners = new ArrayList<>();
+    private List<ITimerStopListener> stopListeners = new ArrayList<>();
 
 
     private EventService() {
@@ -46,7 +45,7 @@ public class EventService {
         timerDeleteListeners.add(listener);
     }
     public void addFavouriteListener(ITimerFavouriteListener listener) { timerFavouriteListeners.add(listener); }
-    public void addStopListener(IStopListener listener) { stopListeners.add(listener); }
+    public void addStopListener(ITimerStopListener listener) { stopListeners.add(listener); }
     public void notifyLoginSuccessful() {
         for (INavigationEventListener listener : loginEventListeners) {
             listener.onLoginSuccessful();
@@ -83,7 +82,7 @@ public class EventService {
         }
     }
     public void notifyStopButtonClick(Timer timer) {
-        for (IStopListener listener : stopListeners) {
+        for (ITimerStopListener listener : stopListeners) {
             listener.onStop(timer);
         }
     }
