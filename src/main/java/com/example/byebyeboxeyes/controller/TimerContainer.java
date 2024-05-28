@@ -28,6 +28,7 @@ public class TimerContainer extends VBox {
     Image deleteIcon = new Image(getClass().getResourceAsStream("/com/example/byebyeboxeyes/images/delete.png"), iconSize, iconSize, true, true);
     Image favIcon = new Image(getClass().getResourceAsStream("/com/example/byebyeboxeyes/images/unfilled_star.png"), iconSize, iconSize, true, true);
     Image unfavIcon = new Image(getClass().getResourceAsStream("/com/example/byebyeboxeyes/images/star.png"), iconSize, iconSize, true, true);
+    Image stopIcon = new Image(getClass().getResourceAsStream("/com/example/byebyeboxeyes/images/stop-button.png"), iconSize, iconSize, true, true);
 
     public TimerController getController() {
         return controller;
@@ -87,6 +88,14 @@ public class TimerContainer extends VBox {
         deleteButton.setOnMouseExited(e -> deleteButton.setStyle("-fx-background-color: " + buttonBackgroundColor + ";"));
         deleteButton.setOnAction(event -> deleteTimer());
 
+        Button stopButton = new Button(); // Add stop button
+        stopButton.setGraphic(new ImageView(stopIcon));
+        stopButton.setStyle("-fx-background-color: " + buttonBackgroundColor + "; -fx-background-radius: 5;");
+        stopButton.setOnMouseEntered(e -> stopButton.setStyle("-fx-background-color: " + buttonHoverColor + ";"));
+        stopButton.setOnMouseExited(e -> stopButton.setStyle("-fx-background-color: " + buttonBackgroundColor + ";"));
+        stopButton.setOnAction(event -> stopTimer()); // Add stopTimer() method
+
+
         favouriteButton = new Button();
         favouriteButton.setGraphic(new ImageView(favIcon));
         favouriteButton.setStyle("-fx-background-color: " + buttonBackgroundColor + "; -fx-background-radius: 5;");
@@ -105,7 +114,7 @@ public class TimerContainer extends VBox {
 
 
         // --- Arrange Buttons Horizontally ---
-        HBox buttonBox = new HBox( playButton,editButton, deleteButton, favouriteButton);
+        HBox buttonBox = new HBox(playButton, editButton, deleteButton, favouriteButton, stopButton);
         buttonBox.setAlignment(Pos.CENTER);
         buttonBox.setSpacing(5); // Adjust spacing as needed
 
@@ -159,5 +168,8 @@ public class TimerContainer extends VBox {
     private void favouriteTimer() {
         EventService.getInstance().notifyFavouriteButtonClick(this);
     }
-
+    private void stopTimer() {
+        EventService.getInstance().notifyStopButtonClick(this.timer);
+    }
 }
+
