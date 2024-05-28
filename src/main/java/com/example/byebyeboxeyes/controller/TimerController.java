@@ -17,6 +17,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.image.ImageView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
@@ -34,9 +35,11 @@ public class TimerController implements Initializable, ITimerPlayListener {
     @FXML
     public AnchorPane currentTimer;
     private Timeline timeline;
+    private CurrentTimerContainer currentTimerContainer;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         EventService.getInstance().addPlayListener(this);
+        EventService.getInstance().addStopListener(this::onStop);
     }
 
     public void onPlay(Timer timer) {
@@ -88,5 +91,11 @@ public class TimerController implements Initializable, ITimerPlayListener {
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+    }
+    public void onStop(Timer timer) {
+        if (timeline != null) {
+            timeline.stop();  // Stop the timeline
+            currentTimer.getChildren().clear(); // Remove the timer from the UI
+        }
     }
 }
