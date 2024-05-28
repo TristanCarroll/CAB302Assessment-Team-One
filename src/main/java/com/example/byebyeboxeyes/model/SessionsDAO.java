@@ -60,8 +60,8 @@ public class SessionsDAO implements ISessionsDAO {
     public void endSession(int sessionID, long unixEndTime) {
         String sql =
                 "UPDATE sessions\n" +
-                        "SET unixEndTime = ?\n" +
-                        "WHERE sessionID = ?";
+                "SET unixEndTime = ?\n" +
+                "WHERE sessionID = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setLong(1, unixEndTime);
             stmt.setInt(2, sessionID);
@@ -186,6 +186,17 @@ public class SessionsDAO implements ISessionsDAO {
         }
 
         return numberOfSessions;
+    }
+
+    public void deleteSessionsForUser(int userId) {
+        String query = "DELETE FROM sessions WHERE userID = ?";
+
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, userId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<LocalDate> getUniqueSessionDates(int userId) {

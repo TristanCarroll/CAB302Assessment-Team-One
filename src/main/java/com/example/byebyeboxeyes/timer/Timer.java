@@ -6,6 +6,9 @@ public class Timer {
     private int hours;
     private int minutes;
     private int seconds;
+    private int decrementedHours;
+    private int decrementedMinutes;
+    private int decrementedSeconds;
     private int isFavourite;
 
     public Timer(int timerID, int userID, int hours, int minutes, int seconds, int isFavourite) {
@@ -15,6 +18,9 @@ public class Timer {
         this.minutes = minutes;
         this.seconds = seconds;
         this.isFavourite = isFavourite;
+        this.decrementedHours = hours;
+        this.decrementedMinutes = minutes;
+        this.decrementedSeconds = seconds;
     }
 
     // Getters, setters
@@ -29,7 +35,6 @@ public class Timer {
     public int getSeconds() {
         return seconds;
     }
-
     public int getUserID() { return userID; }
     public int getTimerID() { return timerID; }
     public int getIsFavourite() { return isFavourite; }
@@ -45,20 +50,28 @@ public class Timer {
     public void setIsFavourite(int isFavourite) { this.isFavourite = isFavourite; }
 
 
-    public void decrementTime() {
-        if (seconds > 0) {
-            seconds--;
+    public String decrementTime() {
+        if (decrementedSeconds > 0) {
+            decrementedSeconds--;
         } else if (minutes > 0) {
-            minutes--;
-            seconds = 59;
+            decrementedMinutes--;
+            decrementedSeconds = 59;
         } else if (hours > 0) {
-            hours--;
-            minutes = 59;
-            seconds = 59;
+            decrementedHours--;
+            decrementedMinutes = 59;
+            decrementedSeconds = 59;
         }
+        return String.format("%02d:%02d:%02d", decrementedHours, decrementedMinutes, decrementedSeconds);
     }
     public boolean isFinished() {
-        return hours == 0 && minutes == 0 && seconds == 0;
+        return (decrementedHours == 0 && decrementedMinutes == 0 && decrementedSeconds == 0) && resetDecrements();
+    }
+
+    private boolean resetDecrements() {
+        decrementedHours = hours;
+        decrementedMinutes = minutes;
+        decrementedSeconds = seconds;
+        return true;
     }
 
     @Override

@@ -156,7 +156,11 @@ public class TimerContainer extends VBox {
         EventService.getInstance().notifyEditButtonClick(this);
     }
     private void playTimer() {
-        EventService.getInstance().notifyPlayButtonClick(this.timer);
+
+        if (timer.getHours() != 0 || timer.getMinutes() != 0 || timer.getSeconds() != 0)
+        {
+            EventService.getInstance().notifyPlayButtonClick(this.timer);
+        }
     }
     private void deleteTimer() {
         EventService.getInstance().notifyDeleteButtonClick(this);

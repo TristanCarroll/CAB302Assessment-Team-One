@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="made stop button work with sessions">
+    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Merged with main, a user can now delete their account and all associated information.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/EventService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/IStopListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/events/ITimerStopListener.java" afterDir="false" />
     </list>
     <list id="80642f30-b092-4649-847e-c8ca193cd840" name="Changes by TJ" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,10 +17,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -35,13 +33,6 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -58,19 +49,23 @@
     "Application.Unnamed.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.All in ByeByeBoxEyes.executor": "Run",
+    "JUnit.SessionsDAOTests.executor": "Run",
+    "JUnit.StatisticsControllerTests.executor": "Run",
     "JUnit.TimerDAOTests.executor": "Run",
     "JUnit.TimerTests.executor": "Run",
+    "JUnit.UserDAOTests.executor": "Run",
     "JUnit.UserDaoTests.executor": "Run",
     "JUnit.UserTests.executor": "Run",
+    "Maven.ByeByeBoxEyes [test].executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "pause/stop",
+    "git-widget-placeholder": "DeleteAccount",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/James/IdeaProjects/CAB302Assessment-Team-1/src/main/resources/com/example/byebyeboxeyes/images",
-    "project.structure.last.edited": "Libraries",
+    "last_opened_file_path": "C:/Users/ashwipe/Desktop/drip-feed-cab302/CAB302Assessment-Team-One/src/main/resources/com/example/byebyeboxeyes/images",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
@@ -82,7 +77,6 @@
       <recent name="com.example.byebyeboxeyes.events" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\James\IdeaProjects\CAB302Assessment-Team-1\src\main\resources\com\example\byebyeboxeyes\images" />
       <recent name="C:\Users\ashwipe\Desktop\drip-feed-cab302\CAB302Assessment-Team-One\src\main\resources\com\example\byebyeboxeyes\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -111,12 +105,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ByeByeBoxEyes [test]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="test" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="JUnit.All in ByeByeBoxEyes" />
+      <item itemvalue="Maven.ByeByeBoxEyes [test]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Maven.ByeByeBoxEyes [test]" />
         <item itemvalue="JUnit.All in ByeByeBoxEyes" />
         <item itemvalue="JUnit.All in ByeByeBoxEyes" />
       </list>
@@ -266,29 +292,29 @@
       <option name="project" value="LOCAL" />
       <updated>1715604508770</updated>
     </task>
-    <task id="LOCAL-00017" summary="made it prettier :)">
+    <task id="LOCAL-00017" summary="Adding logic for charts and statistics in general.&#10;Updated some tests.">
       <option name="closed" value="true" />
-      <created>1715615578155</created>
+      <created>1715684927228</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1715615578155</updated>
+      <updated>1715684927228</updated>
     </task>
-    <task id="LOCAL-00018" summary="added stop button">
+    <task id="LOCAL-00018" summary="Directory change.">
       <option name="closed" value="true" />
-      <created>1716873954324</created>
+      <created>1715685512468</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1716873954324</updated>
+      <updated>1715685512468</updated>
     </task>
-    <task id="LOCAL-00019" summary="made stop button work with sessions">
+    <task id="LOCAL-00019" summary="Merged with main, a user can now delete their account and all associated information.">
       <option name="closed" value="true" />
-      <created>1716874655938</created>
+      <created>1716879743861</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1716874655938</updated>
+      <updated>1716879743861</updated>
     </task>
     <option name="localTasksCounter" value="20" />
     <servers />
@@ -337,10 +363,9 @@
     <MESSAGE value="Adding logic for charts and statistics in general.&#10;Updated some tests." />
     <MESSAGE value="Directory change." />
     <MESSAGE value="Can't start multiple timers at once." />
-    <MESSAGE value="made it prettier :)" />
-    <MESSAGE value="added stop button" />
-    <MESSAGE value="made stop button work with sessions" />
-    <option name="LAST_COMMIT_MESSAGE" value="made stop button work with sessions" />
+    <MESSAGE value="Updated time formatting in statistics." />
+    <MESSAGE value="Merged with main, a user can now delete their account and all associated information." />
+    <option name="LAST_COMMIT_MESSAGE" value="Merged with main, a user can now delete their account and all associated information." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -352,27 +377,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/NavigationController.java</url>
-          <line>53</line>
+          <line>60</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/StatisticsController.java</url>
-          <line>198</line>
+          <line>95</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/StatisticsController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/SettingsController.java</url>
           <line>59</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.IllegalStateException" package="java.lang" />
-          <option name="timeStamp" value="10" />
-        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ByeByeBoxEyes$All_in_ByeByeBoxEyes.ic" NAME="All in ByeByeBoxEyes Coverage Results" MODIFIED="1714553211861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ByeByeBoxEyes$All_in_ByeByeBoxEyes.ic" NAME="All in ByeByeBoxEyes Coverage Results" MODIFIED="1715682513649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

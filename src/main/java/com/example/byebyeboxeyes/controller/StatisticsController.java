@@ -78,10 +78,10 @@ public class StatisticsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        totalTimeToday.setText(getTotalUsageToday());
-        totalTimeOverall.setText(getTotalUsageOverall());
-        numberSessionsToday.setText(getNumberOfSessionsToday());
-        numberSessionsOverall.setText(getNumberOfSessionsOverall());
+        totalTimeToday.setText(secondsToHhMmSs(getTotalUsageToday()));
+        totalTimeOverall.setText(secondsToHhMmSs(getTotalUsageOverall()));
+        numberSessionsToday.setText(getNumberOfSessionsToday().toString());
+        numberSessionsOverall.setText(getNumberOfSessionsOverall().toString());
         chartChoiceBox.getItems().addAll(options);
 
 
@@ -133,7 +133,7 @@ public class StatisticsController implements Initializable {
         xAxis.setLabel("Date");
 
         NumberAxis yAxis = new NumberAxis();
-        yAxis.setLabel("Total Session Time (Seconds)");
+        yAxis.setLabel("Total Session Time (Hours)");
 
         LineChart<String, Number> lineChart = new LineChart<>(xAxis, yAxis);
         lineChart.setTitle("Total Session Time per Day");
@@ -143,33 +143,48 @@ public class StatisticsController implements Initializable {
 
         List<TotalDailyData> sessionsData =
                 SessionsDAO.
-                        getInstance().
+                getInstance().
                         getTotalSessionTimePerDay(StateManager.getCurrentUser().getUserID());
         for (TotalDailyData data : sessionsData) {
-            series.getData().add(new XYChart.Data<>(data.getDate(), data.getTotalTime()));
+            series.getData().add(new XYChart.Data<>(data.getDate(), secondsToHours(data.getTotalTime())));
         }
 
         lineChart.getData().add(series);
 
         chartContainer.getChildren().add(lineChart);
     }
-    private String getTotalUsageToday() {
+    private static <T extends Number> double secondsToHours(T number) {
+        return number.doubleValue()/60/60;
+    }
+    private static <T extends Number> String secondsToHhMmSs(T seconds) {
+        // Convert the input to an integer value
+        int totalSeconds = seconds.intValue();
+
+        // Calculate hours, minutes, and seconds
+        int hours = totalSeconds / 3600;
+        int minutes = (totalSeconds % 3600) / 60;
+        int secondsLeft = totalSeconds % 60;
+
+        // Format the time components to string with zero padding for minutes and seconds
+        return String.format("%d:%02d:%02d", hours, minutes, secondsLeft);
+    }
+    private Number getTotalUsageToday() {
         return SessionsDAO.getInstance().getTotalUsageToday(
-                        StateManager.getCurrentUser().getUserID()).
-                get(0).getTotalTime().toString();
+                StateManager.getCurrentUser().getUserID()).
+                get(0).getTotalTime();
     }
-    private String getTotalUsageOverall() {
+    private Number getTotalUsageOverall() {
         return SessionsDAO.getInstance().getTotalUsageOverall(
-                        StateManager.getCurrentUser().getUserID()).
-                get(0).getTotalTime().toString();
+                StateManager.getCurrentUser().getUserID()).
+                get(0).getTotalTime();
     }
-    private String getNumberOfSessionsToday() {
-        return String.valueOf(SessionsDAO.getInstance().getNumberOfSessionsToday(
-                StateManager.getCurrentUser().getUserID()));
+    private Number getNumberOfSessionsToday() {
+        return SessionsDAO.getInstance().getNumberOfSessionsToday(
+                        StateManager.getCurrentUser().getUserID());
     }
-    private String getNumberOfSessionsOverall() {
-        return String.valueOf(SessionsDAO.getInstance().getNumberOfSessionsOverall(
-                StateManager.getCurrentUser().getUserID()));
+    private Number getNumberOfSessionsOverall() {
+        return SessionsDAO.getInstance().getNumberOfSessionsOverall(
+                StateManager.getCurrentUser().getUserID());
     }
     private void setupWeeklyTracker() {
         monthlyTracker.getChildren().clear();

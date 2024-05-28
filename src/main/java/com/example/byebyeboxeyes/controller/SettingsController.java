@@ -59,5 +59,6 @@ public class SettingsController implements Initializable {
 
     //TODO: ADD THE LOGIC DELETEACCOUNT IS ADDED ABOVE
     public void onDeleteButtonClick(ActionEvent actionEvent) {
+        EventService.getInstance().notifyDeleteAccountButtonClick();
     }
 }

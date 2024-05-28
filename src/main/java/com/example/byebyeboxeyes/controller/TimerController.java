@@ -73,15 +73,16 @@ public class TimerController implements Initializable, ITimerPlayListener {
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                timerContainer.timer.decrementTime();
-                timerContainer.updateTimerText(timerContainer.timer.toString());
+                timerContainer.updateTimerText(timerContainer.timer.decrementTime());
                 if (timerContainer.timer.isFinished()) {
                     // play sound here
                     MediaPlayer mediaPlayer = new MediaPlayer(sound);
                     mediaPlayer.play();
                     timeline.stop();
+
                     SessionsDAO.getInstance().endSession(sessionID, System.currentTimeMillis()/1000);
                     currentTimer.getChildren().remove(timerContainer);
+
 
                     nid.szInfoTitle = "Timer Finished".toCharArray();
                     Shell32.Shell_NotifyIcon(Shell32.NIM_MODIFY, nid);

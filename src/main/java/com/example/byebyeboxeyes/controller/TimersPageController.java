@@ -94,8 +94,8 @@ public class TimersPageController implements
             int seconds = getValidatedIntFromTextField(secondsField, 0, 59);
 
 
-            int timerID = timerDAO.saveTimer(1, hours, minutes, seconds, 0);
-            Timer timer = new Timer(timerID, 1, hours, minutes, seconds, 0);
+            int timerID = timerDAO.saveTimer(StateManager.getCurrentUser().getUserID(), hours, minutes, seconds, 0);
+            Timer timer = new Timer(timerID, StateManager.getCurrentUser().getUserID(), hours, minutes, seconds, 0);
             TimerContainer timerContainer = createTimerContainer(timer);
             timerContainers.put(timerID, timerContainer);
 

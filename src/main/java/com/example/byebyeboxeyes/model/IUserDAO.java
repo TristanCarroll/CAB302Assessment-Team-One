@@ -6,5 +6,5 @@ import java.sql.ResultSet;
 public interface IUserDAO {
     User getUser(String userName);
     void addUser(String userName, String email, String password);
-    void deleteUser(String username);
+    void deleteUser(int userId);
 }
