@@ -5,6 +5,12 @@ public class SessionsDataCollator {
         private String date;
         private Double totalTime;
 
+        /**
+         * TotalDailyData to calculate the users overall time based on the current local date
+         * @param date gets the current local date
+         * @param totalTime gets the total usage time for the opened/run timers in the application
+         * for the current local date
+         */
         public TotalDailyData(String date, Double totalTime) {
             this.date = date;
             this.totalTime = totalTime;
