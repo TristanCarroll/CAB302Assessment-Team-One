@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import com.example.byebyeboxeyes.model.UserDAO;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.byebyeboxeyes.controller.SignUpController.passwordHash;
@@ -20,6 +21,8 @@ public class SettingsController implements Initializable {
     private final UserDAO userDAO;
     @FXML
     public PasswordField newUserPassword;
+    @FXML
+    public PasswordField currentUserPassword;
     @FXML
     private Button DeleteAccountButton;
     @FXML
@@ -43,13 +46,24 @@ public class SettingsController implements Initializable {
     public void onResetButtonClick(ActionEvent actionEvent) {
         User currentUser = StateManager.getCurrentUser();
         String userEmail = currentUser.getEmail();
-        System.out.println(userEmail);
-        userDAO.updateUserPassword(passwordHash(newUserPassword.getText()), userEmail);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Reset Password");
-        alert.setHeaderText("Your password was changed.");
-        alert.setContentText("Your password has been successfully updated.");
-        alert.showAndWait();
+
+        if (Objects.equals(currentUser.getPassword(), passwordHash(currentUserPassword.getText()))) {
+            userDAO.updateUserPassword(passwordHash(newUserPassword.getText()), userEmail);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Reset Password");
+            alert.setHeaderText("Your password was changed.");
+            alert.setContentText("Your password has been successfully updated.");
+            alert.showAndWait();
+        } else {
+            // Incorrect password
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Reset Password Failed");
+            alert.setHeaderText("Incorrect Password");
+            alert.setContentText("The password you entered is incorrect.");
+            alert.showAndWait();
+        }
+
+
     }
 
     @FXML
