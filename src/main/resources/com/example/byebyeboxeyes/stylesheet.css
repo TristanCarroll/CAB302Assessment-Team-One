@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Kaushan+Script&family=Open+Sans:wght@300&display=swap');
 
+/* colors
+#0E1609 - green
+#5C2B0F - brown
+#F5B400 - gold
+#141E1F - navy
+#F0F0EF - white */
+
 .root {
     -fx-background-color: #F0F0EF;
     -fx-background-color: linear-gradient(#F0F0EF 74%, #0E1609 85%, #0E1609 85%, #0E1609 90%);
-
 }
 
 #TitleArea {
@@ -156,11 +162,3 @@
     -fx-max-width: 30px;
     -fx-max-height: 30px;
 }
-
-
-/* colors
-#0E1609 - green
-#5C2B0F - brown
-#F5B400 - gold
-#141E1F - navy
-#F0F0EF - white */
