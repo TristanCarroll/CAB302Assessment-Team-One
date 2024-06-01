@@ -15,8 +15,13 @@ import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+/**
+ * Home class to handle the home page
+ * Includes methods to handle the navigation events for the pane buttons
+ * displays the current loggedin users next to the settings icon.
+ * Setting icon to handle navigation to the settings page on user mouse click
+ */
 public class HomeController implements Initializable {
-    //TODO: Add css styling to heading
 
     @FXML
     private Label userSignedIn;
@@ -38,6 +43,12 @@ public class HomeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         userSignedIn();
     }
+
+    /**
+     * Navigation method to handle a button click on the home page
+     * button will navigate to the corresponding fxml view with the clicked button
+     * @param event get the source of the event corresponding to the fxml view
+     */
     @FXML
     public void onNavButtonClick(ActionEvent event) {
         //TODO:
@@ -59,7 +70,7 @@ public class HomeController implements Initializable {
     }
 
     /**
-     * Get current user and Display their username next to the settings icon
+     * Gets the current username and displays their username next to the settings icon
      */
     @FXML
     public void userSignedIn() {
@@ -86,6 +97,10 @@ public class HomeController implements Initializable {
         eyeTipTxtArea.setText(tips[randTips.nextInt(tips.length)]);
     }
 
+    /**
+     * Image click handle for the settings view image
+     * gets instance of the settings-view.fxml on the image click event
+     */
     public void onImageClick(MouseEvent mouseEvent) {
         EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/settings-view.fxml");
     }

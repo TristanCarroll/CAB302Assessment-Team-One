@@ -13,8 +13,9 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-// TODO:
-//  Interface?
+/**
+ * TimerContainer class to handle creating the timer functionality and styling
+ */
 public class TimerContainer extends VBox {
     public Timer timer;
     private Label timerLabel;

@@ -28,6 +28,11 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Class to handle resetting the user password.
+ * Sends temporary passwords to valid email addresses
+ * handles navigation back to the landing-view.fxml on cancel button click
+ */
 public class ResetPasswordController {
     @FXML
     private StackPane mainStackPane;
@@ -40,6 +45,9 @@ public class ResetPasswordController {
     final String password = "bnxcszmktwaltrzu";
     private final UserDAO userDAO;
 
+    /**
+     * Regex pattern to handle appropriate email validation
+     */
     public String emailPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
             + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
 
@@ -52,6 +60,10 @@ public class ResetPasswordController {
 
     // session object
     Properties props = new Properties();
+
+    /**
+     * Constructor for the ResetPasswordController
+     */
     public ResetPasswordController() {
         userDAO = UserDAO.getInstance();
         props.put("mail.smtp.ssl.trust", "*");
@@ -68,6 +80,11 @@ public class ResetPasswordController {
         }
     );
 
+    /**
+     * onSendEmailClick to generate a temporary password for a current user of the appplication
+     * Must have an email associated with the UserDAO
+     * handles invalid and mismatched email accounts
+     */
     public void onSendEmailClick(ActionEvent actionEvent) throws Exception {
         // generate new temporary password
         String newTempPassword = generateTempPassword();
@@ -126,10 +143,17 @@ public class ResetPasswordController {
 
     }
 
+    /**
+     * Navigation to handle the back button click. If user clicks the cancel button send back to the landing-view.fxml
+     */
     public void onBackButtonClick(ActionEvent actionEvent) {
         EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/landing-view.fxml");
     }
 
+    /**
+     * Generates the temporary password for the user to input into the password field.
+     * @return generated temporary password
+     */
     public String generateTempPassword() {
         RandomStringGenerator generator = new RandomStringGenerator.Builder()
                 .withinRange('0', 'z')
