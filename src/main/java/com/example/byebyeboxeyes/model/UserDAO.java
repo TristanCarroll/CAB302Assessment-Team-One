@@ -2,6 +2,14 @@ package com.example.byebyeboxeyes.model;
 
 import java.sql.*;
 
+/**
+ * The Data Access Object for the User class.
+ * Calls methods to:
+ * create user tables in the connected DB, get the current loggedin user credentials, add new users to the DB if none exist,
+ * deletes the users credentials from the DB,
+ * and updates the current loggedin users password via the reset password functionality or the settings page to update a new password for the loggedin user
+ *
+ */
 public class UserDAO implements IUserDAO{
     private Connection connection;
     //TODO:
