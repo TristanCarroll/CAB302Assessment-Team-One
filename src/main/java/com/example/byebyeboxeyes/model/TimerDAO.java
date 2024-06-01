@@ -9,6 +9,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.concurrent.Task;
 
+/**
+ * The Data Access Object for the Timer class
+ * Creates a Timer DB that is connected to the userID
+ * Uses methods to handle creating the timer DB if one doesn't exist, saving timers to the loggedin users profile, loading the timers for the current loggedin user,
+ * delete the timers from the DB, delete timers from the current loggedin users added timers,
+ * update timers that have been editted, and set the favourite timers to the user profile
+ */
 public class TimerDAO implements ITimerDAO {
     private static final String DB_NAME = "timers.db";
 
@@ -32,6 +39,10 @@ public class TimerDAO implements ITimerDAO {
         return instance;
     }
 
+    /**
+     * Create a timer table in the DB timers.db if one does not exist
+     * sets the column ID as the primary key to autoincrement
+     */
     private void createTableIfNotExists() {
         String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (\n"
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,\n"
@@ -50,6 +61,15 @@ public class TimerDAO implements ITimerDAO {
         }
     }
 
+    /**
+     * Save a timer into the timers.db for the current loggedin user
+     * @param userID saves the userID as the primary key in the timers.db table
+     * @param hours int hours in the format 00 to 59
+     * @param minutes int minutes in the format 00 to 59
+     * @param seconds int sec in the format of 00 to 59
+     * @param favourite favourite the selected timer to the favourite section
+     * @return the saved userID with the entered hour,min,sec to the favourite column in the timers.db
+     */
     public int saveTimer(int userID, int hours, int minutes, int seconds, int favourite) {
         String sql = "INSERT INTO timers(UserID, hours, minutes, seconds, favourite) VALUES(?, ?, ?, ?, ?)";
 
@@ -74,6 +94,7 @@ public class TimerDAO implements ITimerDAO {
             return -1; // Or throw an exception
         }
     }
+
 
     public void loadTimers(int userID, TimersLoadCallback callback) {
         Task<ArrayList<Timer>> loadTimersTask = new Task<>() {
@@ -115,6 +136,7 @@ public class TimerDAO implements ITimerDAO {
 
         new Thread(loadTimersTask).start(); // Run the task on a new thread
     }
+
     public void deleteTimer(int pk) {
         String query = "DELETE FROM timers WHERE id = ?";
 

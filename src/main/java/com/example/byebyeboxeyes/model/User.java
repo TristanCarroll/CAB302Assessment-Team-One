@@ -1,5 +1,9 @@
 package com.example.byebyeboxeyes.model;
 
+/**
+ * User class that Constructs a new User with specified username, email, and password.
+ * Stored userid in the connected DB is used as the primary key
+ */
 public class User {
     public int getUserID() { return userID; }
     public void setUserID(int userID) { this.userID = userID; }

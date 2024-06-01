@@ -112,7 +112,7 @@ public class UserDAO implements IUserDAO{
      * this can be done via the ResetPassword controller which will send a verification link to the nominated email
      * or the Settings controller to reset the password in the application
      * @param password set the new password
-     * @param userEmail input the users email to send the
+     * @param userEmail input the users email to send the verification code for resetting password
      */
     public void updateUserPassword(String password, String userEmail) {
         String query = "UPDATE users SET password = ? WHERE email = ?";
