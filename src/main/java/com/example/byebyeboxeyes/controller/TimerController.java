@@ -22,7 +22,6 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.awt.*;
-import java.awt.image.*;
 
 public class TimerController implements Initializable, ITimerPlayListener {
     String audioFile = "src/main/resources/com/example/byebyeboxeyes/audio/darude.mp3";
@@ -52,18 +51,13 @@ public class TimerController implements Initializable, ITimerPlayListener {
         CurrentTimerContainer timerContainer = new CurrentTimerContainer(timer);
         currentTimer.getChildren().add(timerContainer);
 
+        var trayIconController = new TrayIconController();
+        TrayIcon trayIcon = trayIconController.getTrayIcon();
+
         HWND hWnd = User32.INSTANCE.FindWindow(null, "Bye Bye Box Eyes");
         User32.INSTANCE.ShowWindow(hWnd, WinUser.SW_MINIMIZE);
 
-        var image = new BufferedImage(32, 32, BufferedImage.TYPE_4BYTE_ABGR);
-        var trayIcon = new TrayIcon(image);
-        try {
-            SystemTray.getSystemTray().add(trayIcon);
-        } catch (AWTException e) {
-            throw new RuntimeException(e);
-        }
-
-        trayIcon.displayMessage("Hello World", "Lorem ipsum", TrayIcon.MessageType.INFO);
+        trayIcon.displayMessage("Timer Started", "Bye Bye Box Eyes", TrayIcon.MessageType.INFO);
 
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
             @Override
@@ -78,7 +72,7 @@ public class TimerController implements Initializable, ITimerPlayListener {
                     SessionsDAO.getInstance().endSession(sessionID, System.currentTimeMillis()/1000);
                     currentTimer.getChildren().remove(timerContainer);
 
-                    trayIcon.displayMessage("Hello World", "Lorem ipsum", TrayIcon.MessageType.INFO);
+                    trayIcon.displayMessage("Timer Finished", "Bye Bye Box Eyes", TrayIcon.MessageType.INFO);
                 }
             }
         }));
