@@ -8,6 +8,7 @@ module com.example.byebyeboxeyes {
     requires javafx.media;
     requires com.sun.jna;
     requires com.sun.jna.platform;
+    requires java.desktop;
 
     opens com.example.byebyeboxeyes.model;
     opens com.example.byebyeboxeyes to javafx.fxml;
