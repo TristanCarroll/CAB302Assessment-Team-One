@@ -3,6 +3,11 @@ package com.example.byebyeboxeyes.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+/**
+ * Sqlite connection class to connect to the boxeyes.db
+ * Users loggedin credentials will be stored and saved to the appropriate columns in the DB table
+ */
 public class SqliteConnection implements ISqliteConnection {
     private static Connection instance = null;
 
