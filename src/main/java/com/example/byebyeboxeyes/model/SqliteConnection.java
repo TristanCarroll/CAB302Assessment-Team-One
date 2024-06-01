@@ -6,6 +6,9 @@ import java.sql.SQLException;
 public class SqliteConnection implements ISqliteConnection {
     private static Connection instance = null;
 
+    /**
+     * Create the connection to the database boxeyes.db
+     */
     private SqliteConnection() {
         String url = "jdbc:sqlite:boxeyes.db";
 
