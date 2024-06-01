@@ -12,7 +12,6 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     private final static String title = "Bye Bye Box Eyes";
 
-    // TODO: Create and implement responsive design elements
     @Override
     public void start(Stage stage) throws IOException {
 
