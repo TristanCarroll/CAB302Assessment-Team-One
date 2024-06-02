@@ -2,6 +2,7 @@ package com.example.byebyeboxeyes.controller;
 
 import com.example.byebyeboxeyes.timer.Timer;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -15,13 +16,19 @@ import javafx.scene.layout.VBox;
 public class CurrentTimerContainer extends VBox {
     public Timer timer;
     private Label timerLabel;
+
+    /**
+     * create the current timer container
+     * @param timer select current timer
+     */
     public CurrentTimerContainer(Timer timer) {
         this.timer = timer;
         createContainer();
     }
 
     /**
-     * Creates the container with customer styling
+     * create container specifications
+     * styling, size, position
      */
     private void createContainer() {
         StackPane timerPane = new StackPane();
