@@ -5,7 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public interface ISqliteConnection {
-    static Connection connection = null;
+    /**
+     * Get an instance of a class that implements ISqliteConnection
+     * @return A connection object
+     */
     static Connection getInstance() {
         return null;
     }
