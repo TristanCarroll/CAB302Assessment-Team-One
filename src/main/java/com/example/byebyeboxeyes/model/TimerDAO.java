@@ -173,12 +173,12 @@ public class TimerDAO implements ITimerDAO {
     }
 
     /**
-     * Updates the timer
+     * Updates the timer table in the timers.db
      * @param pk get the timer ID
      * @param hours int hours field
      * @param minutes int minutes field
      * @param seconds int seconds field
-     * @param isFavourite
+     * @param isFavourite int for favourite timerID
      */
     public void updateTimer(int pk, int hours, int minutes, int seconds, int isFavourite) {
         String query = "UPDATE " + TABLE_NAME + " SET " + COLUMN_HOURS + " = ?, "
@@ -198,6 +198,11 @@ public class TimerDAO implements ITimerDAO {
 
     }
 
+    /**
+     * Set the timer to favourite on button click
+     * @param timerId int for timerID
+     * @return the int for the favourite timerIO
+     */
     public int isTimerFavourite(int timerId) {
         String sql = "SELECT favourite FROM timers WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -213,6 +218,11 @@ public class TimerDAO implements ITimerDAO {
         return 0; // Default to not favourite if an error occurs or timer not found
     }
 
+    /**
+     * Set the user timer to the favourite section
+     * @param timerId int for the timerID
+     * @param favourite set the favourite value
+     */
     public void setTimerFavourite(int timerId, int favourite) {
         String sql = "UPDATE timers SET favourite = ? WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
