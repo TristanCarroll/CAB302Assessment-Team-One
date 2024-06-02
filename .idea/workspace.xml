@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="Merged with main, a user can now delete their account and all associated information.">
+    <list default="true" id="85c6fdc0-01f9-42a0-935e-1d562dd33d24" name="Changes" comment="ISessionsDAO and SessionsDAO javadoc comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/ISessionsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/ISessionsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/ISqliteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/ISqliteConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/ITimerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/ITimerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/SessionsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/model/SessionsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/timer/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/timer/Timer.java" afterDir="false" />
     </list>
     <list id="80642f30-b092-4649-847e-c8ca193cd840" name="Changes by TJ" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -318,7 +318,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716879743861</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="ISessionsDAO and I SqliteConnection javadoc comments">
+      <option name="closed" value="true" />
+      <created>1717291327268</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1717291327268</updated>
+    </task>
+    <task id="LOCAL-00021" summary="ISessionsDAO and SessionsDAO javadoc comments">
+      <option name="closed" value="true" />
+      <created>1717292258740</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1717292258740</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -367,7 +383,9 @@
     <MESSAGE value="Can't start multiple timers at once." />
     <MESSAGE value="Updated time formatting in statistics." />
     <MESSAGE value="Merged with main, a user can now delete their account and all associated information." />
-    <option name="LAST_COMMIT_MESSAGE" value="Merged with main, a user can now delete their account and all associated information." />
+    <MESSAGE value="ISessionsDAO and I SqliteConnection javadoc comments" />
+    <MESSAGE value="ISessionsDAO and SessionsDAO javadoc comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="ISessionsDAO and SessionsDAO javadoc comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -391,6 +409,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimersPageController.java</url>
           <line>96</line>
           <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/byebyeboxeyes/controller/TimerController.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

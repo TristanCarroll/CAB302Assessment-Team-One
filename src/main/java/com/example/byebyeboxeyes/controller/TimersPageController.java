@@ -188,8 +188,11 @@ public class TimersPageController implements
                 0 : Integer.parseInt(secondsField.getText());
 
         timerContainer.timer.setHours(hours);
+        timerContainer.timer.setDecrementedHours(hours);
         timerContainer.timer.setMinutes(minutes);
+        timerContainer.timer.setDecrementedMinutes(minutes);
         timerContainer.timer.setSeconds(seconds);
+        timerContainer.timer.setDecrementedSeconds(seconds);
 
         timerDAO.updateTimer(timerContainer.timer.getTimerID(), hours, minutes, seconds, timerContainer.timer.getIsFavourite());
         timerContainer.updateTimerText(timerContainer.timer.toString());

@@ -62,6 +62,9 @@ public class Timer {
         this.seconds = seconds;
     }
     public void setIsFavourite(int isFavourite) { this.isFavourite = isFavourite; }
+    public void setDecrementedHours(int decrementedHours) { this.decrementedHours = decrementedHours; };
+    public void setDecrementedMinutes(int decrementedMinutes) { this.decrementedMinutes = decrementedMinutes; }
+    public void setDecrementedSeconds(int decrementedSeconds) { this.decrementedSeconds = decrementedSeconds; }
 
     /**
      * Timer method to decrement the running timer

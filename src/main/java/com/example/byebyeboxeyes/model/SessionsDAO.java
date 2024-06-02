@@ -10,6 +10,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * An implementation of sessionsDAO. Creates a session table if one doesn't exist and contains methods
+ * with JDBC queries that perform CRUD operations on the table.
+ */
 public class SessionsDAO implements ISessionsDAO {
     private Connection connection;
     private static SessionsDAO instance = new SessionsDAO(SqliteConnection.getInstance());
