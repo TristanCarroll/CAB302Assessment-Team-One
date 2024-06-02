@@ -22,6 +22,9 @@ import java.sql.SQLException;
 //Might need later
 import java.util.Objects;
 
+/**
+ * SignUpController class to handle user registration, password hashing, and cancel navigation back to the landing-view
+ */
 public class SignUpController {
     public Button cancelButton;
     @FXML
@@ -48,8 +51,6 @@ public class SignUpController {
     public String emailPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
             + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
 
-    //TODO:
-    // ADD Register button LATER
     @FXML
     private Button registerButton;
     private final UserDAO userDAO;
@@ -116,7 +117,11 @@ public class SignUpController {
         }
     }
 
-    // Double check implementation is correct
+    /**
+     * Updates the user password from plain text to SHA-256. Stored in the DB password column
+     * @param password users password to be hashed
+     * @return an SHA-256 password stored in the email DB column
+     */
     public static String passwordHash(String password) {
 
         try {
@@ -134,6 +139,9 @@ public class SignUpController {
         return null;
     }
 
+    /**
+     * Cancel button to navigate back to the landing-view.fxml page when the user clicks the cancel button
+     */
     public void oncancelButtonClick(ActionEvent actionEvent) {
         EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/landing-view.fxml");
     }

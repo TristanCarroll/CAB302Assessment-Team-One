@@ -14,10 +14,17 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Main class for the application
+ */
 public class HelloApplication extends Application {
     private final static String title = "Bye Bye Box Eyes";
 
-    // TODO: Create and implement responsive design elements
+    /**
+     * Sets the stage and scene
+     * Loads the landing-view.fxml and stylesheet.css
+     * @param stage set the stage
+     */
     @Override
     public void start(Stage stage) throws IOException {
 
@@ -34,7 +41,6 @@ public class HelloApplication extends Application {
         scene.getStylesheets().add(stylesheet);
         stage.setOnCloseRequest(this::onWindowClose);
         stage.show();
-
         var trayIconController = new TrayIconController();
         Image image = ImageIO.read(new File("src/main/resources/com/example/byebyeboxeyes/images/Logo-16.png"));
         TrayIcon trayIcon = new TrayIcon(image);
@@ -48,6 +54,9 @@ public class HelloApplication extends Application {
         launch();
     }
 
+    /**
+     * Set the stage dimensions of the Windows width and height
+     */
     private void setupWindowDimensionListeners(Stage stage) {
         stage.widthProperty().addListener((obs, oldVal, newVal) -> {
             StateManager.setWindowWidth(newVal.intValue());
@@ -58,6 +67,9 @@ public class HelloApplication extends Application {
         });
     }
 
+    /**
+     * Event handler for setting the scene
+     */
     private void setupSceneListener(Stage stage) {
         stage.sceneProperty().addListener((observable, oldScene, newScene) -> {
             StateManager.setCurrentScene(newScene);

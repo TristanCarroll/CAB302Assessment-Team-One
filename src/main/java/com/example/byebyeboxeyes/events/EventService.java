@@ -29,7 +29,6 @@ public class EventService {
         return instance;
     }
 
-    //TODO:
     public void addLoginEventListener(INavigationEventListener listener) {
         loginEventListeners.add(listener);
     }

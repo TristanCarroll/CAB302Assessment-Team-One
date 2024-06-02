@@ -18,6 +18,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Optional;
 
+/**
+ * NavigationController class to handle navigation through the application
+ * Handles user log in, the navigation events on pane button clicks, and delete account logic
+ */
 public class NavigationController implements INavigationEventListener, IDeleteAccountEventListener {
     // private BorderPane mainBorderPane;
     private static final NavigationController instance = new NavigationController();
@@ -30,11 +34,14 @@ public class NavigationController implements INavigationEventListener, IDeleteAc
         return instance;
     }
 
+    /**
+     * Method to handle a users successful login.
+     * If successful it will load the home-view.fxml and set the stylesheet.css
+     * catches unsuccessful exceptions
+     */
     @Override
     public void onLoginSuccessful() {
         try {
-            // TODO:
-            //  Just replace the root of the current scene.
             FXMLLoader fxmlLoader = new FXMLLoader(
                     getClass().getResource(
                             "/com/example/byebyeboxeyes/home-view.fxml"));
@@ -51,6 +58,11 @@ public class NavigationController implements INavigationEventListener, IDeleteAc
         }
     }
 
+    /**
+     * Method to handle the navigation of the home.fxml, signup.fxml, landing.fxml, reset.fxml pages
+     * Loads the stylesheet.css
+     * @param fxmlPath load the fxmlPath if it contains the " " fxml file.
+     */
     @Override
     public void onNavigationEvent(String fxmlPath) {
         try {
@@ -75,6 +87,11 @@ public class NavigationController implements INavigationEventListener, IDeleteAc
         }
     }
 
+    /**
+     * Method to delete the current loggedin users account. Sets alerts to the user to make certain of the choice to delete their account.
+     * Delete account is irreversible. If delete is successful - load the landing-view.fxml
+     * Otherwise if the user cancels, notify account delete cancel to the alert section
+     */
     @Override
     public void onDeleteAccount() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -91,6 +108,10 @@ public class NavigationController implements INavigationEventListener, IDeleteAc
             System.out.println("Account deletion cancelled.");
         }
     }
+
+    /**
+     * Get the loggedin userID and delete their UserDAO, TimerDAO, and SessionsDAO from the DB
+     */
     private void deleteAccount() {
         UserDAO.getInstance().deleteUser(StateManager.getCurrentUser().getUserID());
         TimerDAO.getInstance().deleteTimersForUser(StateManager.getCurrentUser().getUserID());

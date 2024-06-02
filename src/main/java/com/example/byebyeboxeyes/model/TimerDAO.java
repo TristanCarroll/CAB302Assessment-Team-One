@@ -9,6 +9,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.concurrent.Task;
 
+/**
+ * The Data Access Object for the Timer class
+ * Creates a Timer DB that is connected to the userID
+ * Uses methods to handle creating the timer DB if one doesn't exist, saving timers to the logged users profile, loading the timers for the current logged user,
+ * delete the timers from the DB, delete timers from the current logged users added timers,
+ * update timers that have been edited, and set the favourite timers to the user profile
+ */
 public class TimerDAO implements ITimerDAO {
     private static final String DB_NAME = "timers.db";
 
@@ -32,6 +39,10 @@ public class TimerDAO implements ITimerDAO {
         return instance;
     }
 
+    /**
+     * Create a timer table in the DB timers.db if one does not exist
+     * sets the column ID as the primary key to autoincrement
+     */
     private void createTableIfNotExists() {
         String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (\n"
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,\n"
@@ -50,6 +61,15 @@ public class TimerDAO implements ITimerDAO {
         }
     }
 
+    /**
+     * Save a timer into the timers.db for the current logged-in user
+     * @param userID saves the userID as the primary key in the timers.db table
+     * @param hours int hours in the format 00 to 59
+     * @param minutes int minutes in the format 00 to 59
+     * @param seconds int sec in the format of 00 to 59
+     * @param favourite favourite the selected timer to the favourite section
+     * @return the saved userID with the entered hour,min,sec to the favourite column in the timers.db
+     */
     public int saveTimer(int userID, int hours, int minutes, int seconds, int favourite) {
         String sql = "INSERT INTO timers(UserID, hours, minutes, seconds, favourite) VALUES(?, ?, ?, ?, ?)";
 
@@ -75,6 +95,11 @@ public class TimerDAO implements ITimerDAO {
         }
     }
 
+    /**
+     * Load the timers from the timers.db
+     * @param userID userID associated with the timers.db
+     * @param callback executed when the function completes or some event happens
+     */
     public void loadTimers(int userID, TimersLoadCallback callback) {
         Task<ArrayList<Timer>> loadTimersTask = new Task<>() {
             @Override
@@ -115,6 +140,11 @@ public class TimerDAO implements ITimerDAO {
 
         new Thread(loadTimersTask).start(); // Run the task on a new thread
     }
+
+    /**
+     * Delete timer from table in timers.db
+     * @param pk takes int for timer ID
+     */
     public void deleteTimer(int pk) {
         String query = "DELETE FROM timers WHERE id = ?";
 
@@ -125,6 +155,12 @@ public class TimerDAO implements ITimerDAO {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Delete the timer from current user
+     * takes the current user and gets their ID to be deleted from their profile
+     * @param userId int that takes the userID
+     */
     public void deleteTimersForUser(int userId) {
         String query = "DELETE FROM timers WHERE userID = ?";
 
@@ -135,6 +171,15 @@ public class TimerDAO implements ITimerDAO {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Updates the timer table in the timers.db
+     * @param pk get the timer ID
+     * @param hours int hours field
+     * @param minutes int minutes field
+     * @param seconds int seconds field
+     * @param isFavourite int for favourite timerID
+     */
     public void updateTimer(int pk, int hours, int minutes, int seconds, int isFavourite) {
         String query = "UPDATE " + TABLE_NAME + " SET " + COLUMN_HOURS + " = ?, "
                 + COLUMN_MINUTES + " = ?, " + COLUMN_SECONDS + " = ?, " + COLUMN_FAV + " = ? WHERE "
@@ -153,6 +198,11 @@ public class TimerDAO implements ITimerDAO {
 
     }
 
+    /**
+     * Set the timer to favourite on button click
+     * @param timerId int for timerID
+     * @return the int for the favourite timerIO
+     */
     public int isTimerFavourite(int timerId) {
         String sql = "SELECT favourite FROM timers WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -168,6 +218,11 @@ public class TimerDAO implements ITimerDAO {
         return 0; // Default to not favourite if an error occurs or timer not found
     }
 
+    /**
+     * Set the user timer to the favourite section
+     * @param timerId int for the timerID
+     * @param favourite set the favourite value
+     */
     public void setTimerFavourite(int timerId, int favourite) {
         String sql = "UPDATE timers SET favourite = ? WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {

@@ -17,6 +17,11 @@ import java.sql.SQLException;
 import java.util.Objects;
 import static com.example.byebyeboxeyes.controller.SignUpController.passwordHash;
 
+/**
+ * LandingController class for handling navigation on the landing page application
+ * Class handles logging in, signing up a new user, sending the user to the RessetPasswordController to reset user password,
+ * and closing the application
+ */
 public class LandingController {
     @FXML
     private Button closeButton;
@@ -35,17 +40,6 @@ public class LandingController {
         userDAO = UserDAO.getInstance();
         //setupListener();
     }
-
-//    /*
-//     * Creates a listener for the window height property of the StateManager,
-//     * and adjusts the bottom padding accordingly.
-//     */
-//    private void setupListener() {
-//        StateManager.windowHeightProperty().addListener((obs, oldVal, newVal) -> {
-//            double paddingValue = newVal.doubleValue() * 0.60; // 60% of height
-//            mainStackPane.setPadding(new Insets(20, 20, paddingValue, 20));
-//        });
-//    }
 
     /**
      * Tries to find the username in the DB and check that the stored password matches what's entered in the field.
@@ -83,10 +77,16 @@ public class LandingController {
         EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/signup-view.fxml");
     }
 
+    /**
+     * Sends user to the reset password page when they click the hyperlink
+     */
     public void onForgotPwdClick(ActionEvent actionEvent) {
         EventService.getInstance().notifyNavigationEvent("/com/example/byebyeboxeyes/reset-password-view.fxml");
     }
 
+    /**
+     * Terminates the application when the user clicks the close button
+     */
     @FXML
     private void onCloseButtonClick() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
