@@ -12,9 +12,9 @@ import javafx.concurrent.Task;
 /**
  * The Data Access Object for the Timer class
  * Creates a Timer DB that is connected to the userID
- * Uses methods to handle creating the timer DB if one doesn't exist, saving timers to the loggedin users profile, loading the timers for the current loggedin user,
- * delete the timers from the DB, delete timers from the current loggedin users added timers,
- * update timers that have been editted, and set the favourite timers to the user profile
+ * Uses methods to handle creating the timer DB if one doesn't exist, saving timers to the logged users profile, loading the timers for the current logged user,
+ * delete the timers from the DB, delete timers from the current logged users added timers,
+ * update timers that have been edited, and set the favourite timers to the user profile
  */
 public class TimerDAO implements ITimerDAO {
     private static final String DB_NAME = "timers.db";
@@ -62,7 +62,7 @@ public class TimerDAO implements ITimerDAO {
     }
 
     /**
-     * Save a timer into the timers.db for the current loggedin user
+     * Save a timer into the timers.db for the current logged-in user
      * @param userID saves the userID as the primary key in the timers.db table
      * @param hours int hours in the format 00 to 59
      * @param minutes int minutes in the format 00 to 59
@@ -95,7 +95,11 @@ public class TimerDAO implements ITimerDAO {
         }
     }
 
-
+    /**
+     * Load the timers from the timers.db
+     * @param userID userID associated with the timers.db
+     * @param callback executed when the function completes or some event happens
+     */
     public void loadTimers(int userID, TimersLoadCallback callback) {
         Task<ArrayList<Timer>> loadTimersTask = new Task<>() {
             @Override
@@ -137,6 +141,10 @@ public class TimerDAO implements ITimerDAO {
         new Thread(loadTimersTask).start(); // Run the task on a new thread
     }
 
+    /**
+     * Delete timer
+     * @param pk takes int for timer ID
+     */
     public void deleteTimer(int pk) {
         String query = "DELETE FROM timers WHERE id = ?";
 
@@ -147,6 +155,12 @@ public class TimerDAO implements ITimerDAO {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Delete the timer from current user
+     * takes the current user and gets their ID to be deleted from their profile
+     * @param userId int that takes the userID
+     */
     public void deleteTimersForUser(int userId) {
         String query = "DELETE FROM timers WHERE userID = ?";
 
@@ -157,6 +171,15 @@ public class TimerDAO implements ITimerDAO {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Updates the timer
+     * @param pk get the timer ID
+     * @param hours int hours field
+     * @param minutes int minutes field
+     * @param seconds int seconds field
+     * @param isFavourite
+     */
     public void updateTimer(int pk, int hours, int minutes, int seconds, int isFavourite) {
         String query = "UPDATE " + TABLE_NAME + " SET " + COLUMN_HOURS + " = ?, "
                 + COLUMN_MINUTES + " = ?, " + COLUMN_SECONDS + " = ?, " + COLUMN_FAV + " = ? WHERE "

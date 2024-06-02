@@ -1,5 +1,10 @@
 package com.example.byebyeboxeyes.timer;
 
+/**
+ * Timer class to handle the applications timer function
+ * handles running time, favourite inputs, deleting timers
+ * Includes getters and setters
+ */
 public class Timer {
     private int timerID;
     private int userID;
@@ -11,6 +16,15 @@ public class Timer {
     private int decrementedSeconds;
     private int isFavourite;
 
+    /**
+     *
+     * @param timerID ID of the input timer
+     * @param userID userID associated with their timer
+     * @param hours hours field for the timer
+     * @param minutes minutes field for the timer
+     * @param seconds seconds field for the timer
+     * @param isFavourite favourite option for user to select
+     */
     public Timer(int timerID, int userID, int hours, int minutes, int seconds, int isFavourite) {
         this.timerID = timerID;
         this.userID = userID;
@@ -49,7 +63,10 @@ public class Timer {
     }
     public void setIsFavourite(int isFavourite) { this.isFavourite = isFavourite; }
 
-
+    /**
+     * Timer method to decrement the running timer
+     * @return the string format of the input time value
+     */
     public String decrementTime() {
         if (decrementedSeconds > 0) {
             decrementedSeconds--;
@@ -63,10 +80,19 @@ public class Timer {
         }
         return String.format("%02d:%02d:%02d", decrementedHours, decrementedMinutes, decrementedSeconds);
     }
+
+    /**
+     * Method to handle a finished timer
+     * @return the reset hours, minutes, and seconds
+     */
     public boolean isFinished() {
         return (decrementedHours == 0 && decrementedMinutes == 0 && decrementedSeconds == 0) && resetDecrements();
     }
 
+    /**
+     * Boolean to handle resetting the timer hours, minutes, and seconds
+     * @return true
+     */
     private boolean resetDecrements() {
         decrementedHours = hours;
         decrementedMinutes = minutes;

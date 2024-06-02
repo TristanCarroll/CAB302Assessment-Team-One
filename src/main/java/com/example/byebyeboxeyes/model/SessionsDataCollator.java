@@ -2,7 +2,7 @@ package com.example.byebyeboxeyes.model;
 
 /**
  * SessionsDataCollator class to get the total time of the run timers
- * and current date of the loggedin session
+ * and current date of the logged-in session
  */
 public class SessionsDataCollator {
     public static class TotalDailyData {
