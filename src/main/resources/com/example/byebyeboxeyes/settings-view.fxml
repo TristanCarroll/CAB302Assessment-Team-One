@@ -30,7 +30,7 @@
                           <Label fx:id="ResetPwdTitle" style="-fx-font-size:16px;" text="Reset Password" />
                           <Label fx:id="ResetPwdHeading" minWidth="300.0" text="Enter current password:" />
                         <PasswordField fx:id="currentUserPassword" alignment="CENTER" maxWidth="145.0" />
-                        <Label fx:id="ResetPwdHeading1" layoutX="10.0" layoutY="40.0" minWidth="300.0" text="Enter a new password:" />
+                        <Label fx:id="EnterNewResetPwdHeading" layoutX="10.0" layoutY="40.0" minWidth="300.0" text="Enter a new password:" />
                           <HBox alignment="CENTER_LEFT" spacing="15.0">
                               <PasswordField fx:id="newUserPassword" alignment="CENTER" maxWidth="145.0" />
                               <Button fx:id="ResetPwdButton" mnemonicParsing="false" onAction="#onResetButtonClick" text="Reset Password" />

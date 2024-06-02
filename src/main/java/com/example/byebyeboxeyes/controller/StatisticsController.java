@@ -76,6 +76,19 @@ public class StatisticsController implements Initializable {
     );
     private static String currentChoice = USAGE_PER_DAY;
 
+    /**
+     * Initialize the StatisticController with fxml set up.
+     * Adds labels with statistical information relevant to the user, and a drop-down box allowing them to select
+     * what data they would like to chart.
+     *
+     * @param location
+     * The location used to resolve relative paths for the root object, or
+     * {@code null} if the location is not known.
+     *
+     * @param resources
+     * The resources used to localize the root object, or {@code null} if
+     * the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         totalTimeToday.setText(secondsToHhMmSs(getTotalUsageToday()));
@@ -128,6 +141,10 @@ public class StatisticsController implements Initializable {
         updateButtonStates();
     }
 
+    /**
+     * Generates a line chart of total usage per day, with session time on the y-axis, and dates going back
+     * one month on the x-axis
+     */
     private void setupTotalPerDayChart() {
         CategoryAxis xAxis = new CategoryAxis();
         xAxis.setLabel("Date");
@@ -153,44 +170,85 @@ public class StatisticsController implements Initializable {
 
         chartContainer.getChildren().add(lineChart);
     }
+
+    /**
+     * Generic method to convert a number value representing seconds into a double value equivalent to hours,
+     * formatted: hh.xx
+     *
+     * @param number The numeric value representing seconds
+     *
+     * @return Seconds converted into hours with decimal places
+     *
+     * @param <T> Specifies that the number param must be of a type that extends Number
+     */
     private static <T extends Number> double secondsToHours(T number) {
         return number.doubleValue()/60/60;
     }
+
+    /**
+     * Generic method to convert a number value representing seconds into a string representation of time
+     *
+     * @param seconds The numeric value representing seconds
+     * @return A string representation of time, formatted hh:mm:ss
+     * @param <T> specifies that the seconds param must be of a type that extends Number
+     */
     private static <T extends Number> String secondsToHhMmSs(T seconds) {
-        // Convert the input to an integer value
         int totalSeconds = seconds.intValue();
 
-        // Calculate hours, minutes, and seconds
         int hours = totalSeconds / 3600;
         int minutes = (totalSeconds % 3600) / 60;
         int secondsLeft = totalSeconds % 60;
 
-        // Format the time components to string with zero padding for minutes and seconds
         return String.format("%d:%02d:%02d", hours, minutes, secondsLeft);
     }
+
+    /**
+     * Calculates a Number representing the total session time today, relative to the system date
+     *
+     * @return The total session time today
+     */
     private Number getTotalUsageToday() {
         return SessionsDAO.getInstance().getTotalUsageToday(
                 StateManager.getCurrentUser().getUserID()).
                 get(0).getTotalTime();
     }
+    /**
+     * Calculates a Number representing the total session time
+     *
+     * @return The total session time
+     */
     private Number getTotalUsageOverall() {
         return SessionsDAO.getInstance().getTotalUsageOverall(
                 StateManager.getCurrentUser().getUserID()).
                 get(0).getTotalTime();
     }
+    /**
+     * Calculates a Number representing the total number of sessions today, relative to the system date
+     *
+     * @return The total number of sessions today
+     */
     private Number getNumberOfSessionsToday() {
         return SessionsDAO.getInstance().getNumberOfSessionsToday(
                         StateManager.getCurrentUser().getUserID());
     }
+    /**
+     * Calculates a Number representing the total number of sessions
+     *
+     * @return The total number of sessions
+     */
     private Number getNumberOfSessionsOverall() {
         return SessionsDAO.getInstance().getNumberOfSessionsOverall(
                 StateManager.getCurrentUser().getUserID());
     }
+
+    /**
+     * Creates a calendar representation of days that sessions exist in the current week.
+     * The current week is defined as being from the previous sunday, up until friday
+     */
     private void setupWeeklyTracker() {
         monthlyTracker.getChildren().clear();
         weeklyTracker.getChildren().clear();
 
-        LocalDate today = LocalDate.now();
         LocalDate startOfWeek = currentWeekStart;
         List<LocalDate> sessionDates = SessionsDAO.getInstance().getUniqueSessionDates(StateManager.getCurrentUser().getUserID());
 
@@ -204,7 +262,10 @@ public class StatisticsController implements Initializable {
             weeklyTracker.getChildren().add(dayContainer);
         }
     }
-
+    /**
+     * Creates a calendar representation of days that sessions exist in the current month
+     * The current month is defined as the current calendar month relative to the system date.
+     */
     private void setupMonthlyTracker() {
         weeklyTracker.getChildren().clear();
         monthlyTracker.getChildren().clear();
@@ -223,16 +284,27 @@ public class StatisticsController implements Initializable {
             monthlyTracker.add(dayContainer, (i % 7), (i / 7));
         }
     }
+    /**
+     * Updates the tracker week and month labels with the correct information, relative to the system time
+     */
     private void updateTrackerLabels() {
         weekLabel.setText("Week of " + currentWeekStart.format(DateTimeFormatter.ofPattern("MMMM d, yyyy")));
         monthLabel.setText(currentMonth.format(DateTimeFormatter.ofPattern("MMMM yyyy")));
     }
 
+    /**
+     * Enables the previous and next buttons
+     */
     private void updateButtonStates() {
         previousButton.setDisable(false);
         nextButton.setDisable(false);
     }
 
+    /**
+     * Modifies the calendar to show the previous month, relative to the currently displayed month.
+     *
+     * @param event The event that triggers this method
+     */
     @FXML
     public void previousMonth(ActionEvent event) {
         currentMonth = currentMonth.minusMonths(1);
@@ -240,6 +312,12 @@ public class StatisticsController implements Initializable {
         updateTrackerLabels();
         updateButtonStates();
     }
+
+    /**
+     * Modifies the calendar to show the next month, relative to the currently displayed month.
+     *
+     * @param event The event that triggers this method
+     */
     @FXML
     public void nextMonth(ActionEvent event) {
         currentMonth = currentMonth.plusMonths(1);
@@ -247,6 +325,12 @@ public class StatisticsController implements Initializable {
         updateTrackerLabels();
         updateButtonStates();
     }
+
+    /**
+     * Modifies the calendar to show the previous week, relative to the currently displayed week.
+     *
+     * @param event The event that triggers this method.
+     */
     @FXML
     public void previousWeek(ActionEvent event) {
         currentWeekStart = currentWeekStart.minusWeeks(1);
@@ -256,7 +340,11 @@ public class StatisticsController implements Initializable {
         updateTrackerLabels();
         updateButtonStates();
     }
-
+    /**
+     * Modifies the calendar to show the next week, relative to the currently displayed week.
+     *
+     * @param event The event that triggers this method.
+     */
     @FXML
     public void nextWeek(ActionEvent event) {
         currentWeekStart = currentWeekStart.plusWeeks(1);
@@ -267,6 +355,11 @@ public class StatisticsController implements Initializable {
         updateButtonStates();
     }
 
+    /**
+     * Toggles between weekly and monthly view calendars.
+     *
+     * @param event The event that triggers this method.
+     */
     @FXML
     public void toggleView(ActionEvent event) {
         isWeeklyView = !isWeeklyView;

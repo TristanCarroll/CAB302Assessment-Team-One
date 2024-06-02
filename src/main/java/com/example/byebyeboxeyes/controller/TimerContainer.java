@@ -14,12 +14,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
- * TimerContainer class to handle creating the timer functionality and styling
+ * TimerContainer class which extends Vbox in order to create custom JavaFX elements.
+ * This class provides additional functionality as well as specific styling for timers.
  */
 public class TimerContainer extends VBox {
     public Timer timer;
     private Label timerLabel;
     private int isFavourite = 0; //track if it is a favourite timer
+    public int getIsFavourite(){ return isFavourite; }
     private Button favouriteButton;
     private TimerController controller;
     int iconSize = 12;
@@ -31,15 +33,22 @@ public class TimerContainer extends VBox {
     Image unfavIcon = new Image(getClass().getResourceAsStream("/com/example/byebyeboxeyes/images/star.png"), iconSize, iconSize, true, true);
     Image stopIcon = new Image(getClass().getResourceAsStream("/com/example/byebyeboxeyes/images/stop-button.png"), iconSize, iconSize, true, true);
 
-    public TimerController getController() {
-        return controller;
-    }
-
     public TimerContainer(Timer timer) {
         this.timer = timer;
         createContainer();
     }
 
+    /**
+     * Provides access to TimerController methods
+     * @return An instance of TimerController
+     */
+    public TimerController getController() {
+        return controller;
+    }
+    /**
+     * Sets up the custom styling for the TimerContainer object, as well as populating it with buttons to be used
+     * to notify the event service of certain events.
+     */
     private void createContainer() {
         // --- Styling ---
         String mainBackgroundColor = "#C8E6C9"; // Light green background
@@ -131,14 +140,18 @@ public class TimerContainer extends VBox {
         timerPane.setEffect(new DropShadow(5, 2, 2, Color.web("#888888")));
     }
 
-
-
+    /**
+     * Sets the timer containers favourite property, as well as updating the UI accordingly
+     * @param isFavourite Integer representation of the timers favourite status, 1 or 0
+     */
     public void setFavourite(int isFavourite) {
         this.isFavourite = isFavourite;
         Platform.runLater(this::updateFavouriteButtonAppearance);
     }
+    /**
+     * Method that updates the TimerContainers UI to reflect it's favourite status
+     */
     public void updateFavouriteButtonAppearance() {
-
         if (isFavourite == 1) {
             favouriteButton.setGraphic(new ImageView(unfavIcon)); // Set to unfavorite icon
         } else {
@@ -146,16 +159,25 @@ public class TimerContainer extends VBox {
         }
     }
 
-
-    public int isFavourite() {
-        return isFavourite;
-    }
+    /**
+     * Updates the label on the TimerContainer
+     *
+     * @param newTime String representation of some time value, in the format hh:mm:ss
+     */
     public void updateTimerText(String newTime) {
         timerLabel.setText(newTime);
     }
+
+    /**
+     * Notifies the event service of a timer edit event
+     */
     private void editTimer() {
         EventService.getInstance().notifyEditButtonClick(this);
     }
+
+    /**
+     * Notifies the event service of a timer play event
+     */
     private void playTimer() {
 
         if (timer.getHours() != 0 || timer.getMinutes() != 0 || timer.getSeconds() != 0)
@@ -163,12 +185,24 @@ public class TimerContainer extends VBox {
             EventService.getInstance().notifyPlayButtonClick(this.timer);
         }
     }
+
+    /**
+     * Notifies the event service of a timer delete event
+     */
     private void deleteTimer() {
         EventService.getInstance().notifyDeleteButtonClick(this);
     }
+
+    /**
+     * Notifies the event service of a timer favourite event
+     */
     private void favouriteTimer() {
         EventService.getInstance().notifyFavouriteButtonClick(this);
     }
+
+    /**
+     * Notifies the event service of a timer stop event
+     */
     private void stopTimer() {
         EventService.getInstance().notifyStopButtonClick(this.timer);
     }

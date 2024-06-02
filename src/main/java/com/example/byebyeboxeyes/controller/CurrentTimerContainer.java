@@ -9,7 +9,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 /**
- * Current timer container class
+ * CurrentTimerContainer class which extends Vbox in order to create custom JavaFX elements.
+ * This class provides additional functionality as well as specific styling for timers.
+ * This is distinct from the TimerContainer class as the required functionality and timing is different.
  */
 public class CurrentTimerContainer extends VBox {
     public Timer timer;
@@ -45,8 +47,9 @@ public class CurrentTimerContainer extends VBox {
     }
 
     /**
-     * Updates the timer text. Auto increments from timer 1
-     * @param newTime sets the label time: Timerx
+     * Updates the label's text
+     *
+     * @param newTime String representation of a time in the form hh:mm:ss
      */
     public void updateTimerText(String newTime) {
         timerLabel.setText(newTime);
