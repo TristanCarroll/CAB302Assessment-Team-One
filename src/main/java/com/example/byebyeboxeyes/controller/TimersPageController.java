@@ -7,9 +7,7 @@ import com.example.byebyeboxeyes.events.ITimerEditListener;
 import com.example.byebyeboxeyes.events.ITimerFavouriteListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import com.example.byebyeboxeyes.timer.Timer;
@@ -22,8 +20,6 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 
-import com.example.byebyeboxeyes.timer.Timer;
-import com.example.byebyeboxeyes.model.TimerDAO;
 
 public class TimersPageController implements
         Initializable,
@@ -46,7 +42,7 @@ public class TimersPageController implements
 
 
     private final TimerDAO timerDAO = TimerDAO.getInstance();
-    private Map<Integer, TimerContainer> timerContainers = new HashMap<>();
+    private final Map<Integer, TimerContainer> timerContainers = new HashMap<>();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         recentTimersFlowPane.getChildren().clear();

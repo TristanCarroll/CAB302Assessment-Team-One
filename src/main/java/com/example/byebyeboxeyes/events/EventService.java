@@ -12,14 +12,14 @@ import java.util.List;
  */
 public class EventService {
     private static final EventService instance = new EventService();
-    private List<INavigationEventListener> loginEventListeners = new ArrayList<>();
-    private List<INavigationEventListener> navigationEventListeners = new ArrayList<>();
-    private List<ITimerEditListener> timerEditListeners = new ArrayList<>();
-    private List<ITimerPlayListener> timerPlayListeners = new ArrayList<>();
-    private List<ITimerDeleteListener> timerDeleteListeners = new ArrayList<>();
-    private List<ITimerFavouriteListener> timerFavouriteListeners = new ArrayList<>();
-    private List<IDeleteAccountEventListener> deleteAccountListeners = new ArrayList<>();
-    private List<ITimerStopListener> stopListeners = new ArrayList<>();
+    private final List<INavigationEventListener> loginEventListeners = new ArrayList<>();
+    private final List<INavigationEventListener> navigationEventListeners = new ArrayList<>();
+    private final List<ITimerEditListener> timerEditListeners = new ArrayList<>();
+    private final List<ITimerPlayListener> timerPlayListeners = new ArrayList<>();
+    private final List<ITimerDeleteListener> timerDeleteListeners = new ArrayList<>();
+    private final List<ITimerFavouriteListener> timerFavouriteListeners = new ArrayList<>();
+    private final List<IDeleteAccountEventListener> deleteAccountListeners = new ArrayList<>();
+    private final List<ITimerStopListener> stopListeners = new ArrayList<>();
 
     private EventService() {
 

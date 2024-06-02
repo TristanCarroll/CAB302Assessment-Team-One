@@ -1,6 +1,5 @@
 package com.example.byebyeboxeyes.events;
 
-import com.example.byebyeboxeyes.controller.TimerContainer;
 import com.example.byebyeboxeyes.timer.Timer;
 /**
  * Interface for classes that listen for a timer play event to implement

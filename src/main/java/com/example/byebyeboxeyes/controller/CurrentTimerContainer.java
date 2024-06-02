@@ -2,7 +2,6 @@ package com.example.byebyeboxeyes.controller;
 
 import com.example.byebyeboxeyes.timer.Timer;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;

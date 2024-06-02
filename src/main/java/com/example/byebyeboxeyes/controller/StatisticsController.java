@@ -78,8 +78,7 @@ public class StatisticsController implements Initializable {
 
     /**
      * Initialize the StatisticController with fxml set up.
-     *
-     * Adds labels with statistical information relevant to the user, and a drop down box allowing them to select
+     * Adds labels with statistical information relevant to the user, and a drop-down box allowing them to select
      * what data they would like to chart.
      *
      * @param location
@@ -143,7 +142,7 @@ public class StatisticsController implements Initializable {
     }
 
     /**
-     * Generates a line chart of total usage per day, with session time on the y-axis, and dates going backk
+     * Generates a line chart of total usage per day, with session time on the y-axis, and dates going back
      * one month on the x-axis
      */
     private void setupTotalPerDayChart() {
@@ -250,7 +249,6 @@ public class StatisticsController implements Initializable {
         monthlyTracker.getChildren().clear();
         weeklyTracker.getChildren().clear();
 
-        LocalDate today = LocalDate.now();
         LocalDate startOfWeek = currentWeekStart;
         List<LocalDate> sessionDates = SessionsDAO.getInstance().getUniqueSessionDates(StateManager.getCurrentUser().getUserID());
 
