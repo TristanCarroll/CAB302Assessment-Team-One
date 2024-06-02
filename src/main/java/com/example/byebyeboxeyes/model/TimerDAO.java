@@ -142,7 +142,7 @@ public class TimerDAO implements ITimerDAO {
     }
 
     /**
-     * Delete timer
+     * Delete timer from table in timers.db
      * @param pk takes int for timer ID
      */
     public void deleteTimer(int pk) {
