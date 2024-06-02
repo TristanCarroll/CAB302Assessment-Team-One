@@ -8,9 +8,15 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Objects;
 
+/**
+ * Class for managing the application's system tray functionality
+ */
 public class TrayIconController {
     private TrayIcon trayIcon = null;
 
+    /**
+     * Search for existing tray icon on initialisation
+     */
     public TrayIconController() {
         TrayIcon[] icons = SystemTray.getSystemTray().getTrayIcons();
         for (TrayIcon i : icons) {
@@ -20,10 +26,19 @@ public class TrayIconController {
         }
     }
 
+    /**
+     * Get the tray icon
+     * @return current tray icon. Will be null if it doesn't exist
+     */
     public TrayIcon getTrayIcon() {
         return trayIcon;
     }
 
+    /**
+     * Registers a tray icon to the System Tray
+     * @param trayIcon a TrayIcon to register
+     * @return true if successful, false otherwise
+     */
     public boolean setTrayIcon(TrayIcon trayIcon) {
         WinDef.HWND hWnd = User32.INSTANCE.FindWindow(null, "Bye Bye Box Eyes");
         trayIcon.addMouseListener(new MouseAdapter() {
@@ -43,6 +58,9 @@ public class TrayIconController {
         return true;
     }
 
+    /**
+     * Removes the currently registered tray icon from the System Tray
+     */
     public void deleteTrayIcon() {
         if (!trayIconExists()) { return; }
 
@@ -50,6 +68,10 @@ public class TrayIconController {
         this.trayIcon = null;
     }
 
+    /**
+     * Check if tray icon exists
+     * @return true if tray icon is not null, otherwise false
+     */
     public boolean trayIconExists() {
         return this.trayIcon != null;
     }
