@@ -1,12 +1,17 @@
 package com.example.byebyeboxeyes;
 
-import com.example.byebyeboxeyes.controller.LandingController;
 import com.example.byebyeboxeyes.controller.NavigationController;
+import com.example.byebyeboxeyes.controller.TrayIconController;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
@@ -27,9 +32,17 @@ public class HelloApplication extends Application {
         stage.setTitle(title);
         stage.setScene(scene);
         scene.getStylesheets().add(stylesheet);
+        stage.setOnCloseRequest(this::onWindowClose);
         stage.show();
-    }
 
+        var trayIconController = new TrayIconController();
+        Image image = ImageIO.read(new File("src/main/resources/com/example/byebyeboxeyes/images/Logo-16.png"));
+        TrayIcon trayIcon = new TrayIcon(image);
+        if (!trayIconController.setTrayIcon(trayIcon)) {
+            System.err.println("Failed to set tray icon. Exiting application.");
+            Platform.exit();
+        }
+    }
 
     public static void main(String[] args) {
         launch();
@@ -49,5 +62,12 @@ public class HelloApplication extends Application {
         stage.sceneProperty().addListener((observable, oldScene, newScene) -> {
             StateManager.setCurrentScene(newScene);
         });
+    }
+
+    private void onWindowClose(WindowEvent event) {
+        var icon = new TrayIconController();
+        if (icon.trayIconExists()) {
+            icon.deleteTrayIcon();
+        }
     }
 }
