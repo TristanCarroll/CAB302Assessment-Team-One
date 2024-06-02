@@ -69,7 +69,7 @@ public class TimersPageController implements
                             timerContainers.get(timer.getTimerID()).getController() : null;
 
                     // Add the container to the correct FlowPane
-                    if (container.isFavourite() == 1) {
+                    if (container.getIsFavourite() == 1) {
                         addToFavourites(container);
                     } else {
                         addToRecent(container);
@@ -113,7 +113,7 @@ public class TimersPageController implements
 
     private void displayTimersFromDatabase() {
         for (Map.Entry<Integer, TimerContainer> entry : timerContainers.entrySet()) {
-            if (entry.getValue().isFavourite() == 1) { // Compare to 1 for favorite
+            if (entry.getValue().getIsFavourite() == 1) { // Compare to 1 for favorite
                 favouriteTimersFlowPane.getChildren().add(entry.getValue());
             } else {
                 recentTimersFlowPane.getChildren().add(entry.getValue());

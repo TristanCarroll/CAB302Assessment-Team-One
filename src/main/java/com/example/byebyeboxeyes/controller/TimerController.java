@@ -23,6 +23,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.awt.*;
 
+/**
+ * Controller which handles the currently running timer. Contains functionality for handling timers being
+ * started/stopped from the timers page controller.
+ */
 public class TimerController implements Initializable, ITimerPlayListener {
     String audioFile = "src/main/resources/com/example/byebyeboxeyes/audio/darude.mp3";
     Media sound = new Media(new File(audioFile).toURI().toString());
@@ -31,23 +35,37 @@ public class TimerController implements Initializable, ITimerPlayListener {
     private Timeline timeline;
     private int sessionID;
     private CurrentTimerContainer currentTimerContainer;
+
+    /**
+     * Initialize the class and add it to the list of event listeners for timer play and stop events,
+     *
+     * @param location
+     * The location used to resolve relative paths for the root object, or
+     * {@code null} if the location is not known.
+     *
+     * @param resources
+     * The resources used to localize the root object, or {@code null} if
+     * the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         EventService.getInstance().addPlayListener(this);
         EventService.getInstance().addStopListener(this::onStop);
     }
 
+    /**
+     * Injects the timer into the anchor pane as a TimerContainer.
+     * Minimizes window to tray and alerts user.
+     * Creates a timeline with an anonymous function to handle decrementing the timer.
+     * Ends the session when the timer hits 00:00:00
+     * @param timer The timer the stop event is fired from
+     */
     public void onPlay(Timer timer) {
         if (!currentTimer.getChildren().isEmpty()) {
             return;
         }
 
-        int sessionID = SessionsDAO.getInstance().startSession(
-                StateManager.getCurrentUser().getUserID(),
-                timer.getTimerID(),
-                //TODO: Helper method for this it's gonna be used a lot
-                System.currentTimeMillis()/1000
-        );
+        sessionID = StartSession(timer);
         CurrentTimerContainer timerContainer = new CurrentTimerContainer(timer);
         currentTimer.getChildren().add(timerContainer);
 
@@ -79,11 +97,32 @@ public class TimerController implements Initializable, ITimerPlayListener {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
     }
+
+    /**
+     * This method is called to update the session table if a timer is stopped early.
+     *
+     * @param timer The timer that is being stopped
+     */
     public void onStop(Timer timer) {
         if (timeline != null) {
             timeline.stop();  // Stop the timeline
             currentTimer.getChildren().clear(); // Remove the timer from the UI
             SessionsDAO.getInstance().endSession(sessionID, System.currentTimeMillis()/1000);
         }
+    }
+
+    /**
+     * Creates a record in the session table with the unix start time that the countdown begins.
+     *
+     * @param timer The timer being started
+     * @return The primary key/session id of the newly created record
+     */
+    private int StartSession(Timer timer) {
+        return SessionsDAO.getInstance().startSession(
+                StateManager.getCurrentUser().getUserID(),
+                timer.getTimerID(),
+                //TODO: Helper method for this it's gonna be used a lot
+                System.currentTimeMillis()/1000
+        );
     }
 }
