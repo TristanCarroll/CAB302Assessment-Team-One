@@ -9,9 +9,17 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Main class for the application
+ */
 public class HelloApplication extends Application {
     private final static String title = "Bye Bye Box Eyes";
 
+    /**
+     * Sets the stage and scene
+     * Loads the landing-view.fxml and stylesheet.css
+     * @param stage set the stage
+     */
     @Override
     public void start(Stage stage) throws IOException {
 
@@ -29,11 +37,16 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-
+    /**
+     * Launch the program
+     */
     public static void main(String[] args) {
         launch();
     }
 
+    /**
+     * Set the stage dimensions of the Windows width and height
+     */
     private void setupWindowDimensionListeners(Stage stage) {
         stage.widthProperty().addListener((obs, oldVal, newVal) -> {
             StateManager.setWindowWidth(newVal.intValue());
@@ -44,6 +57,9 @@ public class HelloApplication extends Application {
         });
     }
 
+    /**
+     * Event handler for setting the scene
+     */
     private void setupSceneListener(Stage stage) {
         stage.sceneProperty().addListener((observable, oldScene, newScene) -> {
             StateManager.setCurrentScene(newScene);
