@@ -8,16 +8,26 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-//TODO:
-//  Interface?
+/**
+ * Current timer container class
+ */
 public class CurrentTimerContainer extends VBox {
     public Timer timer;
     private Label timerLabel;
+
+    /**
+     * create the current timer container
+     * @param timer select current timer
+     */
     public CurrentTimerContainer(Timer timer) {
         this.timer = timer;
         createContainer();
     }
 
+    /**
+     * create container specifications
+     * styling, size, position
+     */
     private void createContainer() {
         StackPane timerPane = new StackPane();
         timerPane.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
@@ -33,6 +43,11 @@ public class CurrentTimerContainer extends VBox {
         timerPane.getChildren().add(hbox);
         getChildren().add(timerPane);
     }
+
+    /**
+     * Updates the timer text. Auto increments from timer 1
+     * @param newTime sets the label time: Timerx
+     */
     public void updateTimerText(String newTime) {
         timerLabel.setText(newTime);
     }
