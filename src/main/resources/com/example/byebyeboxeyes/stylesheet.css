@@ -33,7 +33,7 @@
 #userNameTextField, #passwordTextField,
  #registerUserNameTextField, #registerEmailTextField, #registerPasswordTextField,
  #resetPwdUsername, #resetPwdEmail, #ResetPwdTitle, #DeleteAccount, #ResetPwdHeading,
- #newUserPassword
+ #newUserPassword, #EnterNewResetPwdHeading, #currentUserPassword
 {
     -fx-focus-color: #5C2B0F ;
     -fx-text-fill: black;
