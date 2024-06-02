@@ -21,6 +21,9 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 
 
+/**
+ * Class for managing the Timers page
+ */
 public class TimersPageController implements
         Initializable,
         ITimerEditListener,
@@ -43,6 +46,17 @@ public class TimersPageController implements
 
     private final TimerDAO timerDAO = TimerDAO.getInstance();
     private final Map<Integer, TimerContainer> timerContainers = new HashMap<>();
+
+    /**
+     * Initialise the controller and load Timers
+     * @param location
+     * The location used to resolve relative paths for the root object, or
+     * {@code null} if the location is not known.
+     *
+     * @param resources
+     * The resources used to localize the root object, or {@code null} if
+     * the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         recentTimersFlowPane.getChildren().clear();
@@ -74,14 +88,26 @@ public class TimersPageController implements
             });
         });
     }
+
+    /**
+     * Add timer to favourites
+     * @param container TimerContainer to add to favourites pane
+     */
     public void addToFavourites(TimerContainer container) {
             favouriteTimersFlowPane.getChildren().add(container);
     }
 
+    /**
+     * Add timer to recents list
+     * @param container TimerContainer to add to recent timers pane
+     */
     public void addToRecent(TimerContainer container) {
             recentTimersFlowPane.getChildren().add(container);
     }
 
+    /**
+     * Create a new Timer from text field values
+     */
     @FXML
     public void createNewTimer() {
         try {
@@ -107,6 +133,9 @@ public class TimersPageController implements
         }
     }
 
+    /**
+     * Retrieve timers from the database and display them
+     */
     private void displayTimersFromDatabase() {
         for (Map.Entry<Integer, TimerContainer> entry : timerContainers.entrySet()) {
             if (entry.getValue().getIsFavourite() == 1) { // Compare to 1 for favorite
@@ -120,6 +149,12 @@ public class TimersPageController implements
 //       addButton.setOnAction(event -> createNewTimer());
 //        recentTimersFlowPane.getChildren().add(addButton);
     }
+
+    /**
+     *
+     * @param timer Timer to create TimerContainer for
+     * @return new TimerContainer
+     */
     private TimerContainer createTimerContainer(Timer timer) {
         TimerContainer timerContainer = new TimerContainer(timer);
         timerContainer.setFavourite(timerDAO.isTimerFavourite(timer.getTimerID()));
@@ -127,12 +162,23 @@ public class TimersPageController implements
 
         return timerContainer;
     }
+
+    /**
+     * Clear any values present in the input fields
+     */
     private void clearInputFields() {
         hoursField.clear();
         minutesField.clear();
         secondsField.clear();
     }
 
+    /**
+     *
+     * @param textField Text field to retrieve value from
+     * @param minValue Minimum validation value
+     * @param maxValue Maximum validaion value
+     * @return Validated value
+     */
     private int getValidatedIntFromTextField(TextField textField, int minValue, int maxValue) {
         int value = textField.getText().isEmpty() ? 0 : Integer.parseInt(textField.getText());
         if (value < minValue || value > maxValue) {
@@ -140,6 +186,12 @@ public class TimersPageController implements
         }
         return value;
     }
+
+    /**
+     * Show a pop-up alert
+     * @param title Title of the alert
+     * @param message Message body of the alert
+     */
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -147,6 +199,11 @@ public class TimersPageController implements
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    /**
+     * Handler for adding timer to favourites
+     * @param timerContainer TimerContainer to subscribe to
+     */
     @Override
     public void onFavourite(TimerContainer timerContainer) {
         int timerId = timerContainer.timer.getTimerID();
@@ -170,6 +227,10 @@ public class TimersPageController implements
         }
     }
 
+    /**
+     * Handler for editing timer
+     * @param timerContainer TimerContainer to subscribe to
+     */
     @Override
     public void onEdit(TimerContainer timerContainer){
         //TODO: Make this a method
@@ -193,6 +254,11 @@ public class TimersPageController implements
         timerDAO.updateTimer(timerContainer.timer.getTimerID(), hours, minutes, seconds, timerContainer.timer.getIsFavourite());
         timerContainer.updateTimerText(timerContainer.timer.toString());
     }
+
+    /**
+     * Handler for deleting a timer
+     * @param timerContainer TimerContainer to subscribe to
+     */
     @Override
     public void onDelete(TimerContainer timerContainer) {
         recentTimersFlowPane.getChildren().remove(timerContainer);
